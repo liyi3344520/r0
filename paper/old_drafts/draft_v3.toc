@@ -1,0 +1,38 @@
+\contentsline {section}{\numberline {1}Introduction}{2}
+\contentsline {section}{\numberline {2}Overview of $\ensuremath {21}$ Methods to estimate $\ensuremath {\mathcal {R}_0}$}{3}
+\contentsline {section}{\numberline {3}Details for the $\ensuremath {21}$ methods}{5}
+\contentsline {subsection}{\numberline {3.1}Survival function}{5}
+\contentsline {subsubsection}{\numberline {3.1.1}Survival Function (SF)}{5}
+\contentsline {subsubsection}{\numberline {3.1.2}Direct Parameter Estimation (DPE)}{6}
+\contentsline {subsubsection}{\numberline {3.1.3}Von Foerster Equations (VFE)}{6}
+\contentsline {subsection}{\numberline {3.2}Compartment Models}{7}
+\contentsline {subsubsection}{\numberline {3.2.1}SIR Model}{8}
+\contentsline {subsubsection}{\numberline {3.2.2}Least Squares ($\beta $, $\gamma $) (SIR LS)}{9}
+\contentsline {subsubsection}{\numberline {3.2.3}Reparametrized Least Squares ($\ensuremath {\mathcal {R}_0}$, $\gamma $) ( SIR ReLS)}{9}
+\contentsline {subsubsection}{\numberline {3.2.4}Linear Model Approximation (SIR LMA)}{10}
+\contentsline {subsubsection}{\numberline {3.2.5}Linear Model Approximation, All Time Points (SIR LMAT)}{11}
+\contentsline {subsubsection}{\numberline {3.2.6}Max of Data (SIR Max)}{11}
+\contentsline {subsubsection}{\numberline {3.2.7}Smooth Maximum of Data (SIR SMax)}{11}
+\contentsline {subsubsection}{\numberline {3.2.8}Incidence to Prevalence Ratio (SIR IPR)}{12}
+\contentsline {subsubsection}{\numberline {3.2.9}Smoothed Incidence to Prevalence Ratio (SIR SIPR)}{12}
+\contentsline {subsubsection}{\numberline {3.2.10}Harko (HSIR)}{12}
+\contentsline {subsubsection}{\numberline {3.2.11}Sequential Bayes (SIR SB)}{13}
+\contentsline {subsubsection}{\numberline {3.2.12}SEIR Model (SEIR)}{14}
+\contentsline {subsubsection}{\numberline {3.2.13}Amplifier Model (AMP)}{14}
+\contentsline {subsubsection}{\numberline {3.2.14}Next Generation Model (NGM)}{15}
+\contentsline {subsection}{\numberline {3.3}Exponential Growth}{16}
+\contentsline {subsubsection}{\numberline {3.3.1}Exponential Growth (EG)}{16}
+\contentsline {subsubsection}{\numberline {3.3.2}Maximum Likelihood Estimator of Secondary Infections (MLSI)}{17}
+\contentsline {subsubsection}{\numberline {3.3.3}Time Dependent Reproduction Number (TDR)}{18}
+\contentsline {subsubsection}{\numberline {3.3.4}Initial Growth Rate and Final Size (IGRFS)}{18}
+\contentsline {subsection}{\numberline {3.4}Estimation from Networks}{19}
+\contentsline {subsubsection}{\numberline {3.4.1}Contact Tracing (CT)}{19}
+\contentsline {subsubsection}{\numberline {3.4.2}Branching Process (BP)}{19}
+\contentsline {subsubsection}{\numberline {3.4.3}Agent-Based Models (ABM)}{20}
+\contentsline {subsection}{\numberline {3.5}Variance Methods}{21}
+\contentsline {subsubsection}{\numberline {3.5.1}Delta Method}{21}
+\contentsline {subsubsection}{\numberline {3.5.2}Sensitivity Analysis}{21}
+\contentsline {subsubsection}{\numberline {3.5.3}Posterior Distribution}{21}
+\contentsline {section}{\numberline {4}Analysis and Results}{22}
+\contentsline {section}{\numberline {5}Discussion}{22}
+\contentsline {section}{\numberline {A}Epidemic Modeling Terminology}{24}

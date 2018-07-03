@@ -1,0 +1,1 @@
+@article{chowell_miller_viboud_2008, title={Seasonal influenza in the United States, France, and Australia: transmission and prospects for control}, volume={136}, DOI={10.1017/S0950268807009144}, number={6}, journal={Epidemiology and Infection}, publisher={Cambridge University Press}, author={CHOWELL, G. and MILLER, M. A. and VIBOUD, C.}, year={2008}, pages={852–864}}

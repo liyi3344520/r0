@@ -1,0 +1,715 @@
+\documentclass{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{hyperref}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{scalerel}
+\usepackage{graphicx}% http://ctan.org/pkg/graphicx
+\usepackage{enumerate}
+\usepackage{xcolor}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{listings}
+
+\pagenumbering{arabic}
+\pagestyle{plain}
+\setlength{\parindent}{0in}
+
+\setlength{\itemsep}{0pt}
+\setlength{\parsep}{0pt}
+
+
+\makeatletter
+\newcommand{\distas}[1]{\mathbin{\overset{#1}{\kern\z@\sim}}}%
+\newsavebox{\mybox}\newsavebox{\mysim}
+\newcommand{\distras}[1]{%
+  \savebox{\mybox}{\hbox{\kern3pt$\scriptstyle#1$\kern3pt}}%
+  \savebox{\mysim}{\hbox{$\sim$}}%
+  \mathbin{\overset{#1}{\kern\z@\resizebox{\wd\mybox}{\ht\mysim}{$\sim$}}}%
+}
+
+\begin{document}
+\bibliographystyle{plain}%Choose a bibliograhpic style
+
+\title{ABM and CM Reference Notes}
+\author{Shannon Gallagher}
+\date{January 11, 2016}
+\maketitle
+
+
+\section{Papers}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\textbf{Title:}  Comparing methods for estimating R0 from the size distribution of subcritical transimission chains
+
+\textbf{Author:}  Blumberg and Lloyd-Smith
+
+\textbf{Citation:}\cite{blumberg2013comparing}
+
+\textbf{Link:} \url{blumberg2013comparing.pdf}
+
+\textbf{Major themes:}  R0, SIR, outbreak, R0 does not represent epidemic threshold parameter.  (Individual-level model)
+
+\textbf{Notes:} $R_0$ is the ``average number of secondary infections caused by one infected individual during his/her entire infectious period at the start of an outbreak.''
+
+\textbf{Intro:}  Anderson and May have $R_0$ def.
+
+$R_0$ can be found through individual-level contact tracing data or the more general Mass Action principle.  These two yield very different results.
+
+Are ILMs like ABMs?  Why does $R_0$ change over time?
+\\
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\textbf{Title:}  Introduction to ``The First Draft Report on the EDVAC'' by John von Neumann 
+
+\textbf{Author:}  Michael D. Godfrey
+
+\textbf{Citation:}\cite{von1993first}
+
+\textbf{Link:} \url{von1993first.pdf}
+
+\textbf{Major themes:}  Computing history
+
+\textbf{Notes:}
+\\
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\textbf{Title:}  A Brief History of R0 and a Recipe for its Calculation
+
+\textbf{Author:}  Heesterbeek
+
+\textbf{Citation:}\cite{Heesterbeek2002}
+
+\textbf{Link:} \url{Heesterbeek2002.pdf}
+
+\textbf{Major themes:}  r0, estimation
+
+\textbf{Notes:}
+\\
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\textbf{Title:}  Revisiting the Basic Reproductive Number for Malaria and Its Implications for Malaria Control
+
+\textbf{Author:}  Smith
+
+\textbf{Citation:}\cite{Smith2007}
+
+\textbf{Link:} \url{Smith2007.pdf}
+
+\textbf{Major themes:}  r0, problems with it, malaria
+
+\textbf{Notes:}
+\\
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\textbf{Title:}  Detail in network models of epidemiology: are we there yet?
+
+\textbf{Author:}  Stephen Eubank et al
+
+\textbf{Citation:}\cite{eubank2010detail}
+
+\textbf{Link:} \url{eubank2010detail.pdf}
+
+\textbf{Major themes:}  ABMs limit and networks
+
+\textbf{Notes:}
+\\
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\textbf{Title:}  Theory versus Data:  How to Calculate $R_0$?
+
+\textbf{Author:}  Breban, Vardvas, and Blower
+
+\textbf{Citation:}\cite{breban2007}
+
+\textbf{Link:} \url{breban2007.pdf}
+
+\textbf{Major themes:}  R0, SIR, outbreak
+
+\textbf{Notes:}
+\\
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\textbf{Title:}  The Concept of R0 in Epidemic Theory
+
+\textbf{Author:}  Heesterbeek and Dietz
+
+\textbf{Citation:}\cite{heesterbeek1996concept}
+
+\textbf{Link:} \url{heesterbeek1996concept.pdf}
+
+\textbf{Major themes:}  epidemic theory, threshold behvaior, demography, structured populations
+
+\textbf{Notes:}
+\\
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\textbf{Title:}  mathemetical epidemiology of infectious diseases: model building, analysis and interpretation
+
+\textbf{Author:}  Heesterbeek 2000
+
+\textbf{Citation:}\cite{heesterbeek2000mathematical}
+
+\textbf{Link:} \url{heesterbeek2000mathematical.pdf}
+
+\textbf{Major themes:}  epidemic theory, next generation operator, r0,  structured populations
+
+\textbf{Notes:}
+\\
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\textbf{Title:}  Perspectives on the basic reproduction ratio
+
+\textbf{Author:} Heffernan et al
+
+\textbf{Citation:}\cite{Heffernan2005}
+
+\textbf{Link:} \url{Heffernan2007.pdf}
+
+\textbf{Major themes:}  R0, population dynamics, epidemiology
+
+\textbf{Notes:}
+\begin{itemize}
+\item  $R_0$ can be used to indicate the magnitude of an outbreak (P1).
+\item stochastic and finite systems Nasell 1995
+\item great references
+\end{itemize}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\textbf{Title:} The Mathematics of Infectious Diseases
+
+\textbf{Author:}  Hethcote 2000
+
+\textbf{Citation:}\cite{hethcote2000}
+
+\textbf{Link:} \url{hethcote2000.pdf}
+
+\textbf{Major themes:}  R0, SIR, epidemiology
+
+\textbf{Notes:} See r0.tex
+\\
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\textbf{Title:}  The R0 package: a toolbox to estimate reproduction numbers for epidemic outbreaks
+
+\textbf{Author:} Obadia
+
+\textbf{Citation:}\cite{obadia2012r0}
+
+\textbf{Link:} \url{obadia2012r0.pdf}
+
+\textbf{Major themes:}  estimating R0 in R
+
+\textbf{Notes:}  See r0.tex
+\\
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\textbf{Title:}  The estimation of the basic reproduction number for infectious diseases
+
+\textbf{Author:} Dietz 1993
+
+\textbf{Citation:}\cite{dietz1993estimation}
+
+\textbf{Link:} \url{dietz1993estimation.pdf}
+
+\textbf{Major themes:}  R0, population dynamics, epidemiology, estimation
+
+\textbf{Notes:}  See r0.tex
+\\
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\textbf{Title:}  The estimation of the basic reproduction number for infectious diseases
+
+\textbf{Author:} Dietz 1993
+
+\textbf{Citation:}\cite{wallinga2007generation}
+
+\textbf{Link:} \url{wallinga2007generation.pdf}
+
+\textbf{Major themes:}  R0, basic reproduction ratio; epidemiology; influenza; Lotka–Euler equation; serial interval
+
+\textbf{Notes:}  
+\\
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\textbf{Title:}  On the definition and the computation of the basic reproduction ratio R0 in models for infectious diseases in heterogeneous populations
+
+\textbf{Author:} Diekmann 1990
+
+\textbf{Citation:}\cite{diekmann1990}
+
+\textbf{Link:} \url{diekmann1990.pdf}
+
+\textbf{Major themes:}  R0, heterogeneous population
+\\
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%
+\textbf{Title:} Solutions of Ordinary Differential Equations as Limits of Pure Jump Markov Processes
+
+\textbf{Author:}  Thomas G. Kurtz
+
+\textbf{Citation:} \cite{kurtz_diff_eq_1970}
+
+\textbf{Link:} \url{kurtz_diff_eq_1970.pdf}
+
+\textbf{Major themes:}  
+
+\textbf{Notes:}
+\\
+%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%
+\textbf{Title:} The Asymptotic Distributions of Kernel Estimators of the Mode
+
+\textbf{Author:}  William F. Eddy
+
+\textbf{Citation:} \cite{eddy1982asymptotic}
+
+\textbf{Link:} \url{eddy1982asymptotic.pdf}
+
+\textbf{Major themes:}  Kernel estimate converges to a non-stationary Gaussian random process.  The covariance is related to the smoothness of the kernel.
+
+\textbf{Notes:}  
+\textbf{Intro}  Parzen shows that the empirical kernel estimate of the mode converges weakly in distribution to a Normal distribution centered at zero.  Eddy shows that a normalized version of the kernel estimate converges weakly to a random parabola through the origin.  From this, he shows that the maximum of the normalized kernel estimator converges weakly to a Gaussian.  Eddy gives a more general result here.
+\textbf{Theorem}  The main theorem says that $Z_n \overset{d}{\to} Z$ where $Z_n$ and $Z$ are random processes.  Specifically, $E[Z_n]$ converges to a parabola.
+Eddy analyzes the tail behavior under different conditions.
+\\
+%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%
+\textbf{Title:} Exact analytical solutions of the SIR Model
+
+\textbf{Author:}  Tiberiu Harko, Francisco Lobo, MK Mak
+
+\textbf{Citation:} \cite{harko2014exact}
+
+\textbf{Link:} \url{harko2014exact.pdf}
+
+\textbf{Major themes:}  Exact solutions to SIR model, death and birth rates
+
+\textbf{Notes:}  See write up in ABM
+\\
+%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%
+\textbf{Title:} Variance in System Dynamics and Agent Based Modelling Using the SIR Model of Infectious Disease
+
+\textbf{Author:}  Ahmed A, Ahmed G, Aickelin, Uwe
+
+\textbf{Citation:} \cite{ahmed2013variance}
+
+\textbf{Link:} \url{ahmed2013variance.pdf}
+
+\textbf{Major themes:}  SIR model for variance in ABMs
+
+\textbf{Notes:}
+\\
+%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%
+\textbf{Title:} Agent-Based Computational Models and Generative Social Science
+
+\textbf{Author:} Joshua Epstein
+
+\textbf{Citation:} \cite{epstein2007agent}
+
+\textbf{Link:} \url{epstein2007agent.pdf}
+
+\textbf{Major themes:} over view of computation based abm; first order logic; emergentism
+
+\textbf{Notes:} 
+
+\begin{itemize}
+\item no top down control, rather bottom up
+\item happens in an explicit space - well posed def'n of local
+\item assume bounded information and bdd computing power
+\item micro agents $\rightarrow$ macro effects
+\item underlying networks are key
+\item agents are dynamic, interacting differently over time
+\item Young 1998 for Markov process properties
+\item equations vs. abm
+\item Diff Eq $\iff$ abm and hybrids
+\item standard for model comparison and replication of results
+\item Sweeping parameter space for sensitivity analysis
+\item Metrizing the rule space
+\item Emergentism - large scale patterns arising from local interactions
+\end{itemize}
+
+
+%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%
+\textbf{Title:} Methods and Techniques of Complex Systems Science:  An Overview
+
+\textbf{Author:} Cosma Shalizi
+
+\textbf{Citation:} \cite{shalizi2006methods}
+
+\textbf{Link:} \url{shalizi2006methods.pdf}
+
+\textbf{Major themes:} overview; definitions; complex systems science; relationship with SIR models; object oriented programming; what are NOT ABMs
+
+\textbf{Notes:}
+\begin{itemize}
+\item ``An agent is a thing which does things to things'' - Stuart Kauffman.  
+\item An ABM consists of collection of agents and their states, rules governing interactions, and their environment
+\item Relationship with SIR models/aggregate models
+\item Only become interesting with more rules but balance with run time
+\item ABMs \textbf{are} equation-based models, but very difficult to write down
+\item ABMS should \textit{model} some phenomena 
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%
+\textbf{Title:} Pattern-Oriented Modeling of Agent Based Complex Systems
+
+\textbf{Author:} Grimm, Volker, et al.
+
+\textbf{Citation:} \cite{Grimm11112005}
+
+\textbf{Link:} \url{Grimm11112005.pdf}
+
+\textbf{Major themes:} Ecology and ABM
+
+\textbf{Notes:}
+\\
+%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%
+\textbf{Title:}  A Contribution to the Mathematical Theory of Epidemics
+
+\textbf{Author:} Kermack and McKendrick
+
+\textbf{Citation:} \cite{Kermack700}
+
+\textbf{Link:} \url{Kermack700.pdf}
+
+\textbf{Major themes:} Compartment Models, foundation
+
+\textbf{Notes:}
+\begin{itemize}
+\item set up of the SIR model
+\item Begins with discrete time steps and a derivation of the differential equations
+\item Says they can't find explicit integral and spend pretty much the rest of the paper solving a similar integral
+\end{itemize}
+%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+\section{Books}
+\textbf{Title:}  Complex Adaptive Systems:  An Introduction to Computational Models of Social Life 
+
+\textbf{Author:}  John H. Miller \& Scott E. Page (2007)
+
+\textbf{Citation:} \cite{Grimm11112005}
+
+\textbf{Major themes:}  
+
+\textbf{Notes:}
+\\
+%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%
+\textbf{Title:} Growing Artificial Socities:  Social Science from the Bottom Up (Complex Adaptive Systems) 1st Edition
+
+\textbf{Author:}  Epstein and Axtell (1996)
+
+\textbf{Citation:}
+
+\textbf{Major themes:}  
+
+\textbf{Notes:}
+\\
+%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%
+\textbf{Title:} Growing Artificial Socities:  Social Science from the Bottom Up (Complex Adaptive Systems) 1st Edition
+
+\textbf{Author:}  Epstein and Axtell (1996)
+
+\textbf{Citation:}
+
+\textbf{Major themes:}  
+
+\textbf{Notes:}
+\\
+%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%
+\textbf{Title:} Infectious Diseases of Humans
+
+\textbf{Author:}  Anderson R and May R
+
+\textbf{Citation:} \cite{anderson1992}
+
+\textbf{Major themes:}  Infectious diseases, $R_0$
+
+\textbf{Notes:}  Find this book
+\\
+%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%
+\textbf{Title:} Epidemic Modelling:  An Introduction
+
+\textbf{Author:}  Daley and Gani
+
+\textbf{Citation:} \cite{daley2001epidemic}
+
+\textbf{Major themes:} Compartment models, SIR models, discrete and continuous time, stochastic models
+
+\textbf{Summary:}  Daley and Gani take the reader through the basics of epidemic modelling, beginning with deterministic modelling and working up to stochastic modelling.  They work out many mathematical properties of the models they introduce along the way, one of which is Markov processes.
+
+One of the models they use in depth is the S-R model also known as the death process.  The most discussed model is the classic SIR model.  Little attention is given to larger compartment models, but many variants of the SIR model are studied.  These variants include discrete or continuous time and strata.  The first is resolved with a method similar to Euler's method, while the second is resolved with matrix notation.
+
+Very few of these equations have explicit solutions and generally seem to be toy examples when they do.
+
+With regards to ABM, little is said although the book does provide guidance, especially with regards to strata.  One interesting direction would be look at multiple strata models together.  This would be very close to an ABM.
+
+\textbf{Notes:}
+\textbf{Ch. 1:}  Some history of disease modeling
+
+``Hamer (1906) first foreshadowed the simple 'mass action' principle for a deterministic epidemic model in discrete time'' P. 8
+
+The reproductive rate is $\rho= \gamma/\beta$ and if the intial number of susceptible persons must be greater than this for the epidemic to grow.  P. 9-10.
+
+\textbf{1.4 Stochastic Modelling}
+
+Most apparent in small populations that deterministic models do not work.  We can think that deterministic models are predicting the mean.
+
+First stochastic model by McKendrick in 1926 but most famous by Frost -- chain binomial model.
+
+Markov chains come up a lot.  P. 13.
+
+\textbf{Ch. 2 Deterministic Models}
+
+Again iterating that we are estimating the mean when using a deterministic model.
+
+Derivation of SIR model on P. 28 and discussion of properties in the following pages.
+
+Theorem 2.2 (P. 37) Stratified population.  Have a transition matrix $\textbf{B}$.
+
+Ball and Clancy (1994) - paper on moving from strata to strata
+
+2.7 Vector borne diseases
+
+P. 51-52 discretizing time
+
+\textbf{Ch. 3 Stochastic Models in Continuous Time}
+Self described most important part of the book.
+
+nonnegative integer valued Markov processes P.56
+
+A \textit{simple stochastic (Markovian) epidemic model} in continuous time is one of which the population consists only of susceptibles and infectives (P. 57).  eg AIDS.  
+
+Changing notation,
+
+\begin{align*}
+S(t) + I(t) = S(0) + I(0) \text{ (for all } t \ge 0)
+\end{align*}
+Time $t$ is continuous and $S$ and $I$ are nonnegative integers.  We thus have
+
+\begin{align*}
+P\{(S, I) (t + \delta t) = (i -1, j+1) | (S, I)(t)=(i,j) \} &= \beta i j \delta t + o(\delta t),\\
+P\{ (S,I)(t + \delta t) = (i,j)|(S,I)(t)=(i,j) \} &= 1 - \beta ij \delta t - o(\delta t)
+\end{align*}
+
+We can thus compute the expected value at a certain time.  See P. 58.  Some difficult math follows.  Lots of Kolmogorov, and probability generating functions.
+
+\textbf{3.5 The general stochastic epidemic in a stratified population}
+You have $N$ people in $m$ strata.  There is no analytic solution known.  Can find general outbreak number.  Ex 3.5.2 (P. 92) m households.  Ex. 3.6 (carrier borne epidemic)
+
+\textbf{4 Stochastic Models in Discrete Time}  Use of chain binomials.  4.5 graph theory
+
+\textbf{5 Rumor Modelling}
+
+\textbf{6 Fitting Epidemic Data}
+
+\textbf{7 The Control of Epidemics}
+The idea that if you're preventing an epidemic, then you should get better results that what you initially expect.  Three possible ways of curbing epidemics are :
+\begin{itemize}
+\item keeping \# of susceptibles low, eg immunization
+\item accelerating rate of removal of infectives, eg medicine
+\item lowering pairwise rate of infectius contact, eg isolation
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%
+\textbf{Title:} Advanced Data Analysis from an Elementary Point of View
+
+\textbf{Author:}  Cosma Shalizi
+
+\textbf{Citation:} \cite{shalizi2013advanced}
+
+\textbf{Link:} \url{shalizi2013advanced.pdf}
+
+\textbf{Major themes:}  data analysis
+
+\textbf{Notes:}
+\\
+%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\textbf{Title:}  Agent-based modeling: Methods and techniques for simulating human systems
+
+\textbf{Author:}  Eric Bonabeau
+
+\textbf{Citation:}\cite{bonabeau2002agent}
+
+\textbf{Link:} \url{bonabeau2002agent.pdf}
+
+\textbf{Major themes:}  ABMs 
+
+\textbf{Notes:}  Specifically, I'm looking at Ch. 2 by D. Helbing.  This is about ABMs in the social sciences but is a good literature review for many things as well as guidelines for making good ABMs.  Check out write up in 
+\\
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Blogs \& Notes}
+%%%%%%%%%%%%%%%%%%%%%%
+\textbf{Title:} Agent-Based Modeling
+
+\textbf{Author:} Shalizi
+
+\textbf{Citation:} \url{http://bactra.org/notebooks/agent-based-modeling.html}
+
+\textbf{Major themes:} 
+
+\textbf{Notes:}
+\\
+%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%
+\textbf{Title:} Notes on $R_0$
+
+\textbf{Author:} James Holland Jones
+
+\textbf{Citation:} \cite{jonesjh2007}
+
+\textbf{Link:} \url{http://web.stanford.edu/~jhj1/teachingdocs/Jones-on-R0.pdf}
+
+
+\textbf{Major themes:} $R_0$
+
+\textbf{Notes:}
+\\
+%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+\section{Questions to Pursue}
+
+\begin{itemize}
+\item How does underlying topology effect everything?
+\item What can we do with the US population?
+\item Variance?
+\item What sort of ABMs can we build from strata compartment models?
+\item How do we fit parameters in an ABM?
+\end{itemize}
+
+\bibliography{Master}
+\end{document}
+
+%%%%%%%%%%%%%%%%%%%%%%
+\textbf{Title:} 
+
+\textbf{Author:} 
+
+\textbf{Citation:} 
+
+\textbf{Major themes:} 
+
+\textbf{Notes:}
+\\
+%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+\begin{figure}[h]
+\begin{center}
+\includegraphics[width=4in]{mvhw7_3c.pdf}
+\end{center}
+\caption{
+Biplots of the different continuous variables and their correlations.}\label{fig3c}
+\end{figure}
+
+%% two pictures whoa
+
+\begin{figure}[h]
+\centering
+
+
+\begin{figure}[h]
+\centering
+
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=1\linewidth]{mt_eda_cont_hists.pdf}
+  \caption{Histograms of Arrival Delay and continuous covariates.  Arrival delay seems to have a right skewed distribution.  This may indicate that we will be transforming this variable later on.  After transforming Air Time and Distance by a log transformation, we don't really seem to have many outliers in our covariates.  We seem to have outliers in the CRS Dep. Time and Arrival Time; however, time is cyclical and so these are not, in fact outliers.}
+  \label{hists}
+\end{subfigure}%
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=1\linewidth]{mt_eda_cont_hists.pdf}
+  \caption{\textcolor{red}{Placeholder}}
+  \label{tabs1}
+\end{subfigure}
+\caption{}
+\end{figure}
+
+
+
+
+
+
+
+%%
+\begin{figure}
+\centering
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=1\linewidth]{resids_full.pdf}
+  \caption{}
+  \label{residsf}
+\end{subfigure}%
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=1\linewidth]{diags_full.pdf}
+  \caption{ }
+  \label{diagsf}
+\end{subfigure}
+\caption{}
+\end{figure}
+
+
+
+

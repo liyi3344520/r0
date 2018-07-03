@@ -1,0 +1,14 @@
+@article{10.2307/4617539,
+ ISSN = {09502688, 14694409},
+ URL = {http://www.jstor.org/stable/4617539},
+ abstract = {Ebola is a highly lethal virus, which has caused at least 14 confirmed outbreaks in Africa between 1976 and 2006. Using data from two epidemics [in Democratic Republic of Congo (DRC) in 1995 and in Uganda in 2000], we built a mathematical model for the spread of Ebola haemorrhagic fever epidemics taking into account transmission in different epidemiological settings. We estimated the basic reproduction number (R₀) to be 2·7 (95% CI 1·9-2·8) for the 1995 epidemic in DRC, and 2·7 (95% CI 2·5-4·1) for the 2000 epidemic in Uganda. For each epidemic, we quantified transmission in different settings (illness in the community, hospitalization, and traditional burial) and simulated various epidemic scenarios to explore the impact of control interventions on a potential epidemic. A key parameter was the rapid institution of control measures. For both epidemic profiles identified, increasing hospitalization rate reduced the predicted epidemic size.},
+ author = {J. Legrand and R. F. Grais and P. Y. Boelle and A. J. Valleron and A. Flahault},
+ journal = {Epidemiology and Infection},
+ number = {4},
+ pages = {610--621},
+ publisher = {Cambridge University Press},
+ title = {Understanding the Dynamics of Ebola Epidemics},
+ volume = {135},
+ year = {2007}
+}
+

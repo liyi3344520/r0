@@ -1,0 +1,14 @@
+@article{10.2307/2337534,
+ ISSN = {00063444},
+ URL = {http://www.jstor.org/stable/2337534},
+ abstract = {We address the issue of optimal block choice in applications of the block bootstrap to dependent data. It is shown that optimal block size depends significantly on context, being equal to n1/3, n1/4 and n1/5 in the cases of variance or bias estimation, estimation of a one-sided distribution function, and estimation of a two-sided distribution function, respectively. A clear intuitive explanation of this phenomenon is given, together with outlines of theoretical arguments in specific cases. It is shown that these orders of magnitude of block sizes can be used to produce a simple, practical rule for selecting block size empirically. That technique is explored numerically.},
+ author = {Peter Hall and Joel L. Horowitz and Bing-Yi Jing},
+ journal = {Biometrika},
+ number = {3},
+ pages = {561--574},
+ publisher = {[Oxford University Press, Biometrika Trust]},
+ title = {On Blocking Rules for the Bootstrap with Dependent Data},
+ volume = {82},
+ year = {1995}
+}
+

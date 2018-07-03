@@ -1,0 +1,203 @@
+ \newcommand{\noop}[1]{}
+\begin{thebibliography}{}
+
+\bibitem[\protect\astroncite{Ahmed et~al.}{2013}]{ahmed2013variance}
+Ahmed, A., Greensmith, J., and Aickelin, U. (2013).
+\newblock Variance in system dynamics and agent based modelling using the sir
+  model of infectious disease.
+\newblock {\em arXiv preprint arXiv:1307.2001}.
+
+\bibitem[\protect\astroncite{Althaus}{2014}]{althaus2014}
+Althaus, C.~L. (2014).
+\newblock Estimating the reproduction number of ebola virus (ebov) during the
+  2014 outbreak in west africa.
+\newblock {\em PLOS Current Outbreaks}.
+
+\bibitem[\protect\astroncite{Anderson and May}{1992}]{anderson1992}
+Anderson, R. and May, R. (1992).
+\newblock {\em Infectious Diseases of Humans}.
+\newblock Oxford: Oxford University Press.
+
+\bibitem[\protect\astroncite{Anderson et~al.}{1986}]{anderson1986}
+Anderson, R., Medley, G., May, R., and Johnson, A. (1986).
+\newblock A preliminary study of the transmission dynamics of the human
+  immunodeficiency virus (hiv), the causative agent of aids.
+\newblock {\em Mathematical Medicine and Biology}, 3(4):229--263.
+
+\bibitem[\protect\astroncite{Bettencourt and Ribeiro}{2008}]{bettencourt2008}
+Bettencourt, L.~M. and Ribeiro, R.~M. (2008).
+\newblock Real time bayesian estimation of the epidemic potential of emerging
+  infectious diseases.
+\newblock {\em PLoS One}, 3(5):e2185.
+
+\bibitem[\protect\astroncite{Blower and Chou}{2004}]{blower2004}
+Blower, S.~M. and Chou, T. (2004).
+\newblock Modeling the emergence of the'hot zones': tuberculosis and the
+  amplification dynamics of drug resistance.
+\newblock {\em Nature medicine}, 10(10):1111--1116.
+
+\bibitem[\protect\astroncite{Breban et~al.}{2007}]{breban2007}
+Breban, R., Vardavas, R., and Blower, S. (2007).
+\newblock Theory versus data: How to calculate r0?
+\newblock {\em PLoS One}, 2(3).
+
+\bibitem[\protect\astroncite{Chang and Eddy}{tted}]{chang2017}
+Chang, A. and Eddy, W.~F. (\noop{2017} submitted).
+\newblock {A Statistical Approach to the SIR Model}.
+\newblock {\em something}.
+
+\bibitem[\protect\astroncite{Cintr{\'o}n-Arias et~al.}{2009}]{cintronarias2009}
+Cintr{\'o}n-Arias, A., Castillo-Ch{\'a}vez, C., Bettencourt, L.~M., Lloyd,
+  A.~L., and Banks, H. (2009).
+\newblock The estimation of the effective reproductive number from disease
+  outbreak data.
+\newblock {\em Math Biosci Eng}, 6(2):261--282.
+
+\bibitem[\protect\astroncite{Daley et~al.}{2001}]{daley2001epidemic}
+Daley, D.~J., Gani, J., and Gani, J.~M. (2001).
+\newblock {\em Epidemic modelling: an introduction}, volume~15.
+\newblock Cambridge University Press.
+
+\bibitem[\protect\astroncite{Diekmann et~al.}{2009}]{diekmann2009}
+Diekmann, O., Heesterbeek, J., and Roberts, M. (2009).
+\newblock The construction of next-generation matrices for compartmental
+  epidemic models.
+\newblock {\em Journal of the Royal Society Interface}, page rsif20090386.
+
+\bibitem[\protect\astroncite{Diekmann et~al.}{1990}]{diekmann1990}
+Diekmann, O., Heesterbeek, J. A.~P., and Metz, J. A.~J. (1990).
+\newblock {On the definition and the computation of the basic reproduction
+  ratio R0 in models for infectious diseases in heterogeneous populations}.
+\newblock {\em Journal of Mathematical Biology}, 28(4):365--382.
+
+\bibitem[\protect\astroncite{Dietz}{1993}]{dietz1993estimation}
+Dietz, K. (1993).
+\newblock The estimation of the basic reproduction number for infectious
+  diseases.
+\newblock {\em Statistical methods in medical research}, 2(1):23--41.
+
+\bibitem[\protect\astroncite{Eames and Keeling}{2003}]{eames2003}
+Eames, K. T.~D. and Keeling, M.~J. (2003).
+\newblock Contact tracing and disease control.
+\newblock {\em Proceedings of the Royal Society of London B: Biological
+  Sciences}, 270(1533):2565--2571.
+
+\bibitem[\protect\astroncite{Forsberg et~al.}{2008}]{forsberg2008}
+Forsberg, White, L., and Pagano, M. (2008).
+\newblock A likelihood-based method for real-time estimation of the serial
+  interval and reproductive number of an epidemic.
+\newblock {\em Statistics in Medicine}, 27(16):2999--3016.
+
+\bibitem[\protect\astroncite{Fraser et~al.}{2004}]{fraser2004factors}
+Fraser, C., Riley, S., Anderson, R.~M., and Ferguson, N.~M. (2004).
+\newblock Factors that make an infectious disease outbreak controllable.
+\newblock {\em Proceedings of the National Academy of Sciences of the United
+  States of America}, 101(16):6146--6151.
+
+\bibitem[\protect\astroncite{Getz and Lloyd-Smith}{2006}]{getz2006}
+Getz, W.~M. and Lloyd-Smith, J.~O. (2006).
+\newblock Basic methods for modeling the invasion and spread of contagious
+  diseases.
+\newblock In {\em Disease Evolution: Models, Concepts, and Data Analyses},
+  pages 87--112. Citeseer.
+
+\bibitem[\protect\astroncite{Grefenstette et~al.}{2013}]{fred}
+Grefenstette, J.~J., Brown, S.~T., Rosenfeld, R., DePasse, J., Stone, N.~T.,
+  Cooley, P.~C., Wheaton, W.~D., Fyshe, A., Galloway, D.~D., Sriram, A., Guclu,
+  H., Abraham, T., and Burke, D.~S. (2013).
+\newblock {FRED (A Framework for Reconstructing Epidemic Dynamics): an
+  open-source software system for modeling infectious diseases and control
+  strategies using census-based populations}.
+\newblock {\em BMC Public Health}, 13(1):1--14.
+
+\bibitem[\protect\astroncite{Grimmett and Welsh}{1991}]{grimmett1991}
+Grimmett, G. and Welsh, D. (1991).
+\newblock {\em Probability: an introduction}.
+\newblock Oxford University Press.
+
+\bibitem[\protect\astroncite{Harko et~al.}{2014}]{harko2014exact}
+Harko, T., Lobo, F.~S., and Mak, M. (2014).
+\newblock Exact analytical solutions of the susceptible-infected-recovered
+  (sir) epidemic model and of the sir model with equal death and birth rates.
+\newblock {\em Applied Mathematics and Computation}, 236:184--194.
+
+\bibitem[\protect\astroncite{Heesterbeek}{2002}]{Heesterbeek2002}
+Heesterbeek, J. (2002).
+\newblock {A Brief History of R0 and a Recipe for its Calculation}.
+\newblock {\em Acta Biotheoretica}, 50(3):189--204.
+
+\bibitem[\protect\astroncite{Heffernan et~al.}{2005}]{Heffernan2005}
+Heffernan, J., Smith, R., and Wahl, L. (2005).
+\newblock Perspectives on the basic reproductive ratio.
+\newblock {\em Journal of The Royal Society Interface}, 2(4):281--293.
+
+\bibitem[\protect\astroncite{Hethcote}{2000}]{hethcote2000}
+Hethcote, H.~W. (2000).
+\newblock The mathematics of infectious diseases.
+\newblock {\em SIAM Review}, 42(4):599--653.
+
+\bibitem[\protect\astroncite{Kermack and McKendrick}{1927}]{Kermack700}
+Kermack, W.~O. and McKendrick, A.~G. (1927).
+\newblock A contribution to the mathematical theory of epidemics.
+\newblock {\em Proceedings of the Royal Society of London A: Mathematical,
+  Physical and Engineering Sciences}, 115(772):700--721.
+
+\bibitem[\protect\astroncite{Li et~al.}{2011}]{li2011}
+Li, J., Blakeley, D., et~al. (2011).
+\newblock The failure of 𝑅0.
+\newblock {\em Computational and mathematical methods in medicine}, 2011.
+
+\bibitem[\protect\astroncite{Lipsitch et~al.}{2003}]{lipsitch2003}
+Lipsitch, M., Cohen, T., Cooper, B., Robins, J.~M., Ma, S., James, L.,
+  Gopalakrishna, G., Chew, S.~K., Tan, C.~C., Samore, M.~H., Fisman, D., and
+  Murray, M. (2003).
+\newblock Transmission dynamics and control of severe acute respiratory
+  syndrome.
+\newblock {\em Science}, 300(5627):1966--1970.
+
+\bibitem[\protect\astroncite{Mills et~al.}{2004}]{mills2004}
+Mills, C.~E., Robins, J.~M., and Lipsitch, M. (2004).
+\newblock Transmissibility of 1918 pandemic influenza.
+\newblock {\em Nature}, 432(7019):904--906.
+
+\bibitem[\protect\astroncite{Moler and Van~Loan}{2003}]{moler2003}
+Moler, C. and Van~Loan, C. (2003).
+\newblock Nineteen dubious ways to compute the exponential of a matrix,
+  twenty-five years later.
+\newblock {\em SIAM Review}, 45(1):3--49.
+
+\bibitem[\protect\astroncite{Nishiura and Chowell}{2009}]{Nishiura2009}
+Nishiura, H. and Chowell, G. (2009).
+\newblock The effective reproduction number as a prelude to statistical
+  estimation of time-dependent epidemic trends.
+\newblock In Chowell, G., Hyman, J.~M., Bettencourt, L. M.~A., and
+  Castillo-Chavez, C., editors, {\em Mathematical and Statistical Estimation
+  Approaches in Epidemiology}, pages 103--121. Springer Netherlands, Dordrecht.
+
+\bibitem[\protect\astroncite{Obadia et~al.}{2012}]{obadia2012r0}
+Obadia, T., Haneef, R., and Bo{\"e}lle, P.-Y. (2012).
+\newblock The r0 package: a toolbox to estimate reproduction numbers for
+  epidemic outbreaks.
+\newblock {\em BMC medical informatics and decision making}, 12(1):147.
+
+\bibitem[\protect\astroncite{Pandey et~al.}{2014}]{pandey2014}
+Pandey, A., Atkins, K.~E., Medlock, J., Wenzel, N., Townsend, J.~P., Childs,
+  J.~E., Nyenswah, T.~G., Ndeffo-Mbah, M.~L., and Galvani, A.~P. (2014).
+\newblock Strategies for containing ebola in west africa.
+\newblock {\em Science}, 346(6212):991--995.
+
+\bibitem[\protect\astroncite{Trucco}{1965}]{trucco1965}
+Trucco, E. (1965).
+\newblock Mathematical models for cellular systems the von foerster equation.
+  part i.
+\newblock {\em The bulletin of mathematical biophysics}, 27(3):285--304.
+
+\bibitem[\protect\astroncite{Wallinga and
+  Lipsitch}{2007}]{wallinga2007generation}
+Wallinga, J. and Lipsitch, M. (2007).
+\newblock How generation intervals shape the relationship between growth rates
+  and reproductive numbers.
+\newblock {\em Proceedings of the Royal Society of London B: Biological
+  Sciences}, 274(1609):599--604.
+
+\end{thebibliography}

@@ -1,0 +1,76 @@
+\begin{thebibliography}{10}
+
+\bibitem{ahmed2013variance}
+Aslam Ahmed, Julie Greensmith, and Uwe Aickelin.
+\newblock Variance in system dynamics and agent based modelling using the sir
+  model of infectious disease.
+\newblock {\em arXiv preprint arXiv:1307.2001}, 2013.
+
+\bibitem{bonabeau2002agent}
+Eric Bonabeau.
+\newblock Agent-based modeling: Methods and techniques for simulating human
+  systems.
+\newblock {\em Proceedings of the National Academy of Sciences}, 99(suppl
+  3):7280--7287, 2002.
+
+\bibitem{daley2001epidemic}
+Daryl~J Daley, Joe Gani, and Joseph~Mark Gani.
+\newblock {\em Epidemic modelling: an introduction}, volume~15.
+\newblock Cambridge University Press, 2001.
+
+\bibitem{eddy1982asymptotic}
+William~F Eddy.
+\newblock The asymptotic distributions of kernel estimators of the mode.
+\newblock {\em Zeitschrift f{\"u}r Wahrscheinlichkeitstheorie und Verwandte
+  Gebiete}, 59(3):279--290, 1982.
+
+\bibitem{epstein2007agent}
+Joshua~M Epstein.
+\newblock Agent-based computational models and generative social science
+  [generative social science studies in agent-based computational modeling].
+\newblock {\em Introductory Chapters}, 2007.
+
+\bibitem{Grimm11112005}
+Volker Grimm, Eloy Revilla, Uta Berger, Florian Jeltsch, Wolf~M. Mooij,
+  Steven~F. Railsback, Hans-Hermann Thulke, Jacob Weiner, Thorsten Wiegand, and
+  Donald~L. DeAngelis.
+\newblock Pattern-oriented modeling of agent-based complex systems: Lessons
+  from ecology.
+\newblock {\em Science}, 310(5750):987--991, 2005.
+
+\bibitem{harko2014exact}
+Tiberiu Harko, Francisco~SN Lobo, and MK~Mak.
+\newblock Exact analytical solutions of the susceptible-infected-recovered
+  (sir) epidemic model and of the sir model with equal death and birth rates.
+\newblock {\em Applied Mathematics and Computation}, 236:184--194, 2014.
+
+\bibitem{Kermack700}
+W.~O. Kermack and A.~G. McKendrick.
+\newblock A contribution to the mathematical theory of epidemics.
+\newblock {\em Proceedings of the Royal Society of London A: Mathematical,
+  Physical and Engineering Sciences}, 115(772):700--721, 1927.
+
+\bibitem{kurtz_diff_eq_1970}
+Thomas~G. Kurtz.
+\newblock Solutions of ordinary differential equations as limits of pure jump
+  markov processes.
+\newblock {\em Journal of Applied Probability}, 7(1):49--58, 1970.
+
+\bibitem{shalizi2006methods}
+Cosma~Rohilla Shalizi.
+\newblock Methods and techniques of complex systems science: An overview.
+\newblock In {\em Complex systems science in biomedicine}, pages 33--114.
+  Springer, 2006.
+
+\bibitem{shalizi2013advanced}
+Cosma~Rohilla Shalizi.
+\newblock Advanced data analysis from an elementary point of view.
+\newblock {\em Preprint of book found at
+  http://www.stat.cmu.edu/%7Ecshalizi/ADAfaEPoV}, 2013.
+
+\bibitem{von1993first}
+John Von~Neumann.
+\newblock First draft of a report on the edvac.
+\newblock {\em IEEE Annals of the History of Computing}, (4):27--75, 1993.
+
+\end{thebibliography}

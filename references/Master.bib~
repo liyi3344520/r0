@@ -1,0 +1,702 @@
+% BIB file for disease modeling papers
+
+@article{abbey1952,
+  title={An examination of the Reed-Frost theory of epidemics},
+  author={Abbey, Helen},
+  journal={Human biology},
+  volume={24},
+  number={3},
+  pages={201},
+  year={1952},
+  publisher={Johns Hopkins Press}
+}
+
+@article {lipsitch2003,
+	author = {Lipsitch, Marc and Cohen, Ted and Cooper, Ben and Robins, James M. and Ma, Stefan and James, Lyn and Gopalakrishna, Gowri and Chew, Suok Kai and Tan, Chorh Chuan and Samore, Matthew H. and Fisman, David and Murray, Megan},
+	title = {Transmission Dynamics and Control of Severe Acute Respiratory Syndrome},
+	volume = {300},
+	number = {5627},
+	pages = {1966--1970},
+	year = {2003},
+	doi = {10.1126/science.1086616},
+	publisher = {American Association for the Advancement of Science},
+	abstract = {Severe acute respiratory syndrome (SARS) is a recently described illness of humans that has spread widely over the past 6 months. With the use of detailed epidemiologic data from Singapore and epidemic curves from other settings, we estimated the reproductive number for SARS in the absence of interventions and in the presence of control efforts. We estimate that a single infectious case of SARS will infect about three secondary cases in a population that has not yet instituted control measures. Public-health efforts to reduce transmission are expected to have a substantial impact on reducing the size of the epidemic.},
+	issn = {0036-8075},
+	URL = {http://science.sciencemag.org/content/300/5627/1966},
+	eprint = {http://science.sciencemag.org/content/300/5627/1966.full.pdf},
+	journal = {Science}
+}
+
+
+@book{mollison1995,
+  title={Epidemic models: their structure and relation to data},
+  author={Mollison, Denis},
+  volume={5},
+  year={1995},
+  publisher={Cambridge University Press}
+}
+
+@misc{diekmann2000,
+  title={Wiley series in mathematical and computational biology},
+  author={Diekmann, O and Heesterbeek, JAP},
+  year={2000},
+  publisher={Wiley Chichester, UK:}
+}
+
+@article{blower2004,
+  title={Modeling the emergence of the'hot zones': tuberculosis and the amplification dynamics of drug resistance},
+  author={Blower, Sally M and Chou, Tom},
+  journal={Nature medicine},
+  volume={10},
+  number={10},
+  pages={1111--1116},
+  year={2004},
+  publisher={Nature Publishing Group}
+}
+
+@article{cintronarias2009,
+  title={The estimation of the effective reproductive number from disease outbreak data},
+  author={Cintr{\'o}n-Arias, Ariel and Castillo-Ch{\'a}vez, Carlos and Bettencourt, Lu{\i}s MA and Lloyd, Alun L and Banks, HT},
+  journal={Math Biosci Eng},
+  volume={6},
+  number={2},
+  pages={261--282},
+  year={2009}
+}
+
+@Book{adler2007,
+  author = 	 {Adler, Robert J. and Taylor, Jonathan E.},
+  title = 	 {Random Fields and Geometry},
+  publisher = 	 {Springer New York},
+  year = 	{2007},
+}
+
+
+@Book{rasmussen2006,
+  author = 	 {Rasmussen, C. E. and Williams, C. K. I.},
+  title = 	 {Gaussian Processes for Machine Learning},
+  publisher = 	 {Massachusetts Institute of Technology},
+  year = 	{2006},
+}
+
+
+
+@Book{grenander1957,
+  author = 	 {Grenander, Ulf and Rosenblatt, Murray},
+  title = 	 {Statistical Analysis of Stationary TIme Series},
+  publisher = 	 {John WIley \& Sons},
+  year = 	 {1957},
+}
+
+@article{eddy1980,
+ ISSN = {00905364},
+ URL = {http://www.jstor.org/stable/2240775},
+ abstract = {Let X1, ⋯, Xn be independent observations with common density f. A kernel estimate of the mode is any value of t which maximizes the kernel estimate of the density fn. Conditions are given restricting the density, the kernel, and the bandwidth under which this estimate of the mode has an asymptotic normal distribution. By imposing sufficient restrictions, the rate at which the mean squared error of the estimator converges to zero can be decreased from n-4/7 to n-1+ε for any positive ε. Also, by bounding the support of the kernel it is shown that for any particular bandwidth sequence the asymptotic mean squared error is minimized by a certain truncated polynomial kernel.},
+ author = {William F. Eddy},
+ journal = {The Annals of Statistics},
+ number = {4},
+ pages = {870-882},
+ publisher = {Institute of Mathematical Statistics},
+ title = {Optimum Kernel Estimators of the Mode},
+ volume = {8},
+ year = {1980}
+}
+
+
+
+@inproceedings{ye2009methodology,
+  title={A methodology to match distributions of both household and person attributes in the generation of synthetic populations},
+  author={Ye, Xin and Konduri, Karthik and Pendyala, Ram M and Sana, Bhargava and Waddell, Paul},
+  booktitle={88th Annual Meeting of the Transportation Research Board, Washington, DC},
+  year={2009}
+}
+
+@article{gu2011,
+  title={Modeling of epidemic spreading with white Gaussian noise},
+  author={Gu, Jiao and Gao, ZongMao and Li, Wei},
+  journal={Chinese Science Bulletin},
+  volume={56},
+  number={34},
+  pages={3683--3688},
+  year={2011},
+  publisher={Springer}
+}
+
+@Book{billingsley1968,
+  author = 	 {Patrick Billingsley},
+  title = 	 {Convergence of Probability Measures},
+  publisher = 	 {John Wiley \& Sons, Inc.},
+  year = 	 1968
+}
+
+@Article{csajka2006,
+author="Csajka, Chantal
+and Verotta, Davide",
+title="Pharmacokinetic--Pharmacodynamic Modelling: History and Perspectives",
+journal="Journal of Pharmacokinetics and Pharmacodynamics",
+year="2006",
+volume="33",
+number="3",
+pages="227--279",
+abstract="A major goal in clinical pharmacology is the quantitative prediction of drug effects. The field of pharmacokinetic--pharmacodynamic (PK/PD) modelling has made many advances from the basic concept of the dose--response relationship to extended mechanism-based models. The purpose of this article is to review, from a historical perspective, the progression of the modelling of the concentration--response relationship from the first classic models developed in the mid-1960s to some of the more sophisticated current approaches. The emphasis is on general models describing key PD relationships, such as: simple models relating drug dose or concentration in plasma to effect, biophase distribution models and in particular effect compartment models, models for indirect mechanism of action that involve primarily the modulation of endogenous factors, models for cell trafficking and transduction systems. We show the evolution of tolerance and time-variant models, non- and semi-parametric models, and briefly discuss population PK/PD modelling, together with some example of more recent and complex pharmacodynamic models for control system and nonlinear HIV-1 dynamics. We also discuss some future possible directions for PK/PD modelling, report equations for general classes of novel semi-parametric models, as well as describing two new classes, additive or set-point, of regulatory, additive feedback models in their direct and indirect action variants",
+issn="1573-8744",
+doi="10.1007/s10928-005-9002-0",
+url="http://dx.doi.org/10.1007/s10928-005-9002-0"
+}
+
+
+@article{moler2003,
+ ISSN = {00361445},
+ URL = {http://www.jstor.org/stable/25054364},
+ abstract = {In principle, the exponential of a matrix could be computed in many ways. Methods involving approximation theory, differential equations, the matrix eigenvalues, and the matrix characteristic polynomial have been proposed. In practice, consideration of computational stability and efficiency indicates that some of the methods are preferable to others but that none are completely satisfactory. Most of this paper was originally published in 1978. An update, with a separate bibliography, describes a few recent developments.},
+ author = {Moler, Cleve and Van Loan, Charles},
+ journal = {SIAM Review},
+ number = {1},
+ pages = {3-49},
+ publisher = {Society for Industrial and Applied Mathematics},
+ title = {Nineteen Dubious Ways to Compute the Exponential of a Matrix, Twenty-Five Years Later},
+ volume = {45},
+ year = {2003}
+}
+
+
+@article{macdonald1952analysis,
+  title={The analysis of equilibrium in malaria.},
+  author={Macdonald, George},
+  journal={Tropical diseases bulletin},
+  volume={49},
+  number={9},
+  pages={813--829},
+  year={1952}
+}
+
+@article{dublin1925,
+ ISSN = {01621459},
+ URL = {http://www.jstor.org/stable/2965517},
+ author = {Louis I. Dublin, Alfred J. Lotka},
+ journal = {Journal of the American Statistical Association},
+ number = {151},
+ pages = {305-339},
+ publisher = {[American Statistical Association, Taylor & Francis, Ltd.]},
+ title = {On the True Rate of Natural Increase},
+ volume = {20},
+ year = {1925}
+}
+
+
+@article{Wallinga2004different,
+author = {Wallinga, Jacco and Teunis, Peter}, 
+title = {Different Epidemic Curves for Severe Acute Respiratory Syndrome Reveal Similar Impacts of Control Measures},
+volume = {160}, 
+number = {6}, 
+pages = {509-516}, 
+year = {2004}, 
+doi = {10.1093/aje/kwh255}, 
+abstract ={Severe acute respiratory syndrome (SARS) has been the first severe contagious disease to emerge in the 21st century. The available epidemic curves for SARS show marked differences between the affected regions with respect to the total number of cases and epidemic duration, even for those regions in which outbreaks started almost simultaneously and similar control measures were implemented at the same time. The authors developed a likelihood-based estimation procedure that infers the temporal pattern of effective reproduction numbers from an observed epidemic curve. Precise estimates for the effective reproduction numbers were obtained by applying this estimation procedure to available data for SARS outbreaks that occurred in Hong Kong, Vietnam, Singapore, and Canada in 2003. The effective reproduction numbers revealed that epidemics in the various affected regions were characterized by markedly similar disease transmission potentials and similar levels of effectiveness of control measures. In controlling SARS outbreaks, timely alerts have been essential: Delaying the institution of control measures by 1 week would have nearly tripled the epidemic size and would have increased the expected epidemic duration by 4 weeks.}, 
+URL = {http://aje.oxfordjournals.org/content/160/6/509.abstract}, 
+eprint = {http://aje.oxfordjournals.org/content/160/6/509.full.pdf+html}, 
+journal = {American Journal of Epidemiology} 
+}
+
+@article{Svensson2007,
+title = "A note on generation times in epidemic models ",
+journal = "Mathematical Biosciences ",
+volume = "208",
+number = "1",
+pages = "300 - 311",
+year = "2007",
+note = "",
+issn = "0025-5564",
+doi = "http://dx.doi.org/10.1016/j.mbs.2006.10.010",
+url = "http://www.sciencedirect.com/science/article/pii/S0025556406002094",
+author = "Ake Svensson",
+keywords = "Epidemic models",
+keywords = "Generation times",
+keywords = "Serial times",
+keywords = "Transmission intervals "
+}
+
+
+@article{bauch2005,
+ ISSN = {10443983},
+ URL = {http://www.jstor.org/stable/20486145},
+abstract = {The emergence and rapid global spread of the severe acute respiratory syndrome (SARS) coronavirus in 2002-2003 prompted efforts by modelers to characterize SARS epidemiology and inform control policies. We overview and discuss models for emerging infectious diseases (EIDs), provide a critical survey of SARS modeling literature, and discuss promising future directions for research. We reconcile discrepancies between published estimates of the basic reproductive number R₀ for SARS (a crucial epidemiologic parameter), discuss insights regarding SARS control measures that have emerged uniquely from a modeling approach, and argue that high priorities for future modeling of SARS and similar respiratory EIDs should include informing quarantine policy and better understanding the impact of population heterogeneity on transmission patterns.},
+ author = {Bauch, Chris T. and Lloyd-Smith, James O. and Coffee, Megan P. and Galvani, Alison P.},
+ journal = {Epidemiology},
+ number = {6},
+ pages = {791-801},
+ publisher = {Lippincott Williams & Wilkins},
+ title = {Dynamically Modeling SARS and Other Newly Emerging Respiratory Illnesses: Past, Present, and Future},
+ volume = {16},
+ year = {2005}
+}
+
+
+@article{fraser2004factors,
+  title={Factors that make an infectious disease outbreak controllable},
+  author={Fraser, Christophe and Riley, Steven and Anderson, Roy M and Ferguson, Neil M},
+  journal={Proceedings of the National Academy of Sciences of the United States of America},
+  volume={101},
+  number={16},
+  pages={6146--6151},
+  year={2004},
+  publisher={National Acad Sciences}
+}
+
+
+@article{blumberg2013comparing,
+  title={Comparing methods for estimating R 0 from the size distribution of subcritical transmission chains},
+  author={Blumberg, S and Lloyd-Smith, JO},
+  journal={Epidemics},
+  volume={5},
+  number={3},
+  pages={131--145},
+  year={2013},
+  publisher={Elsevier}
+}
+
+@article{wallinga2007generation,
+  title={How generation intervals shape the relationship between growth rates and reproductive numbers},
+  author={Wallinga, Jacco and Lipsitch, Marc},
+  journal={Proceedings of the Royal Society of London B: Biological Sciences},
+  volume={274},
+  number={1609},
+  pages={599--604},
+  year={2007},
+  publisher={The Royal Society}
+}
+
+
+
+@article {forsberg2008,
+author = {Forsberg White, L. and Pagano, M.},
+title = {A likelihood-based method for real-time estimation of the serial interval and reproductive number of an epidemic},
+journal = {Statistics in Medicine},
+volume = {27},
+number = {16},
+publisher = {John Wiley & Sons, Ltd.},
+issn = {1097-0258},
+url = {http://dx.doi.org/10.1002/sim.3136},
+doi = {10.1002/sim.3136},
+pages = {2999--3016},
+keywords = {basic reproductive number, serial interval, generation interval, infectious disease epidemic models},
+year = {2008},
+}
+
+
+
+
+@article{Smith2007,
+    author = {Smith, David L AND McKenzie, F. Ellis AND Snow, Robert W AND Hay, Simon I},
+    journal = {PLoS Biol},
+    publisher = {Public Library of Science},
+    title = {Revisiting the Basic Reproductive Number for Malaria and Its Implications for Malaria Control},
+    year = {2007},
+    month = {02},
+    volume = {5},
+    url = {http://dx.doi.org/10.1371%2Fjournal.pbio.0050042},
+    pages = {1-12},
+    abstract = {
+        <p>A new mathematical approach applied to 121 human populations infected with malaria revises the basic reproductive number--an indication of the transmission intensity--up by an order of magnitude, with serious implications for effective malaria control.</p>
+      },
+    number = {3},
+    doi = {10.1371/journal.pbio.0050042}
+}
+
+@article{heesterbeek1996concept,
+  title={The concept of Ro in epidemic theory},
+  author={Heesterbeek, JAP and Dietz, K},
+  journal={Statistica Neerlandica},
+  volume={50},
+  number={1},
+  pages={89--110},
+  year={1996},
+  publisher={Wiley Online Library}
+}
+
+
+@article{dietz1993estimation,
+  title={The estimation of the basic reproduction number for infectious diseases},
+  author={Dietz, Klaus},
+  journal={Statistical methods in medical research},
+  volume={2},
+  number={1},
+  pages={23--41},
+  year={1993},
+  publisher={SAGE Publications}
+}
+
+@article{obadia2012r0,
+  title={The R0 package: a toolbox to estimate reproduction numbers for epidemic outbreaks},
+  author={Obadia, Thomas and Haneef, Romana and Bo{\"e}lle, Pierre-Yves},
+  journal={BMC medical informatics and decision making},
+  volume={12},
+  number={1},
+  pages={147},
+  year={2012},
+  publisher={BioMed Central Ltd}
+}
+
+
+@article{hethcote2000,
+ ISSN = {00361445},
+ URL = {http://www.jstor.org/stable/2653135},
+ abstract = {Many models for the spread of infectious diseases in populations have been analyzed mathematically and applied to specific diseases. Threshold theorems involving the basic reproduction number R<sub>0</sub>, the contact number σ, and the replacement number R are reviewed for the classic SIR epidemic and endemic models. Similar results with new expressions for R<sub>0</sub> are obtained for MSEIR and SEIR endemic models with either continuous age or age groups. Values of R<sub>0</sub> and σ are estimated for various diseases including measles in Niger and pertussis in the United States. Previous models with age structure, heterogeneity, and spatial structure are surveyed.},
+ author = {Herbert W. Hethcote},
+ journal = {SIAM Review},
+ number = {4},
+ pages = {599-653},
+ publisher = {Society for Industrial and Applied Mathematics},
+ title = {The Mathematics of Infectious Diseases},
+ volume = {42},
+ year = {2000}
+}
+
+
+@book{heesterbeek2000mathematical,
+  title={Mathematical epidemiology of infectious diseases: model building, analysis and interpretation},
+  author={Heesterbeek, JAP},
+  volume={5},
+  year={2000},
+  publisher={John Wiley \& Sons}
+}
+
+
+@article{Heesterbeek2002,
+author={Heesterbeek, JAP},
+year={2002},
+title={{A Brief History of R0 and a Recipe for its Calculation}},
+journal={Acta Biotheoretica},
+volume={50},
+number={3},
+pages={189-204},
+isbn={0001-5342},
+language={English},
+url={http://search.proquest.com/docview/776886188?accountid=9902},
+}
+
+@article{diekmann1990,
+author={{Diekmann, O.
+and Heesterbeek, J. A. P.
+and Metz, J. A. J.}},
+title={{On the definition and the computation of the basic reproduction ratio R0 in models for infectious diseases in heterogeneous populations}},
+journal={Journal of Mathematical Biology},
+volume={28},
+number={4},
+pages={365--382},
+abstract={The expected number of secondary cases produced by a typical infected individual during its entire period of infectiousness in a completely susceptible population is mathematically defined as the dominant eigenvalue of a positive linear operator. It is shown that in certain special cases one can easily compute or estimate this eigenvalue. Several examples involving various structuring variables like age, sexual disposition and activity are presented.},
+issn={1432-1416},
+doi={10.1007/BF00178324},
+url={http://dx.doi.org/10.1007/BF00178324},
+year = {1990}
+}
+
+
+
+
+@article {Heffernan2005,
+	author = {Heffernan, J.M and Smith, R.J and Wahl, L.M},
+	title = {Perspectives on the basic reproductive ratio},
+	volume = {2},
+	number = {4},
+	pages = {281--293},
+	year = {2005},
+	doi = {10.1098/rsif.2005.0042},
+	publisher = {The Royal Society},
+	abstract = {The basic reproductive ratio, R0, is defined as the expected number of secondary infections arising from a single individual during his or her entire infectious period, in a population of susceptibles. This concept is fundamental to the study of epidemiology and within-host pathogen dynamics. Most importantly, R0 often serves as a threshold parameter that predicts whether an infection will spread. Related parameters which share this threshold behaviour, however, may or may not give the true value of R0. In this paper we give a brief overview of common methods of formulating R0 and surrogate threshold parameters from deterministic, non-structured models. We also review common means of estimating R0 from epidemiological data. Finally, we survey the recent use of R0 in assessing emerging diseases, such as severe acute respiratory syndrome and avian influenza, a number of recent livestock diseases, and vector-borne diseases malaria, dengue and West Nile virus.},
+	issn = {1742-5689},
+	URL = {http://rsif.royalsocietypublishing.org/content/2/4/281},
+	eprint = {http://rsif.royalsocietypublishing.org/content/2/4/281.full.pdf},
+	journal = {Journal of The Royal Society Interface}
+}
+
+
+
+@Unpublished{jonesjh2007,
+  author = 	{Jones, J.H.},
+  title = 	  {Notes on $R_0$},
+  note = 	 {{Dept. of Antrhopological Sciences.  Stanford University}},
+  year = 	 {2007},
+  url = {http://web.stanford.edu/~jhj1/teachingdocs/Jones-on-R0.pdf}
+}
+
+@Book{anderson1992,
+  author = 	 {Anderson, R and May, R.},
+  title = 	 {Infectious Diseases of Humans},
+  publisher = 	 {Oxford:  Oxford University Press},
+  year = 	 {1992},
+}
+
+@book{Adamatzky2010,
+ author = {Adamatzky, Andrew},
+ title = {Game of Life Cellular Automata},
+ year = {2010},
+ isbn = {1849962162, 9781849962162},
+ edition = {1st},
+ publisher = {Springer Publishing Company, Incorporated},
+} 
+
+@article{breban2007,
+author={Breban,Romulus and Vardavas,Raffaele and Blower,Sally},
+year={2007},
+month={03},
+title={Theory versus Data: How to Calculate R0?},
+journal={PLoS One},
+volume={2},
+number={3},
+abstract={To predict the potential severity of outbreaks of infectious diseases such as SARS, HIV, TB and smallpox, a summary parameter, the basic reproduction number R0, is generally calculated from a population-level model. R0 specifies the average number of secondary infections caused by one infected individual during his/her entire infectious period at the start of an outbreak. R0 is used to assess the severity of the outbreak, as well as the strength of the medical and/or behavioral interventions necessary for control. Conventionally, it is assumed that if R0>1 the outbreak generates an epidemic, and if R0<1 the outbreak becomes extinct. Here, we use computational and analytical methods to calculate the average number of secondary infections and to show that it does not necessarily represent an epidemic threshold parameter (as it has been generally assumed). Previously we have constructed a new type of individual-level model (ILM) and linked it with a population-level model. Our ILM generates the same temporal incidence and prevalence patterns as the population-level model; we use our ILM to directly calculate the average number of secondary infections (i.e., R0). Surprisingly, we find that this value of R0 calculated from the ILM is very different from the epidemic threshold calculated from the population-level model. This occurs because many different individual-level processes can generate the same incidence and prevalence patterns. We show that obtaining R0 from empirical contact tracing data collected by epidemiologists and using this R0 as a threshold parameter for a population-level model could produce extremely misleading estimates of the infectiousness of the pathogen, the severity of an outbreak, and the strength of the medical and/or behavioral interventions necessary for control.},
+keywords={Sciences: Comprehensive Works; Studies; Theory; Behavior modification; Population; Infections; Epidemiology; Expected values; Ordinary differential equations; Smallpox},
+language={English},
+url={http://search.proquest.com/docview/1289130660?accountid=9902},
+}
+}
+
+
+@article{koide1996,
+title = "Sex ratio features of two-group SIR model for asymmetrie transmission of heterosexual disease",
+journal = "Mathematical and Computer Modelling",
+volume = "23",
+number = "4",
+pages = "67 - 91",
+year = "1996",
+note = "",
+issn = "0895-7177",
+doi = "http://dx.doi.org/10.1016/0895-7177(96)00004-0",
+url = "http://www.sciencedirect.com/science/article/pii/0895717796000040",
+author = "C. Koide and H. Seno",
+keywords = "Epidemics",
+keywords = "SIR model",
+keywords = "Sex ratio",
+abstract = "We consider the SIR model with two sexual groups to discuss the effect of the asymmetricity in the transmission dynamics of STDs. It is shown that the asymmetric transmission between two groups results in the asymmetric structure of infective populations."
+}
+
+@article{eubank2010detail,
+  title={Detail in network models of epidemiology: are we there yet?},
+  author={Eubank, Stephen and Barrett, Christopher and Beckman, Richard and Bisset, Keith and Durbeck, Lisa and Kuhlman, Christopher and Lewis, Bryan and Marathe, Achla and Marathe, Madhav and Stretz, Paula},
+  journal={Journal of biological dynamics},
+  volume={4},
+  number={5},
+  pages={446--455},
+  year={2010},
+  publisher={Taylor \& Francis}
+}
+
+
+
+
+@Book{grimmettandstirzaker1992,
+  author = 	 {G.R. Grimmett and D.R. Stirzaker},
+  OPTeditor = 	 {},
+  title = 	 {Probability and Random Processes},
+  publisher = 	 {Oxford Science Publications},
+  year = 	 {1992},
+  OPTkey = 	 {},
+  OPTvolume = 	 {},
+  OPTnumber = 	 {},
+  OPTseries = 	 {},
+  OPTaddress = 	 {},
+  edition = 	 {Second},
+  OPTmonth = 	 {},
+  OPTnote = 	 {},
+  OPTannote = 	 {}
+}
+
+@article{bonabeau2002agent,
+  title={Agent-based modeling: Methods and techniques for simulating human systems},
+  author={Bonabeau, Eric},
+  journal={Proceedings of the National Academy of Sciences},
+  volume={99},
+  number={suppl 3},
+  pages={7280--7287},
+  year={2002},
+  publisher={National Acad Sciences}
+}
+
+@article{ahmed2013variance,
+  title={Variance in System Dynamics and Agent Based Modelling Using the SIR Model of Infectious Disease},
+  author={Ahmed, Aslam and Greensmith, Julie and Aickelin, Uwe},
+  journal={arXiv preprint arXiv:1307.2001},
+  year={2013}
+}
+
+@article{wickham2011split,
+  title={The split-apply-combine strategy for data analysis},
+  author={Wickham, Hadley and others},
+  journal={Journal of Statistical Software},
+  volume={40},
+  number={1},
+  pages={1--29},
+  year={2011},
+  publisher={Citeseer}
+}
+
+@article{Dean:2008:MSD:1327452.1327492,
+ author = {Dean, Jeffrey and Ghemawat, Sanjay},
+ title = {MapReduce: Simplified Data Processing on Large Clusters},
+ journal = {Commun. ACM},
+ issue_date = {January 2008},
+ volume = {51},
+ number = {1},
+ month = jan,
+ year = {2008},
+ issn = {0001-0782},
+ pages = {107--113},
+ numpages = {7},
+ url = {http://doi.acm.org/10.1145/1327452.1327492},
+ doi = {10.1145/1327452.1327492},
+ acmid = {1327492},
+ publisher = {ACM},
+ address = {New York, NY, USA},
+} 
+@article{gardner1970mathematical,
+  title={Mathematical games: The fantastic combinations of John Conway’s new solitaire game “life”},
+  author={Gardner, Martin},
+  journal={Scientific American},
+  volume={223},
+  number={4},
+  pages={120--123},
+  year={1970}
+}
+
+
+
+@article{eddy1982asymptotic,
+  title={The asymptotic distributions of kernel estimators of the mode},
+  author={Eddy, William F},
+  journal={Zeitschrift f{\"u}r Wahrscheinlichkeitstheorie und Verwandte Gebiete},
+  volume={59},
+  number={3},
+  pages={279--290},
+  year={1982},
+  publisher={Springer}
+}
+
+
+@article{Kermack700,
+	author = {Kermack, W. O. and McKendrick, A. G.},
+	title = {A Contribution to the Mathematical Theory of Epidemics},
+	volume = {115},
+	number = {772},
+	pages = {700--721},
+	year = {1927},
+	doi = {10.1098/rspa.1927.0118},
+	publisher = {The Royal Society},
+	issn = {0950-1207},
+	URL = {http://rspa.royalsocietypublishing.org/content/115/772/700},
+	eprint = {http://rspa.royalsocietypublishing.org/content/115/772/700.full.pdf},
+	journal = {Proceedings of the Royal Society of London A: Mathematical, Physical and Engineering Sciences}
+}
+
+
+@article{von1993first,
+  title={First Draft of a Report on the EDVAC},
+  author={Von Neumann, John},
+  journal={IEEE Annals of the History of Computing},
+  volumer={4},
+  pages={27--75},
+  year={1993},
+  publisher={IEEE}
+}
+
+
+@article{shalizi2013advanced,
+  title={Advanced data analysis from an elementary point of view},
+  author={Shalizi, Cosma Rohilla},
+  journal={Preprint of book found at http://www.stat.cmu.edu/\%7Ecshalizi/ADAfaEPoV},
+  year={2013},
+  publisher={Citeseer}
+}
+
+@article{kurtz_diff_eq_1970,
+ ISSN = {00219002},
+ URL = {http://www.jstor.org/stable/3212147},
+ author = {Thomas G. Kurtz},
+ journal = {Journal of Applied Probability},
+ number = {1},
+ pages = {49-58},
+ publisher = {Applied Probability Trust},
+ title = {Solutions of Ordinary Differential Equations as Limits of Pure Jump Markov Processes},
+ volume = {7},
+ year = {1970}
+}
+
+@article{epstein2007agent,
+  title={Agent-Based Computational Models and Generative Social Science [Generative Social Science Studies in Agent-Based Computational Modeling]},
+  author={Epstein, Joshua M},
+  journal={Introductory Chapters},
+  year={2007},
+  publisher={Princeton University Press}
+}
+
+
+@incollection{shalizi2006methods,
+  title={Methods and techniques of complex systems science: An overview},
+  author={Shalizi, Cosma Rohilla},
+  booktitle={Complex systems science in biomedicine},
+  pages={33--114},
+  year={2006},
+  publisher={Springer}
+}
+
+@article{Grimm11112005,
+author = {Grimm, Volker and Revilla, Eloy and Berger, Uta and Jeltsch, Florian and Mooij, Wolf M. and Railsback, Steven F. and Thulke, Hans-Hermann and Weiner, Jacob and Wiegand, Thorsten and DeAngelis, Donald L.}, 
+title = {Pattern-Oriented Modeling of Agent-Based Complex Systems: Lessons from Ecology},
+volume = {310}, 
+number = {5750}, 
+pages = {987-991}, 
+year = {2005}, 
+doi = {10.1126/science.1116681}, 
+abstract ={Agent-based complex systems are dynamic networks of many interacting agents; examples include ecosystems, financial markets, and cities. The search for general principles underlying the internal organization of such systems often uses bottom-up simulation models such as cellular automata and agent-based models. No general framework for designing, testing, and analyzing bottom-up models has yet been established, but recent advances in ecological modeling have come together in a general strategy we call pattern-oriented modeling. This strategy provides a unifying framework for decoding the internal organization of agent-based complex systems and may lead toward unifying algorithmic theories of the relation between adaptive behavior and system complexity.}, 
+URL = {http://www.sciencemag.org/content/310/5750/987.abstract}, 
+eprint = {http://www.sciencemag.org/content/310/5750/987.full.pdf}, 
+journal = {Science} 
+}
+
+
+@book{daley2001epidemic,
+  title={Epidemic modelling: an introduction},
+  author={Daley, Daryl J and Gani, Joe and Gani, Joseph Mark},
+  volume={15},
+  year={2001},
+  publisher={Cambridge University Press}
+}
+
+@article{harko2014exact,
+  title={Exact analytical solutions of the Susceptible-Infected-Recovered (SIR) epidemic model and of the SIR model with equal death and birth rates},
+  author={Harko, Tiberiu and Lobo, Francisco SN and Mak, MK},
+  journal={Applied Mathematics and Computation},
+  volume={236},
+  pages={184--194},
+  year={2014},
+  publisher={Elsevier}
+}
+
+
+@article{tsoukias1998two,
+  title={A two-compartment model of pulmonary nitric oxide exchange dynamics},
+  author={Tsoukias, Nikolaos M and George, Steven C},
+  journal={Journal of Applied Physiology},
+  volume={85},
+  number={2},
+  pages={653--666},
+  year={1998},
+  publisher={Am Physiological Soc}
+}
+
+
+﻿@Article{Savic2007,
+author="Savic, Radojka M.
+and Jonker, Dani{\"e}l M.
+and Kerbusch, Thomas
+and Karlsson, Mats O.",
+title="Implementation of a transit compartment model for describing drug absorption in pharmacokinetic studies",
+journal="Journal of Pharmacokinetics and Pharmacodynamics",
+year="2007",
+volume="34",
+number="5",
+pages="711--726",
+abstract="Purpose: To compare the performance of the standard lag time model (LAG model) with the performance of an analytical solution of the transit compartment model (TRANSIT model) in the evaluation of four pharmacokinetic studies with four different compounds. Methods: The population pharmacokinetic analyses were performed using NONMEM on concentration--time data of glibenclamide, furosemide, amiloride, and moxonidine. In the TRANSIT model, the optimal number of transit compartments was estimated from the data. This was based on an analytical solution for the change in drug concentration arising from a series of transit compartments with the same first-order transfer rate between each compartment. Goodness-of-fit was assessed by the decrease in objective function value (OFV) and by inspection of diagnostic graphs. Results: With the TRANSIT model, the OFV was significantly lower and the goodness-of-fit was markedly improved in the absorption phase compared with the LAG model for all drugs. The parameter estimates related to the absorption differed between the two models while the estimates of the pharmacokinetic disposition parameters were similar. Conclusion: Based on these results, the TRANSIT model is an attractive alternative for modeling drug absorption delay, especially when a LAG model poorly describes the drug absorption phase or is numerically unstable.",
+issn="1573-8744",
+doi="10.1007/s10928-007-9066-0",
+url="http://dx.doi.org/10.1007/s10928-007-9066-0"
+}

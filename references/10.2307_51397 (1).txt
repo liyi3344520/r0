@@ -1,0 +1,14 @@
+@article{10.2307/51397,
+ ISSN = {09628452},
+ URL = {http://www.jstor.org/stable/51397},
+ abstract = {How infectious diseases spread in space within one cycle of an epidemic is an important question that has received considerable theoretical attention. There are, however, few empirical studies to support theoretical approaches, because data are scarce. Weekly reports obtained since 1984 from a network of general practitioners spanning the entire French territory allows the analysis of the spatio-temporal dynamics of influenza over a fine spatial scale. This analysis indicates that diffusion over long distances, possibly due to global transportation systems, is so quick that homogeneous global mixing occurs before the epidemic builds up within infected patches. A simple model in which the total number of cases is given by the empirical time-series and cases are randomly assigned to patches according to the population weight of the patches exhibits the same spatio-temporal properties as real epidemic cycles: homogeneous mixing models constitute appropriate descriptions, except in the vicinity of the epidemic's peak, where geographic heterogeneities play a role.},
+ author = {Eric Bonabeau and Laurent Toubiana and Antoine Flahault},
+ journal = {Proceedings: Biological Sciences},
+ number = {1413},
+ pages = {2421--2425},
+ publisher = {The Royal Society},
+ title = {The Geographical Spread of Influenza},
+ volume = {265},
+ year = {1998}
+}
+

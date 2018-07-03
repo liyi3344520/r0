@@ -1,0 +1,268 @@
+\begin{thebibliography}{10}
+
+\bibitem{abbey1952}
+Helen Abbey.
+\newblock An examination of the reed-frost theory of epidemics.
+\newblock {\em Human biology}, 24(3):201, 1952.
+
+\bibitem{adler2007}
+Robert~J. Adler and Jonathan~E. Taylor.
+\newblock {\em Random Fields and Geometry}.
+\newblock Springer New York, 2007.
+
+\bibitem{ahmed2013variance}
+Aslam Ahmed, Julie Greensmith, and Uwe Aickelin.
+\newblock Variance in system dynamics and agent based modelling using the sir
+  model of infectious disease.
+\newblock {\em arXiv preprint arXiv:1307.2001}, 2013.
+
+\bibitem{anderson1992}
+R~Anderson and R.~May.
+\newblock {\em Infectious Diseases of Humans}.
+\newblock Oxford: Oxford University Press, 1992.
+
+\bibitem{bauch2005}
+Chris~T. Bauch, James~O. Lloyd-Smith, Megan~P. Coffee, and Alison~P. Galvani.
+\newblock Dynamically modeling sars and other newly emerging respiratory
+  illnesses: Past, present, and future.
+\newblock {\em Epidemiology}, 16(6):791--801, 2005.
+
+\bibitem{blower2004}
+Sally~M Blower and Tom Chou.
+\newblock Modeling the emergence of the'hot zones': tuberculosis and the
+  amplification dynamics of drug resistance.
+\newblock {\em Nature medicine}, 10(10):1111--1116, 2004.
+
+\bibitem{blumberg2013comparing}
+S~Blumberg and JO~Lloyd-Smith.
+\newblock Comparing methods for estimating r 0 from the size distribution of
+  subcritical transmission chains.
+\newblock {\em Epidemics}, 5(3):131--145, 2013.
+
+\bibitem{bonabeau2002agent}
+Eric Bonabeau.
+\newblock Agent-based modeling: Methods and techniques for simulating human
+  systems.
+\newblock {\em Proceedings of the National Academy of Sciences}, 99(suppl
+  3):7280--7287, 2002.
+
+\bibitem{breban2007}
+Romulus Breban, Raffaele Vardavas, and Sally Blower.
+\newblock Theory versus data: How to calculate r0?
+\newblock {\em PLoS One}, 2(3), 03 2007.
+
+\bibitem{cintronarias2009}
+Ariel Cintr{\'o}n-Arias, Carlos Castillo-Ch{\'a}vez, Lu{\i}s~MA Bettencourt,
+  Alun~L Lloyd, and HT~Banks.
+\newblock The estimation of the effective reproductive number from disease
+  outbreak data.
+\newblock {\em Math Biosci Eng}, 6(2):261--282, 2009.
+
+\bibitem{csajka2006}
+Chantal Csajka and Davide Verotta.
+\newblock Pharmacokinetic--pharmacodynamic modelling: History and perspectives.
+\newblock {\em Journal of Pharmacokinetics and Pharmacodynamics},
+  33(3):227--279, 2006.
+
+\bibitem{daley2001epidemic}
+Daryl~J Daley, Joe Gani, and Joseph~Mark Gani.
+\newblock {\em Epidemic modelling: an introduction}, volume~15.
+\newblock Cambridge University Press, 2001.
+
+\bibitem{diekmann2000}
+O~Diekmann and JAP Heesterbeek.
+\newblock Wiley series in mathematical and computational biology, 2000.
+
+\bibitem{diekmann1990}
+{Diekmann, O. and Heesterbeek, J. A. P. and Metz, J. A. J.}
+\newblock {On the definition and the computation of the basic reproduction
+  ratio R0 in models for infectious diseases in heterogeneous populations}.
+\newblock {\em Journal of Mathematical Biology}, 28(4):365--382, 1990.
+
+\bibitem{dietz1993estimation}
+Klaus Dietz.
+\newblock The estimation of the basic reproduction number for infectious
+  diseases.
+\newblock {\em Statistical methods in medical research}, 2(1):23--41, 1993.
+
+\bibitem{eddy1980}
+William~F. Eddy.
+\newblock Optimum kernel estimators of the mode.
+\newblock {\em The Annals of Statistics}, 8(4):870--882, 1980.
+
+\bibitem{eddy1982asymptotic}
+William~F Eddy.
+\newblock The asymptotic distributions of kernel estimators of the mode.
+\newblock {\em Zeitschrift f{\"u}r Wahrscheinlichkeitstheorie und Verwandte
+  Gebiete}, 59(3):279--290, 1982.
+
+\bibitem{epstein2007agent}
+Joshua~M Epstein.
+\newblock Agent-based computational models and generative social science
+  [generative social science studies in agent-based computational modeling].
+\newblock {\em Introductory Chapters}, 2007.
+
+\bibitem{eubank2010detail}
+Stephen Eubank, Christopher Barrett, Richard Beckman, Keith Bisset, Lisa
+  Durbeck, Christopher Kuhlman, Bryan Lewis, Achla Marathe, Madhav Marathe, and
+  Paula Stretz.
+\newblock Detail in network models of epidemiology: are we there yet?
+\newblock {\em Journal of biological dynamics}, 4(5):446--455, 2010.
+
+\bibitem{forsberg2008}
+L.~Forsberg~White and M.~Pagano.
+\newblock A likelihood-based method for real-time estimation of the serial
+  interval and reproductive number of an epidemic.
+\newblock {\em Statistics in Medicine}, 27(16):2999--3016, 2008.
+
+\bibitem{fraser2004factors}
+Christophe Fraser, Steven Riley, Roy~M Anderson, and Neil~M Ferguson.
+\newblock Factors that make an infectious disease outbreak controllable.
+\newblock {\em Proceedings of the National Academy of Sciences of the United
+  States of America}, 101(16):6146--6151, 2004.
+
+\bibitem{grenander1957}
+Ulf Grenander and Murray Rosenblatt.
+\newblock {\em Statistical Analysis of Stationary TIme Series}.
+\newblock John WIley \& Sons, 1957.
+
+\bibitem{Grimm11112005}
+Volker Grimm, Eloy Revilla, Uta Berger, Florian Jeltsch, Wolf~M. Mooij,
+  Steven~F. Railsback, Hans-Hermann Thulke, Jacob Weiner, Thorsten Wiegand, and
+  Donald~L. DeAngelis.
+\newblock Pattern-oriented modeling of agent-based complex systems: Lessons
+  from ecology.
+\newblock {\em Science}, 310(5750):987--991, 2005.
+
+\bibitem{gu2011}
+Jiao Gu, ZongMao Gao, and Wei Li.
+\newblock Modeling of epidemic spreading with white gaussian noise.
+\newblock {\em Chinese Science Bulletin}, 56(34):3683--3688, 2011.
+
+\bibitem{harko2014exact}
+Tiberiu Harko, Francisco~SN Lobo, and MK~Mak.
+\newblock Exact analytical solutions of the susceptible-infected-recovered
+  (sir) epidemic model and of the sir model with equal death and birth rates.
+\newblock {\em Applied Mathematics and Computation}, 236:184--194, 2014.
+
+\bibitem{heesterbeek2000mathematical}
+JAP Heesterbeek.
+\newblock {\em Mathematical epidemiology of infectious diseases: model
+  building, analysis and interpretation}, volume~5.
+\newblock John Wiley \& Sons, 2000.
+
+\bibitem{Heesterbeek2002}
+JAP Heesterbeek.
+\newblock {A Brief History of R0 and a Recipe for its Calculation}.
+\newblock {\em Acta Biotheoretica}, 50(3):189--204, 2002.
+
+\bibitem{heesterbeek1996concept}
+JAP Heesterbeek and K~Dietz.
+\newblock The concept of ro in epidemic theory.
+\newblock {\em Statistica Neerlandica}, 50(1):89--110, 1996.
+
+\bibitem{Heffernan2005}
+J.M Heffernan, R.J Smith, and L.M Wahl.
+\newblock Perspectives on the basic reproductive ratio.
+\newblock {\em Journal of The Royal Society Interface}, 2(4):281--293, 2005.
+
+\bibitem{hethcote2000}
+Herbert~W. Hethcote.
+\newblock The mathematics of infectious diseases.
+\newblock {\em SIAM Review}, 42(4):599--653, 2000.
+
+\bibitem{jonesjh2007}
+J.H. Jones.
+\newblock Notes on $r_0$.
+\newblock {Dept. of Antrhopological Sciences. Stanford University}, 2007.
+
+\bibitem{Kermack700}
+W.~O. Kermack and A.~G. McKendrick.
+\newblock A contribution to the mathematical theory of epidemics.
+\newblock {\em Proceedings of the Royal Society of London A: Mathematical,
+  Physical and Engineering Sciences}, 115(772):700--721, 1927.
+
+\bibitem{koide1996}
+C.~Koide and H.~Seno.
+\newblock Sex ratio features of two-group sir model for asymmetrie transmission
+  of heterosexual disease.
+\newblock {\em Mathematical and Computer Modelling}, 23(4):67 -- 91, 1996.
+
+\bibitem{kurtz_diff_eq_1970}
+Thomas~G. Kurtz.
+\newblock Solutions of ordinary differential equations as limits of pure jump
+  markov processes.
+\newblock {\em Journal of Applied Probability}, 7(1):49--58, 1970.
+
+\bibitem{lipsitch2003}
+Marc Lipsitch, Ted Cohen, Ben Cooper, James~M. Robins, Stefan Ma, Lyn James,
+  Gowri Gopalakrishna, Suok~Kai Chew, Chorh~Chuan Tan, Matthew~H. Samore, David
+  Fisman, and Megan Murray.
+\newblock Transmission dynamics and control of severe acute respiratory
+  syndrome.
+\newblock {\em Science}, 300(5627):1966--1970, 2003.
+
+\bibitem{dublin1925}
+Alfred J.~Lotka Louis I.~Dublin.
+\newblock On the true rate of natural increase.
+\newblock {\em Journal of the American Statistical Association},
+  20(151):305--339, 1925.
+
+\bibitem{macdonald1952analysis}
+George Macdonald.
+\newblock The analysis of equilibrium in malaria.
+\newblock {\em Tropical diseases bulletin}, 49(9):813--829, 1952.
+
+\bibitem{moler2003}
+Cleve Moler and Charles Van~Loan.
+\newblock Nineteen dubious ways to compute the exponential of a matrix,
+  twenty-five years later.
+\newblock {\em SIAM Review}, 45(1):3--49, 2003.
+
+\bibitem{mollison1995}
+Denis Mollison.
+\newblock {\em Epidemic models: their structure and relation to data},
+  volume~5.
+\newblock Cambridge University Press, 1995.
+
+\bibitem{rasmussen2006}
+C.~E. Rasmussen and C.~K.~I. Williams.
+\newblock {\em Gaussian Processes for Machine Learning}.
+\newblock Massachusetts Institute of Technology, 2006.
+
+\bibitem{shalizi2006methods}
+Cosma~Rohilla Shalizi.
+\newblock Methods and techniques of complex systems science: An overview.
+\newblock In {\em Complex systems science in biomedicine}, pages 33--114.
+  Springer, 2006.
+
+\bibitem{shalizi2013advanced}
+Cosma~Rohilla Shalizi.
+\newblock Advanced data analysis from an elementary point of view.
+\newblock {\em Preprint of book found at
+  http://www.stat.cmu.edu/\%7Ecshalizi/ADAfaEPoV}, 2013.
+
+\bibitem{Smith2007}
+David~L Smith, F.~Ellis McKenzie, Robert~W Snow, and Simon~I Hay.
+\newblock Revisiting the basic reproductive number for malaria and its
+  implications for malaria control.
+\newblock {\em PLoS Biol}, 5(3):1--12, 02 2007.
+
+\bibitem{Svensson2007}
+Ake Svensson.
+\newblock A note on generation times in epidemic models.
+\newblock {\em Mathematical Biosciences}, 208(1):300 -- 311, 2007.
+
+\bibitem{von1993first}
+John Von~Neumann.
+\newblock First draft of a report on the edvac.
+\newblock {\em IEEE Annals of the History of Computing}, pages 27--75, 1993.
+
+\bibitem{ye2009methodology}
+Xin Ye, Karthik Konduri, Ram~M Pendyala, Bhargava Sana, and Paul Waddell.
+\newblock A methodology to match distributions of both household and person
+  attributes in the generation of synthetic populations.
+\newblock In {\em 88th Annual Meeting of the Transportation Research Board,
+  Washington, DC}, 2009.
+
+\end{thebibliography}

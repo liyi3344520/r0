@@ -1,0 +1,709 @@
+\documentclass[12pt]{article}
+\usepackage[margin=1in]{geometry}
+%\usepackage{hyperref}
+\usepackage{amsmath}
+\usepackage{graphicx}% http://ctan.org/pkg/graphicx
+\usepackage{xcolor}
+\usepackage{systeme}
+
+%% Make red text
+\newcommand{\com}[1]{\textcolor{red}{ #1}}
+
+
+
+\usepackage[authoryear]{natbib}
+
+
+\usepackage{tikz}
+\tikzset{
+  int/.style={circle, draw, fill=blue!20, minimum size=3em},
+  init/.style={pin distance=1.2cm,pin edge={loop,thin,black}}
+}
+\usetikzlibrary{arrows}
+
+\pagenumbering{arabic}
+
+\newcommand{\XX}{15 } % number of methods
+\newcommand{\rr}{\ensuremath{\mathcal{R}_0}}
+
+\setlength{\itemsep}{0pt}
+
+
+
+
+
+\begin{document}
+
+
+
+
+\title{\XX dubious ways of estimating $\rr$}
+\author{ Department of Statistics, Carnegie Mellon University}
+\date{\today}
+\maketitle
+
+%\tableofcontents
+
+\section{Introduction}\label{sec:intro}
+What has been called ``arguably the most important quantity in the study of epidemics'' \cite{Heesterbeek2002}, $\mathcal{R}_0$, the reproduction number, has been found to be an elusive quantity for epidemic modelers.  \citet{anderson1992} define $\rr$ as the ``the average number of secondary infections produced when one infected individual is introduced into a host population where everyone is susceptible.''  $\rr$, in some ways, summarizes an entire epidemic.  Despite the clear definition of $\rr$, epidemiologists have struggled to create a \textit{de facto} estimator for $\rr$  \citep{hethcote2000}.  The primary issue in estimating $\rr$ is that the quantity is a \textit{property of the model}, meaning that $\rr$ is dependent not only on the usual noise that comes with statistical modeling but also on a variety of assumptions on how we assume disease is transmitted through a population.
+
+Typically, disease models are a part of the ``SI-framework'' pioneered by Kermack and McKendrick in the 1920s \citep{getz2006}.  Here, S and I are known as compartments where S stands for ``susceptible'' and I for ``infected.''  The issue arises in how individuals are assumed, either implicitly or explicitly, to travel from the S compartment to the I compartment and any other compartments that have been introduced such as immune, recovered, dead, or exposed, just to name a few.  One of the simplest models in the SI framework is the SIR model where R stands for a ``recovered'' state where individuals are no longer susceptible to the disease \citep{Kermack700}.  Even in this simplified framework, there is much dispute on how $\rr$ is to be estimated arising from assumptions on how populations intermix, if any intervention has been put in place, or whether disease parameters are constant over time.
+
+Other issues of estimating $\rr$ include mathematical versus statistical approaches (i.e. solving for $\rr$ versus estimating $\rr$), how to estimate the quantity in the presence of different available data, and when to estimate $\rr$.  For instance, if only weekly incidence counts of a disease are available, then we have different methods of estimating $\rr$ than when we have more data available such as contact networks, the serial interval of a disease, and more.  Another major issue is that since $\rr$ is so difficult to estimate in the first place, the variance of the quantity has largely been glossed over or completely ignored.  This is especially troubling as we are concerned whether $\rr > 1$, which implies an outbreak of a disease.  A point estimate is simply not enough.
+
+In short, $\rr$ is difficult to estimate because it is a property of the model.  This, in turn, makes it difficult to compare $\rr$ across different diseases or even instances of the same disease.  Many of these issues with estimating $\rr$ are summarized by \cite{li2011}
+
+We review \XX ways to estimate $\rr$ over varying assumptions and in the presence of different sources of data.  The title of this manuscript is in reference to a seminal paper by Moler and Van Loan in 1978 (and its subsequent update in 2003) in which they calculate ``Nineteen dubious ways to compute the exponential of a matrix'' \citep{moler2003}.  We not only review the methods of estimating of $\rr$ but also include recommendations on when to use the methods as well as introducing techniques in which to estimate the variance of estimators.  We compare these estimates, when applicable, and find that $\rr$ is more robust than what was initially presumed.
+
+The rest of this manuscript is organized as follows.  In Section \ref{sec:overview}, we introduce the methods in 3 broad groups:.  In Section \ref{sec:term} we introduce terminology used throughout.  In Section \ref{sec:details} we give an overview of each of the methods, what assumptions are used, what data is required, and where the method has been used in the past along with ways in which to calculate the variance for methods, when applicable.  In Section \ref{sec:results}, we give estimates of $\rr$ for the different methods and their variances over a variety of data sets.  Finally, in Section \ref{sec:dis} we discuss our conclusions and recommendations.
+
+
+\section{Overview of \XX Methods to estimate $\rr$}
+\label{sec:overview}
+
+In order to organize the methods for estimating \rr, we have chosen four broad classes of estimation methods.  These partitions are meant to be guidelines of distinguishing methods from one another rather than immutable groups.  Many of these methods could have fit in another category or even all four of the classes chosen.  We have chosen the four classes as application of the survival function and its close relatives, classic compartment models, exponential growth assumptions, and estimation from networks.
+
+\textbf{Point Estimation}
+\begin{enumerate}
+\item Survival function
+  \begin{enumerate}
+  \item Survival function
+  \item Direct estimation of the survival function
+  \item Direct parameter estimation
+  \item Contact tracing
+  \end{enumerate}
+\item Compartment models
+  \begin{enumerate}
+  \item SIR model
+  \item Harko's SIR model
+  \item SEIR model
+  \item Attack rate
+  \item Amplifier model
+  \item Sequential Bayes
+  \item Next generation model
+  \end{enumerate}
+\item Exponential growth
+  \begin{enumerate}
+  \item Exponential growth
+  \item Maximum likelihood of secondary infections
+  \item Time dependent reproduction number
+  \item Initial growth rate and final size
+  \end{enumerate}
+\item Estimation from networks
+  \begin{enumerate}
+  \item Branching process
+  \item Agent-based models
+  \end{enumerate}
+  \end{enumerate}
+
+  Additionally, we describe a number of variance estimates for the above methods for estimating \rr.  These are
+  
+\textbf{Variance Estimation}
+  \begin{enumerate}
+  \item Inverse Hessian
+  \item Sensitivity analysis
+  \item Jackknife
+  \item Delta method
+  \end{enumerate}
+
+
+
+\section{Epidemic Modeling Terminology}
+\label{sec:term}
+
+Here we introduce some of the terminology and notation used throughout the methods for estimating \rr.
+
+{$\rr$} -- reproduction number -- 
+
+{$\mathcal{R}_t$} -- effective reproduction number
+{$\beta$} -- the infection rate
+
+{$\gamma$} -- inverse of the expected recovery time
+
+{$N_t$} -- Number of individuals in the population at time $t$
+
+{$S(t)$} -- the number of susceptible individuals in a population at time $t$
+
+{$I(t)$} -- the number of infected individuals in a population at time $t$
+
+{$R(t)$} -- the number of recovered individuals in a population at time $t$
+
+{$\omega$} -- serial or generation interval -- the time from onset of symptoms in an index case to the onset of symptoms in a subsequent case infected by the index patient
+
+AR -- attack rate -- percentage of the population eventually infected
+
+
+
+\section{Details for the \XX Methods}
+\label{sec:details}
+\subsection{Survival function}
+\label{sec:direct}
+\subsubsection{Survival Function}
+\label{sec:survival_fxn}
+We describe the approach to the survival function as presented by \cite{Heffernan2005}.  They note that this is the most storied of the methods of calculating $\rr$.
+
+Let $F(a)$ be the probability that a newly infected individual remains infectious for at least time $a$ (the survival probability).  Moreover, let $b(a)$ the average number of newly infected individuals that an infectious individual will produce per unit time when infected for total time $a$.  Then $\rr$ is derived in Equation (\ref{eq:r0_survivalfxn}),
+
+\begin{align}\label{eq:r0_survivalfxn}
+  \rr = \int_0^\infty b(a)F(a)da.
+\end{align}
+
+\com{this should be method \#1}
+
+Estimating this quantity is hard, and it is due to this difficulty that the rest of these methods for estimating $\rr$ even exist.  This derivation of $\rr$ is not restricted to compartment models.
+
+%%%%%%%
+
+\subsubsection{Direct Estimation of the Survival Function }
+\label{sec:direct-estim-surv}
+
+\cite{fraser2004factors} have a derivation of $\rr$ related to the survival function, where $\beta (\tau)$ represents the infectiousness at time $\tau$ since the infection,
+
+\begin{align*}
+\rr = \int_0^\infty \beta(\tau) d\tau
+\end{align*}
+
+\com{move in with survival function.  These are \textit{mathematical quantities}}
+
+%%%%%%%%%%%%%%%
+
+
+\subsubsection{Direct Parameter Estimation }
+\label{sec:dpe}
+
+This `plug and chug` approach as described by \cite{lipsitch2003} and \cite{dietz1993estimation} is the idea of estimating parameters $k$, the number of contacts per unit time, $b$, the probability of transmission per contact, and $D$ the mean duration of infectiousness to estimate $\rr$ directly from available data,
+\begin{align}
+\rr = kbD.
+\end{align}
+
+\cite{lipsitch2003} note that directly estimating $\rr$ in such a way may be difficult due to the available data.  They instead estimate $\rr$ using the mean serial interval, the time from onset of symptoms in an index case to the onset of symptoms in a subsequent case infected by the index patient in addition to the assumption of exponential growth of infected cases.
+
+In the event, that th is estimate may be calculated, uncertainty estimates must be compounded, and to estimate $\rr$ alone, we only use data from the initial outbreak of the disease, so often we have a small sample size, resulting in large error bars.
+
+%%%%%%%% 5
+\subsubsection{Contact Tracing}
+\label{sec:contact_tracing}
+As $\rr$ is defined by \cite{anderson1992} ``the average number of secondary infections produced when one infected individual is introduced into a host population where everyone is susceptible,'' it seems reasonable to actually observe the number of secondary infections produced by an initial infector.  This is generally impractical, with seriological information, we could conceivably recreate the transmission of the disease throughout a population.  Even in this case, however, $\rr$ it is unlikely, for one, to have a completely susceptible population.  Moreover, this would implicitly be conditioning on Patient 0's contacts which may not reflect those of the rest of the population.  We write the calculation for $\rr$ under contact tracing in Equation \ref{eq:r0_contacttracing}, where $X_0$ is a random variable denoting the number of individuals in the population person 0 infects.  Here $S_0=N$ indicates that the initial number of susceptibles is $N$, the size of the population.
+
+\begin{align}\label{eq:r0_contacttracing}
+\rr = E[ X_0 | S_0 = N]
+\end{align}
+
+\cite{eames2003} describe contact tracing as an ``extreme form of targeted control, where the potential next-generation cases are the primary focus,'' i.e. one focuses on treating the contacts of an infected individual rather than applying random treatment.  They note that this method has ``proved to be a highly successful strategy when the number of infectious cases is low'' and ``is the standard tool for eliminating minor outbreaks in the latter stages of disease eradication.''
+
+They describe an estimate for $\rr$ for a SIR model on a network, with $r$ as the rate of transmission across a contact multiplied by the infectious period and $n$ as the number of contacts as
+
+\begin{align*}
+\rr = r(n-2)
+\end{align*}
+
+
+\com{should this be split into two methods?}
+
+
+\subsection{Compartment Models}
+\label{sec:cms}
+
+\subsubsection{SIR Model}
+\label{sec:sir-model}
+
+
+In practice, $\rr$ is often calculated through fitted compartment models.  An example of this is the SIR model.  First introduced to epidemiology by  \cite{Kermack700}, the SIR model governs how individuals transition from \textbf{S}usceptible, \textbf{I}nfected, and \textbf{R}ecovered compartments.  The model is represented graphically in Figure \ref{fig::sir}.  In this model, once a person is recovered she cannot have the disease again.
+
+\begin{figure}[h]
+\centering
+\begin{tikzpicture}[node distance=3cm,auto,>=latex',every node/.append style={align=center}]
+    \node [int,  fill = white!50!green] (a)              {$S$};
+    \node [int,  fill = white!50!green]           (c) [right of=a] {$I$};
+    \node [int,  fill = white!50!green] (e) [right of=c] {$R$};
+    \path[->, auto=false] (a) edge node {} (c)
+                          (c) edge node {} (e) ;
+
+\end{tikzpicture}
+\caption{Depiction of a SIR model.  One can only get the disease once in this model.}\label{fig::sir}
+\end{figure}
+
+Here, $N$ is the number of individuals in the system, and  $\beta$ and $\gamma$ are epidemiological parameters.  We have that $\beta$ is the infection rate and $\gamma$ is the inverse of the recovery rate.  The model is represented through the ODEs in \ref{eq::sir}.  
+
+A key point in the SIR model and other CMs is the assumption of homogeneity.  This means that ``any infected individual has a probability of infecting any susceptible individual that is reasonably well approximated by the average'' \cite{jonesjh2007}
+
+
+\begin{align}
+\systeme{\frac{dS}{dt} = -\frac{\beta I S}{N}, \frac{dI}{dt} = \frac{\beta I S}{N} - \gamma I, \frac{dR}{dt} = \gamma I}. \label{eq::sir}
+\end{align}
+
+In words, susceptible individuals become infected at a rate that is proportional to the proportion of infected people multiplied by $\beta$, the infection rate, and the number of susceptible individuals.  Infected individuals recover at a rate of $\gamma$ multiplied by the number of infected individuals.
+
+An epidemic occurs if 
+\begin{align*}
+\frac{\beta S I}{N}  - \gamma I > 0 ,
+\end{align*}
+
+e.g. the rate of infection is greater than the rate of recovery.  So as long as $\frac{S}{N} \approx 1$ then an epidemic will occur if $\rr := \frac{\beta}{\gamma} > 1$.
+
+In the ideal set up, we have data of the number of Susceptibles, Infectious, and Recovered individuals at different points over time.  From this we would like to estimate the $\beta$ and $\gamma$ parameters and ultimately $\rr$.
+
+There are many ways to estimate the parameters in this model.  We detail a few of them here.
+
+
+\textbf{Fitting Methods}\label{fitting-methods}
+
+\textbf{E{[}\(\rr\){]}}:
+
+\begin{enumerate}
+\item
+  Least Squares (\(\beta\), \(\gamma\)) (LS)
+\item
+  Reparametrized Least Squares (\(\rr\), \(\gamma\)) (ReLS)
+\item
+  Linear Model Approximation (LMA)
+\item
+  Linear Model Approximation, all time points (LMAT)
+\item
+  Max of data (Max)
+\item
+  Smooth max (spline) (SMax)
+\item
+  Incidence-Prevalence Ratio (IPR)
+\end{enumerate}
+
+
+\textbf{Least Squares ($\beta$, $\gamma$)}\label{least-squares-beta-gamma}
+
+We find
+
+\begin{align*}
+(\hat{\beta}, \hat{\gamma} )&=\text{argmin}_{\beta, \gamma} \sum_{t} (Y(t)_{obs} - Y(t))^2 
+\end{align*}
+
+Then \(\hat{R}_0= \frac{\hat{\beta}}{\hat{\gamma}}\).
+
+\textbf{Reparametrized Least Squares ($\rr$, $\gamma$)}\label{reparametrized-least-squares-rux5f0-gamma}
+
+We Reparametrized the the ODES directly with \(\rr\) and \(\gamma\),
+
+\begin{align*}
+  \left \{
+  \begin{array}{cl}
+    \dot{X} &= - \rr \gamma Y \frac{X}{N}\\
+    \dot{Y} &=  \rr \gamma Y \frac{X}{N}  - \gamma Y \\
+    \dot{Z} &=  - \gamma Y 
+  \end{array}
+  \right .
+  \end{align*}
+
+We find
+
+\begin{align*}
+(\hat{R}_0, \hat{\gamma} )&=\text{argmin}_{\rr, \gamma} \sum_{t} (Y(t)_{obs} - Y(t))^2 .
+\end{align*}
+
+We use the \(\rr\) directly from the above calculation.
+
+\textbf{Linear Model Approximation (degree
+10)}\label{linear-model-approximation-degree-10}
+
+We fit a linear polynomial of \(t\) with degree \(K= 10\) model to \(X\)
+and \(Y\) using least squares to find the coefficients (\(\hat{x}_k\),
+\(\hat{y}_k\)),
+
+\begin{align*}
+X(t) &= \sum_{k=0}^K x_k t^k\\
+{Y}(t) &= \sum_{k=0}^K y_k t^k
+\end{align*}
+
+Then, we estimate the derivatives as
+
+\begin{align*}
+\hat{X}^\prime(t) &= \sum_{k=1}^K k \hat{x}_k t^{k-1}\\
+\hat{Y}^\prime(t) &= \sum_{k=0}^K k \hat{y}_k t^{k-1}
+\end{align*}
+
+Then \(\rr\) is calculated as according to the ODES,
+\[\rr = \frac{\hat{X}^\prime(0)}{ \hat{X}^\prime(0) + \hat{Y}^\prime(0)} \cdot \frac{N}{X(0)} \]
+
+\textbf{Linear Model Approximation, All Time Points (degree
+10)}\label{linear-model-approximation-all-time-points-degree-10}
+
+We fit a linear polynomial of \(t\) with degree \(K= 10\) model to \(X\)
+and \(Y\) as above, with a slight modification in how we calculate
+\(\rr\),
+\[\rr = \frac{1}{\# \text{ Obs}}\sum_t \frac{\hat{X}^\prime(t)}{ \hat{X}^\prime(t) + \hat{Y}^\prime(t)} \cdot \frac{N}{X(0)} \]
+
+\textbf{Max of Data}\label{max-of-data}
+
+We note that \(Y^\prime(t) > 0\) when \(\rr < \frac{S(t)}{N}\). The max
+of \(Y\) occurs when \(Y^\prime = 0\) and hence
+\[\rr = \frac{N}{X_{obs}(t^*)},\] where
+\(t^* = \text{arg max}_{t} Y_{obs}(t)\).
+
+\textbf{Smooth Maximum of Data}\label{smooth-maximum-of-data}
+
+We use a spline with 4 degrees of freedom to fit both \(X\), and \(Y\).
+We then apply the principle as above, except now,
+\[\rr = \frac{N}{\hat{X}(t^*)},\] where
+\(t^* = \text{arg max}_{t} \hat{Y}(t)\).
+
+\textbf{Incidence to Prevalence
+Ratio}\label{incidence-to-prevalence-ratio}
+In terms of data from the SIR model, incidence $J(t) \approx -(X(t+1) - X(t))$, and the IPR$(t) = \frac{J(t)}{Y(t)}$. The actual reproduction number, $R_a(t) = \text{IPR}(t)\cdot D$ where $D = 1 /\gamma$.  This method assumes that we have some prior knowledge about $\gamma$.  Thus we use as our estimate,
+
+\textbf{Smoothed Incidence to Prevalence Ratio}
+We use the same method as above, but first fit splines with 4 degrees of freedom, $\hat{X}(t)$ and $\hat{Y}(t)$, , to fit to $X_{obs}$ and $Y_{obs}$, respectively.  Then  $J(t) \approx -(\hat{X}(t+1) - \hat{X}(t))$, and the IPR$(t) = \frac{J(t)}{\hat{Y}(t)}$.  Then
+\begin{align*}
+\rr &= R_a(0).
+\end{align*}
+
+
+
+\subsubsection{Harko}
+Recently, \citep{harko2014exact} were able to reduce the SIR (XYZ) equation, with the following set of ODEs
+
+\begin{align*}
+  \left \{ \begin{array}{ll}
+             \frac{dX}{dt} &= - b X(t) Y(t) \\
+             \frac{dY}{dt} &=  b X(t) Y(t) - \gamma Y\\
+             \frac{dZ}{dt} &= \gamma Y,\\
+           \end{array}
+  \right .
+\end{align*}
+
+where $b = \frac{\beta}{N}$, to one differential equation.  Here,
+\begin{align*}
+  u(t) &= e^{\frac{\beta}{\gamma}Z} \\
+  t - t_0 &= \int_{u_0}^u \frac{d \xi}{\xi (C_1 - \gamma \log \xi + X(0) b \xi)},
+\end{align*}
+where $C_1 = -\frac{b}{N}$.  Then
+
+\begin{align}
+  X &= X(0) u  = X(0) e^{\frac{\beta}{\gamma}Z} \nonumber\\
+  \log \frac{X(t)}{X(0)} &=  \frac{b}{\gamma}Z =  \frac{\beta}{\gamma N} Z \nonumber\\
+  \log \frac{X(t)}{X(0)} &=  \frac{\rr}{N} Z \label{eq:harko_lin}
+\end{align}
+
+If we add error into Equation (\ref{eq:harko_lin}), then we have
+
+\begin{align}
+  \log \frac{X(t)}{X(0)} &=  \frac{\rr}{N} Z  + \epsilon_t\label{eq:r0_harko}
+\end{align}
+
+If we assume $\epsilon_t \overset{iid}{\sim}N(0, \sigma^2)$, then we can directly estimate $\rr/N$ through linear regression and also an expression for the variance.
+
+
+\subsubsection{SEIR Model}
+\label{sec:seir-model}
+
+The SEIR model is a common adaptation of the SIR compartment model \com{add references that use this method}.  The ``E'' compartment stands for ``exposed'' and represents the stage where individuals are infected but not yet infectious.  The model is described by the following set of equations, as described by \cite{cintronarias2009}.  This particular model here does not include birth and death rates but the model can be adapted to do so,
+\begin{align*}
+  \frac{dS}{dt} &= - \beta SI \\
+  \frac{dE}{dt} &= \beta SI  - \alpha E\\
+  \frac{dI}{dt} &= \alpha E - \gamma I \\
+  \frac{dR}{dt} &= \gamma I.
+\end{align*}
+
+Then $\rr = \beta / \gamma$, just as in the SIR model.  As in the SIR model, $\beta$ and $\gamma$ have the same interpretation and $\alpha$  The methods used to estimate the parameters $\beta$ and $\gamma$ are of the same class used to estimate those parameters in the SIR model.  The important difference between this method and the SIR model is the assumption of a 4th class, the exposed compartment.  Typically, this method will result in ...\com{figure out}... than the SIR method.  Homogeneous mixing of the compartments is assumed.
+
+
+
+\subsubsection{Attack Rate}
+
+The Attack Rate (AR) as described by \cite{obadia2012r0} as the ``percentage of the population eventually infected.''  Under the SIR (XYZ) model with constant population,
+
+\begin{align}\label{r0_attackrate}
+\rr =  \frac{\log \left (\frac{1  - AR}{X(0)/N}  \right ) }{AR - (1 - X(0)/N)}
+\end{align}
+
+This method can only be used to assess $\rr$ after a disease has passed through a population.  Additionally, if either $\beta$ or $\gamma$ were affected during the disease's lifetime then $\rr$ cannot be properly assessed.
+
+
+\subsubsection{Amplifier Model}
+\cite{blower2004} discuss the case where a disease may have different strains and consequently different reproduction numbers.  They introduce a multistrain mathematical model called the amplifier model to deal with this case.
+
+This model is based on the the SLIR compartment model, where $L$ stands for latently infected individuals and $T$ for diseased individuals.  There is a set of ODEs for each strain of the disease with different parameters for recovery, transmission rate, and drug resistance of the disease.  Additionally, there is mixing of the different strains as ``the amplifier model also allows for immigrating and emigration of individuals of all types, as well as reinfection of latently infected individuals'' \citep{blower2004}.  The details may be found in their manuscript.  Ultimately, their derivation for $\rr^{(i)}$ where $i$ stands for the $i$th strain is
+\begin{align*}
+\rr^{(i)} = S^* \frac{ ( \beta_i^T + \beta_i^L)\nu_i + \beta_i^T \mu_i^L}{(\nu_i + \mu_i^L)(c_i + k_{i,i+1} + \mu_i^T)}.
+\end{align*}
+Here, $S^*$ is the number of susceptibles individuals in the disease-free equilibrium in the absence of immigration or emigration; $\beta_i^L$ and $\beta_i^T$ are strain-specific transmission rates for the latent, and infected classes, respectively; $\nu_i$ denotes the progression rate from latently infected to disease for strain $i$; $\mu_i^L$ and $\mu_i^{T}$ are death rates for the latent and infected classes, respectively; $c_i$ is the cure rate; and $k_{i, i+1}$ is a parameter associated with the degree of amplification of drug resistance.  They note that ``each reproduction number is the product of average number of secondary infections caused per unit time, the aver time a case remains infectious and the probability that an infected individual develops disease.''
+
+In the amplifier model, $\rr$ was derived from using the stability point (disease free equilibrium state in the absence of immigration or emigration) of the system by solving the characteristic polynomial for the eigenvalues
+
+
+\subsubsection{Sequential Bayes}\label{sec:seqbayes}
+
+Posited by \cite{bettencourt2008} and summarized in \cite{obadia2012r0}, this method uses a Bayesian approach to an approximation to the classic SIR model.  The approximated SIR model is that the incidence at $t+1$, $N(t+1)$ is, with $\gamma$ as the  average inverse of the infectious period and $R$ as the effective reproduction number, which we take here to be $\rr$.
+
+In order to estimate $\rr$, we must have some idea about the serial interval.
+\begin{align*}
+N(t+1)  \sim Poisson( N(t) \exp \left \{  \gamma (R-1)\right \})
+\end{align*}
+Then, the posterior distribution of $\rr$ given the previous days' incidences is
+\begin{align*}
+  P(\rr | N_0, \dots, N_{t+1}) = \frac{P(N_{t+1} | \rr, N_0, \dots, N_t)P(\rr| N_0, \dots, N_t)}{P(N_0, \dots, N_{t+1})}.
+\end{align*}
+This method is sequential in that the prior distribution for $\rr$ comes from the previous day.  The initial prior for $\rr$ is assumed to be flat.  This method results in a posterior distribution from which credible intervals may be obtained.  This method assumes, initial growth in incidence to be exponential, and homogeneous mixing of populations as with any compartment model.
+
+
+
+\subsubsection{Next Generation Model}
+\label{sec:ngm}
+
+The Next Generation Model (NGM) is a generalization of any compartment model at the infection-free steady state. This model solves the problem of having an expression of $\rr$ in terms of the epidemiological parameters for a general compartment model.  Originally, introduced by \citep{diekmann1990}, \cite{diekmann2009} posit a recipe to find $\rr$ for a wide class of compartment models, including commonly used ones such as MSEIR, MSEIRS, SEIR, SEIRS, SIR, SIRS, SEI, SEIS, SI, and SIS \citep{hethcote2000}. We summarize that recipe here, using their notation.  First, define the \textit{infected subsystem} as ``the equations of the ODE system that describe the production of new infections and changes in state among infected individuals.''  Let $x = (C_1, C_2, \dots, C_m)$ where $C_i$ are the different compartments of the infected subsystem.  The steps to find $\rr$ are as follows:
+
+
+\begin{enumerate}
+\item ``Linearize the infected subsystem of nonlinear ODEs about the infection-free steady state''
+\item Decompose the linearized infected subsystem into $(T + \Sigma )x$ where $T$ is a $m\times m$ matrix of transmissions and $\Sigma$ is a $m \times m$ matrix of transitions.
+\item $\rr$ is the spectral radius (i.e. the dominant eigenvalue) of $K_L=-T \Sigma^{-1}$.  Here $L$ stands for the ``large domain.''
+\end{enumerate}
+
+Here, $T_{ij}$ is the rate of transmission of \textit{newly} infected individuals in state $i$ created by individuals in state $j$.  $\Sigma_{ij}$ is the transition rate of individuals into compartment $i$ from compartment $j$.
+
+This method has the assumptions of a basic compartment model: homogeneous mixing among populations and the law of mass action, i.e., that the number of infected individuals are proportional to the number of infected individuals at the previous step.  The estimations for $\rr$ from the previously mentioned compartment models \com{list those models} may also be derived using this method.  Additionally, this method is advantageous in that the matrix $\Sigma$ has an intuitive meaning.
+
+%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Exponential Growth}\label{sec:exp-growth}
+
+\subsubsection{Exponential Growth}
+\label{sec:expgrowth}
+\cite{wallinga2007generation} report that $R$ and hence $\rr$ may calculated by using the fact that infection ``counts increase exponentially in the initial phase of an epidemic.''  We need to know $r$, the \textit{per capita} change in the number of new cases per unit of time and $T_c$ the serial interval.
+
+Then, we have
+
+\begin{align}\label{eq:lotka}
+\rr = \exp{(r T_c)}
+\end{align}
+or its first order approximation
+
+\begin{align}\label{eq:anderson}
+\rr = 1 + rT_c.
+\end{align}
+
+
+Equation \eqref{eq:lotka} is derived from a demographic view using the Lotka Euler survival equations, whereas Equation \eqref{eq:anderson}is derived through an epidemiologist view using \com{something}.  These estimates for $\rr$ can be strikingly different.
+
+\cite{wallinga2007generation}, instead, use a moment generating function expression for $\rr$.  With $g(a)$ as the distribution of age at infection, then
+
+\begin{align*}
+\rr^{-1} &= \int_{a=0}^\infty e^{-ra}g(a)da.
+\end{align*}
+
+For all these above estimations of $\rr$, we observe the duration of generation intervals in a period of exponential growth.  Deciding when this occurs and which data to use to estimate $\rr$ is difficult.
+
+\subsubsection{Maximum Likelihood Estimator of Secondary Infections}\label{sec:mle-si}
+This method, described by \cite{forsberg2008}, finds the estimate of $\rr$ by maximizing the likelihood function under certain assumptions.  We assume that the ``the number of secondary cases produced by an infected individual follows a Poisson distribution, and that the serial interval is described by a multinomial distribution.''  Recall, the serial interval is the distribution of time between a primary case developing symptoms and a case infected by the primary case developing symptoms.  An approximate version of this can be simplified to a thinned Poisson where
+\begin{align*}
+  L(\rr, \mathbf{p}) = \prod_{t=1}^T \frac{e^{- \rr \sum_{j=1}^{\min(k,t)}N_{t-j}p_j}\left (\rr \sum_{j=1}^{\min(k,t)}N_{t-j}p_j \right )^{N_t}}{N_t!}.
+\end{align*}
+Here, $k$ is the maximal amount of the serial number, $T$ is the total time and $p_j$ is the probability of displaying symptoms on day $j$ after being infected.  The number of cases on day $t$, $N_t$ are incidence counts that are known. \com{more on this}
+
+This method assumes a Poisson distribution on $\rr$ in addition to assuming a multinomial on the serial interval.  Additionally, this method also assumes a period of exponential growth,
+
+
+%%%%%%%%%%%%% 5
+
+\subsubsection{Time Dependent Reproduction Number}\label{sec:timedep}
+This is another method used to estimate the effective reproduction number, which again, we take to be $\rr$ here.  This is a likelihood based approach where we maximize the likelihood that case $i$ has been infected by case $j$ at certain time using the generation interval, $w(t)$ where $t_i$ is when case $i$ was infected and $N$ is the total number of cases,
+\begin{align*}
+  p_{ij} &= w(t_i- t_j) / \sum_{i \neq k} w(t_i - t_k),\\
+  \rr &= \frac{1}{I(0)}\sum_{i=1}^N p_{i0}
+  \end{align*}
+
+  It is assumed we have some idea about the generation interval distribution, $w(t)$.
+
+\subsubsection{Initial Growth Rate and Final Size}
+\label{sec:igr-fs}
+\com{this should be moved up in the order}
+
+Initial growth rate, as described by \cite{dietz1993estimation} is derived by \cite{anderson1986}, initially to study the spread of HIV estimates $\rr$ through
+\begin{align*}
+\rr = \frac{D \ln 2} {t_d} + 1,
+  \end{align*}
+  with $D$ as the average incubation period and $t_d$ as the doubling time during its early stages.  This method assumes you know when the ``early stage'' ends along with knowledge of the average incubation period.  
+
+  Final size, on the other hand, only looks at $\rr$ once a disease has run its course.  Here $\mu_0$ is the proportion of initially infected individuals and $\mu_\infty$ is the final, cumulative proportion of infected cases at the end of an epidemic,
+  \begin{align*}
+    \rr = (1- \mu_\infty)^{-1} \ln \mu_\infty^{-1}.
+  \end{align*}
+
+  For final size, it is assumed the initial population is completely susceptible
+
+  These two methods allow one to look at $\rr$ at both the beginning and the end of an epidemic.  However, both approaches have advantages and disadvantages.  For the initial growth rate, while one can see $\rr$ at early stages, estimating the doubling time $t_d$ is difficult.  For final size, one has to wait until the end of an epidemic to calculate $\rr$, and preventions of the disease may skew the final result.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Estimation from Networks}
+\label{sec:network}
+
+\subsubsection{Branching Process}
+\label{sec:branching-process}
+
+Branching processes are models for population growth and track generations of new offspring.  We describe branching processes as adapted for epidemic modelling from the notation of \cite{grimmett1991}.  An infector $i$ may produce new infections over the lifetime of the original infector's disease.  These new infections are called offspring.  The offspring the orginal infector directly produces are called the first generation.  The offspring of the first generation are called the second generation and so on.  An important assumption in branching processes is that the offspring produced from different infectors are indepedent and identically distributed (iid), and so for a branching process to be a valid model in epidemic modeling, we must assume a large population with few infectors.
+
+\com{draw a family tree}
+
+\cite{getz2006} give a way to calculate \rr from a branching process.  ```We define the offspring distribution $\{q_i \}_{i=0}^\infty$, where $q_i$  is the probability that an infectious individual infects $i$ other individuals.  Thus we require $\sum_{i=0}^\infty q_i =1$ and note that $\rr$, the mean number of cases contracting disease from each infective, is simply given by
+  \begin{align*}
+    \rr = \sum_{i=0}^\infty iq_i."
+  \end{align*}
+
+
+
+    
+
+\subsubsection{Agent-Based Models}
+\label{sec:agent-based-models}
+Agent-based models (ABMs) or individual level models (ILMs) are ``bottom-up'' models, meaning micro patterns are simulated and macro patterns are then derived from these simulations.  ABMs consist of agents which represent individuals (e.g., people, mosquitoes, poultry) and a series of activities in which the agents can affect one another and evolve over time.
+
+In epidemiology, ABMs can be used to simulate the spread of disease.  ABMs allow for every detail of an infection to be known, in the context of $\rr$, meaning we know exactly who is infected by whom and when.  Thus $\rr$ can be calculated simply through
+\begin{align*}
+  \rr = \frac{1}{\# \text{ simulations}}\frac{1}{\#\text{ initial infections}} \sum_{s \in \text{ simulations}}\sum_{i \text{ infected at } t=0} \# \text{ infected by $i$ in simulation }s.
+\end{align*}
+
+The difficulty in the ABM lies in calibrating the evolving of agents over time to accurately reflect reality, which is a problem that cannot be understated.  Thus, it is typically necessary to have knowledge of parameters such as the serial interval, transmission rate, recovery rate, etc.  Additionally, we need to have accurate agents in number, characteristics, and their implied network structure.
+
+Examples of calculations of $\rr$ using ABMs/ILMs are in \cite{breban2007,ahmed2013variance}.
+
+
+
+
+
+\subsection{Variance Methods}
+\label{sec:methods}
+
+\subsubsection{Inverse Hessian}\label{inverse-hessian}
+
+When we calculate the parameters of the SIR model using least squares,
+we use gradient descent using the Hessian along the way. We use the
+relationship with the Fisher Information Matrix to approximate the
+covariance matrix of the parameters.
+
+\subsubsection{Sensitivity Analysis}\label{sensitivity-analysis}
+
+We estimate \(\frac{\partial Y}{\partial \beta}\) (or
+\(\frac{\partial Y}{\partial \rr}\) when using reparametrized least
+squares) and \(\frac{\partial Y}{\partial \gamma}\) at each time point
+\(t\) using the estimated \(\beta\) or \(\gamma\) from the estimation
+process. Then an approximation of the covariance matrix is
+\((\chi^T \chi)^{-1}\) where
+\(\chi_{ij} = \frac{ \partial Y(t_i)}{ \partial \theta_j}\) where
+\(\theta\) is a vector of parameters. (add citation)
+
+\subsubsection{Jackknife}\label{jackknife}
+
+We estimate \(\rr^{(-i)}\) using a specified method leaving out the
+\(i\)th time point out from the data each iteration. Assume there are
+\(n\) time points of observations. Then
+\[V[\rr] = \frac{n-1}{n} \sum_{i=1}^n \left (\rr^{(-i)} - \frac{1}{n} \sum_{i=1}^n\rr^{(-i)} \right)^2\]
+
+\subsubsection{Delta Method}\label{delta-method}
+
+When the method estimates \(\beta\) and \(\gamma\) instead of \(\rr\)
+directly, we use the delta method approximation to calculate the
+variance of \(\rr\). Here, we know
+\(\rr = h(\beta, \gamma) = \frac{\beta}{\gamma}\). Then
+\(\bigtriangleup h = (\frac{1}{\gamma}, - \frac{\beta}{\gamma^2})^T\).
+Then
+\(V[\rr] = \bigtriangleup h^T \Sigma_{\beta, \gamma} \bigtriangleup h\),
+where \(\Sigma_{\beta, \gamma}\) is covariance matrix of \(\beta\) and
+\(\gamma\).
+%%%%%%%%%%%%%%%
+
+
+
+
+\section{Analysis and Results}
+\label{sec:results}
+
+\section{Discussion}
+\label{sec:dis}
+
+
+\label{sec:details}
+
+
+
+
+\bibliographystyle{apa}%Choose a bibliograhpic style
+\bibliography{Master}
+
+
+
+
+\end{document}
+
+
+%%%%%%%%%%%%%%%%%%%%%%
+\Textbf{Title:} 
+
+\textbf{Author:} 
+
+\textbf{Citation:} 
+
+\textbf{Major themes:} 
+
+\textbf{Notes:}
+\\
+%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+\begin{figure}[h]
+\begin{center}
+\includegraphics[width=4in]{mvhw7_3c.pdf}
+\end{center}
+\caption{
+Biplots of the different continuous variables and their correlations.}\label{fig3c}
+\end{figure}
+
+%% two pictures whoa
+
+\begin{figure}[h]
+\centering
+
+
+\begin{figure}[h]
+\centering
+
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=1\linewidth]{mt_eda_cont_hists.pdf}
+  \caption{Histograms of Arrival Delay and continuous covariates.  Arrival delay seems to have a right skewed distribution.  This may indicate that we will be transforming this variable later on.  After transforming Air Time and Distance by a log transformation, we don't really seem to have many outliers in our covariates.  We seem to have outliers in the CRS Dep. Time and Arrival Time; however, time is cyclical and so these are not, in fact outliers.}
+  \label{hists}
+\end{subfigure}%
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=1\linewidth]{mt_eda_cont_hists.pdf}
+  \caption{\textcolor{red}{Placeholder}}
+  \label{tabs1}
+\end{subfigure}
+\caption{}
+\end{figure}
+
+
+
+
+
+
+
+%%
+\begin{figure}
+\centering
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=1\linewidth]{resids_full.pdf}
+  \caption{}
+  \label{residsf}
+\end{subfigure}%
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=1\linewidth]{diags_full.pdf}
+  \caption{ }
+  \label{diagsf}
+\end{subfigure}
+\caption{}
+\end{figure}
+
+
+
+

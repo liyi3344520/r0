@@ -1,0 +1,35 @@
+\contentsline {section}{\numberline {1}Introduction}{2}
+\contentsline {subsection}{\numberline {1.1}Origins and Difficulties of Estimating $\ensuremath {\mathcal {R}_0}$}{3}
+\contentsline {subsection}{\numberline {1.2}Kermack and McKendrick's SIR Model}{6}
+\contentsline {subsection}{\numberline {1.3}$\ensuremath {\mathcal {R}_0}$ is a property of the model}{8}
+\contentsline {section}{\numberline {2}Overview of nine methods to estimate $\ensuremath {\mathcal {R}_0}$ for the SIR model}{11}
+\contentsline {subsection}{\numberline {2.1}Ratio Estimator ($\beta $, $\gamma $) (RE)}{12}
+\contentsline {subsection}{\numberline {2.2}Reparametrized Ratio Estimator ($\ensuremath {\mathcal {R}_0}$, $\gamma $) (rRE)}{12}
+\contentsline {subsection}{\numberline {2.3}Linear Model Approximation (LMA)}{13}
+\contentsline {subsection}{\numberline {2.4}Linear Model Approximation, All Time Points (LMAT)}{14}
+\contentsline {subsection}{\numberline {2.5}Incidence to Prevalence Ratio (IPR)}{14}
+\contentsline {subsection}{\numberline {2.6}Smoothed Incidence to Prevalence Ratio (SIPR)}{14}
+\contentsline {subsection}{\numberline {2.7}Log-Linear (LL)}{15}
+\contentsline {subsection}{\numberline {2.8}Markov chain estimation (MC)}{16}
+\contentsline {subsection}{\numberline {2.9}Sequential Bayes (SB)}{16}
+\contentsline {section}{\numberline {3}Confidence and Credible Intervals}{17}
+\contentsline {subsection}{\numberline {3.1}Delta Method}{17}
+\contentsline {subsection}{\numberline {3.2}Block Bootstrap}{18}
+\contentsline {subsection}{\numberline {3.3}Posterior Distribution}{18}
+\contentsline {section}{\numberline {4}Fitting the models to data}{19}
+\contentsline {subsection}{\numberline {4.1}SIR Data}{20}
+\contentsline {subsection}{\numberline {4.2}Other Simulated Data}{21}
+\contentsline {subsection}{\numberline {4.3}Model Fitting Details}{23}
+\contentsline {section}{\numberline {5}Results}{23}
+\contentsline {subsection}{\numberline {5.1}$\ensuremath {\mathcal {R}_0}$ estimation methods}{23}
+\contentsline {subsection}{\numberline {5.2}Variance of $\ensuremath {\mathcal {R}_0}$ estimation methods}{30}
+\contentsline {subsubsection}{\numberline {5.2.1}Delta Method and Posterior}{30}
+\contentsline {subsubsection}{\numberline {5.2.2}Block Bootstrap}{30}
+\contentsline {subsubsection}{\numberline {5.2.3}Posterior}{33}
+\contentsline {subsection}{\numberline {5.3}Application to USA H1N1 data}{33}
+\contentsline {subsubsection}{\numberline {5.3.1}USA H1N1 Influenza 2009 data}{33}
+\contentsline {subsubsection}{\numberline {5.3.2}Results of H1N1 data}{34}
+\contentsline {section}{\numberline {6}Discussion}{35}
+\contentsline {section}{\numberline {A}Beyond the SIR Model}{41}
+\contentsline {subsection}{\numberline {A.1}Exponential Growth (EG)}{41}
+\contentsline {subsection}{\numberline {A.2}Incidence Decay and Exponential Adjustment (IDEA)}{43}
