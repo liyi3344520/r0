@@ -52,7 +52,7 @@ harkoSIR <- function(start_param = c("beta" = 0.06, "gamma" = 0.05),
   r0_est <- abs(summary(lin_reg)$coef[2, 1])
   r0_sd <- summary(lin_reg)$coef[2, 2]
 #   return(list(est = r0_est))
-  return(list(est = r0_est, sd = r0_sd))
+  return(list(est = r0_est, sd = r0_sd, output = summary(lin_reg)))
 }
 
 

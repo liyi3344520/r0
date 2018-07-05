@@ -15,7 +15,8 @@ library(deSolve)
 #sus.data is the number of people in S for each day in the data. Must be a vector of numbers, same length as days.
 
 
-SIRreg <- function(init.param, init.pop, days, inf.data, sus.data, ndeps = 0.00001) {
+SIRreg <- function(init.param, init.pop, days, inf.data, sus.data, 
+                   ndeps = 0.00001, parscale_o = c(0.01, 0.01)) {
   #Get initial populations of each compartment S, I, R.
   init.sus <- init.pop["S"]
   init.inf <- init.pop["I"]
@@ -68,7 +69,8 @@ SIRreg <- function(init.param, init.pop, days, inf.data, sus.data, ndeps = 0.000
                      sus.data = sus.data,
                      inf.data = inf.data,
                      hessian = T,
-                     control = list(ndeps = rep(ndeps, length(init.param))))
+                     control = list(ndeps = rep(ndeps, length(init.param)),
+                                    parscale = parscale_o))
     return(c(par.sir))
   }
   
@@ -80,7 +82,7 @@ SIRreg <- function(init.param, init.pop, days, inf.data, sus.data, ndeps = 0.000
   model_est <- sir.optim(init.param, init.sir, control.sir, inf.data, sus.data, days)
   
   r0_est <- model_est$par["beta"] / model_est$par["gamma"]
-  r0_hessian <- model_est$hessian
+  r0_hessian <- model_est$hessian / model_est$value
   dh <- c(1/model_est$par["gamma"], - model_est$par["beta"] / (1/model_est$par["gamma"]^2))
   r0_sd <- sqrt(t(dh) %*% solve(r0_hessian) %*% dh)
 
@@ -153,7 +155,7 @@ SIRreg <- function(init.param, init.pop, days, inf.data, sus.data, ndeps = 0.000
   
   r0_sd2 <- sqrt(t(dh) %*% solve(r0_sd2) %*% dh)
   
-  return(list(est = r0_est, sd = r0_sd, sd2 = r0_sd2))
+  return(list(est = r0_est, sd = r0_sd, sd2 = r0_sd2, output = model_est))
 }
 
 #dat <- read.csv("https://raw.githubusercontent.com/atzechang/data/master/Baseline/Baseline1_99950_10_1/Baseline1Norm.csv")[,-1]

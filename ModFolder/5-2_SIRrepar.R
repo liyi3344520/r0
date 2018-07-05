@@ -15,7 +15,8 @@ library(deSolve)
 #sus.data is the number of people in S for each day in the data. Must be a vector of numbers, same length as days.
 #ndeps is for optim calculating the hessian
 
-SIRrepar <- function(init.param, init.pop, days, inf.data, sus.data, ndeps = 0.00001) {
+SIRrepar <- function(init.param, init.pop, days, inf.data, sus.data, 
+                     ndeps = 0.00001, parscale_o = c(0.01, 0.01)) {
   #Get initial populations of each compartment S, I, R.
   init.sus <- init.pop["S"]
   init.inf <- init.pop["I"]
@@ -68,7 +69,8 @@ SIRrepar <- function(init.param, init.pop, days, inf.data, sus.data, ndeps = 0.0
                      sus.data = sus.data,
                      inf.data = inf.data,
                      hessian = T,
-                     control = list(ndeps = rep(ndeps, length(init.param))))
+                     control = list(ndeps = rep(ndeps, length(init.param)),
+                                    parscale = parscale_o))
     return(c(par.sir))
   }
   
@@ -133,13 +135,13 @@ SIRrepar <- function(init.param, init.pop, days, inf.data, sus.data, ndeps = 0.0
   model_est <- sir.optim(init.param, init.sir, control.sir, inf.data, sus.data, days)
   
   r0_est <- model_est$par["r0"]
-  r0_hessian <- model_est$hessian
-  r0_sd <- sqrt(1 / r0_hessian[1,1])
+  r0_hessian <- solve(model_est$hessian / model_est$value)
+  r0_sd <- sqrt(abs(r0_hessian[1,1]))
   
   r0var <- sensitivity_analysis(model_est$par["r0"], model_est$par["gamma"], 
                                  T = max(days), t = days, X0 = init.sus, 
                                  Y0 = init.inf, Z0 = init.rem, inner_fxn = SIR_re_inner)
   r0sd2 <- sqrt(1 / r0var[1,1])
   
-  return(list(est = r0_est, sd = r0_sd, sd2 = r0sd2))
+  return(list(est = r0_est, sd = r0_sd, sd2 = r0sd2, output = model_est))
 }

@@ -30,7 +30,7 @@ exp_growth <- function(start_pop = c("S" = 99950, "E" = 0, "I" = 50, "R" = 0),
   dh <- -1 / (Mt ^ 2) * sum(-discrete_steps * w * exp(-discrete_steps * r))
   
   
-  r0_sd <- dh ^ 2 * r_se
+  r0_sd <- dh * r_se
   
   return(list(est = r0, sd = r0_sd))
 }

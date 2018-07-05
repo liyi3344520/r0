@@ -19,7 +19,7 @@ poly_deriv <- function(t, mod){
   if( k == 1 ) {return(deriv_coefs)}
   else if ( k < 1){ return(0)}
   poly_mat <- cbind(rep(1, length(t)), poly(t, k-1, raw = TRUE))
-  deriv_val <- poly_mat %*% (deriv_coefs * 1:k)
+  deriv_val <- poly_mat %*% (deriv_coefs * (1:k))
   return(deriv_val)
 }
 
@@ -45,7 +45,7 @@ SIRlma <- function(init.pop, days, inf.data, sus.data, k = 10) {
   dxt <- poly_deriv(days, x_mod)
   dyt <- poly_deriv(days, y_mod)
   xt <- x_hat
-  r0_est <- (dxt[1] * N) / ((dyt[1] + dxt[1]) * xt[1])
+  r0_est <- (dxt[1] * N) / ((dyt[1] + dxt[1]) * init.sus )
   
   r01 <- numeric(length(days))
   for(ii in 1:length(r01)){
@@ -56,12 +56,14 @@ SIRlma <- function(init.pop, days, inf.data, sus.data, k = 10) {
     dxt <- poly_deriv(days, x_mod)
     dyt <- poly_deriv(days, y_mod)
     xt <- x_hat
-    r01[ii] <- (dxt[1] * N) / ((dyt[1] + dxt[1]) * xt[1])
+    r01[ii] <- (dxt[1] * N) / ((dyt[1] + dxt[1]) * init.sus)
   }
   r01var <- (n-1) / n * sum((r01 - mean(r01))^2)
   r0_sd <- sqrt(r01var)
   
-  return(list(est = r0_est, sd = r0_sd))
+  return(list(est = r0_est, sd = r0_sd, 
+              output = list(y_mod = y_mod, x_mod = x_mod, x_hat = x_hat,
+                            y_hat = y_hat, dxt = dxt, dyt = dyt)))
 }
 
 SIRlmat <- function(init.pop, days, inf.data, sus.data, k = 10) {
@@ -86,9 +88,11 @@ SIRlmat <- function(init.pop, days, inf.data, sus.data, k = 10) {
   dxt <- poly_deriv(days, x_mod)
   dyt <- poly_deriv(days, y_mod)
   xt <- x_hat
-  r0_est <- mean((dxt  / (dyt + dxt)) )* N / xt[1]
-  r0_sd <- sd((dxt  / (dyt + dxt)) )* N / xt[1]
+  r0_est <- mean((dxt  / (dyt + dxt)) )* N / init.sus 
+  r0_sd <- sd((dxt  / (dyt + dxt)) )* N / init.sus 
   
-  return(list(est = r0_est, sd = r0_sd))
+  return(list(est = r0_est, sd = r0_sd, 
+              output = list(y_mod = y_mod, x_mod = x_mod, x_hat = x_hat,
+                            y_hat = y_hat, dxt = dxt, dyt = dyt)))
 }
 

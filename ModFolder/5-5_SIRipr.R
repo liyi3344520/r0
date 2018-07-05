@@ -16,7 +16,7 @@ SIRipr <- function(init.pop, days, inf.data, sus.data, gam) {
   IPR <- ifelse(IPR < 0, 0, IPR)
   r0_est <- mean(IPR / gam)
   r0_sd <- sd(IPR / gam)
-  return(list(est = r0_est, sd = r0_sd))
+  return(list(est = r0_est, sd = r0_sd, output = list(IPR = IPR)))
 }
 
 SIRsipr <- function(init.pop, days, inf.data, sus.data, gam) {
@@ -41,8 +41,9 @@ SIRsipr <- function(init.pop, days, inf.data, sus.data, gam) {
     yhat <- predict(mody, seq(0, max(days), by = 1))
     J <- -diff(xhat$y, lag = 1) #incidence
     IPR <- J[1] / yhat$y[1]
+    IPR <- ifelse(IPR < 0, 0, IPR)
     r0[ii] <- IPR / gam
   }
   r0_sd <- sqrt((n-1) / n * sum((r0 - mean(r0))^2))
-  return(list(est = r0_est, sd = r0_sd))
+  return(list(est = r0_est, sd = r0_sd, output = list(IPR = IPR, xhat = xhat, yhat = yhat)))
 }
