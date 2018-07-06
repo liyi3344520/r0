@@ -64,7 +64,9 @@
 \date{\today}
 \maketitle
 
-\tableofcontents
+\begin{abstract}
+For nearly a century, the initial reproduction number ($\rr$) has been used to summarize infectious diseases and to compare them to one another.  It is difficult to estimate $\rr$ due to assumptions on both how a disease transmits through a population and also due to differences in statistical estimation methods.  We describe nine methods used to estimate $\rr$ and provide a thorough simulation study of how these methods differ in the presence of disease parameters.  As real world motivation, we analyze the outbreak of the H1N1 pandemic influenza in the USA and compare the results from our nine methods to a previous study.  We discuss the most important aspects from our results which effect the estimation of $\rr$ and provide guidelines for estimating point estimates and confidence/credible intervals to create reliable, comparable estimates of $\rr$.
+  \end{abstract}
 
 
 \section{Introduction}\label{sec:intro}
@@ -1083,67 +1085,14 @@ $\rr$ is a difficult quantity to estimate, but we hope that our methods of estim
 The SIR estimation methods generally give reliable estimates when the data are from an underlying SIR model with little or no noise. However, the estimates from the various methods are generally much worse when the magnitude of the noise is larger, when the parameters of the model are unusual, and when the model is misspecified. We also see a large difference between the $\rr$ estimates and standard errors on the exact same data sets as well, even though all derived from the same model. Thus, when estimating $\rr$ based on an SIR or any other kind of compartment model, we need to take careful consideration.
 
 
+\pagebreak
+
 \bibliographystyle{apa}%Choose a bibliograhpic style
 \bibliography{Master}
 
 
 \appendix
 
-\section{Beyond the SIR Model}
-
-
-\subsection{Exponential Growth (EG)}\label{sec:expgrowth}
-%% nishiura, majumder, IDEA model -- sum of squares (santillana2016)
-%% An IDEA for short term outbreak projection: nearcasting using the basic reproduction number.  (fisman2013, fisman2014)
-%% chowell 2008 - parametric bootstrap for a model they made up, but sort of empirical.
-Many researchers employ an assumption of exponential growth of the number infectious through times $t=0, 1, \dots, T^* <T$ \citep{wallinga2007generation,fisman2014,nishiura2016,majumder2016,towers2016}.
-\cite{wallinga2007generation} report that the effective reproduction number $\mathcal{R}_t$ and hence the initial reproduction number $\rr$ may derived using the fact that infection ``counts increase exponentially in the initial phase of an epidemic.''  We then have to estimate $r$, the \textit{per capita} change in the number of new cases per unit of time and $\omega$ the serial interval, the distribution of time between a primary and secondary infection. Then, we have
-\begin{align}\label{eq:lotka}
-\rr = \exp{(r \omega)}.
-\end{align}
-Equation \eqref{eq:lotka} is derived from a demographic view using the Lotka-Euler survival equations which come from the fields of demography, ecology, and evolutionary biology.
-
-\cite{wallinga2007generation}, instead, use a moment generating function expression for $\rr$.  With $\omega(t)$ as the serial interval, then
-\begin{align*}
-\rr^{-1} &= \frac{1}{M(-r)} = \int_{a=0}^\infty e^{-rt}\omega(t)dt.
-\end{align*}
-\cite{wallinga2007generation} specifically derive an estimate for $\rr$ for the SIR model.  They assume that the rate of leaving the infectious stsate, $\gamma$ is constant as is the rate of making contacts during the infectious stage.  Then, the duration of a serial interval is an exponential distribution with mean $\gamma^{-1}$, the moment generating function is then,
-\begin{align*}
-  M(-r) = \frac{\gamma}{\gamma + r},
-\end{align*}
-and the resulting estimate of $\rr$ is
-\begin{align}\label{eq:r0-eg}
-  \hat{\rr} = 1 + \frac{\hat{r}}{\hat{\gamma}},
-\end{align}
-where $\hat{r}$ and $\hat{\gamma}$ are estimates of the $r$ and $\gamma$, respectively.  The parameter $\hat{\gamma}$ is often assumed to be fixed or tried with a sequence of serial intervals \citep{majumder2016}.  We may estimate $\hat{r}$ using ordinary linear regression, namely,
-\begin{align*}
-  \log \left  (\frac{Y(t)}{Y(0)} \right )&= rt + \epsilon_t\\
-  \epsilon_t &\sim N(0, \sigma^2),
-\end{align*}
-which results in
-\begin{align}\label{eq:exp-growth}
-  \hat{r} &= \frac{\sum_{t=0}^{T^*}\left  (\frac{Y(t)}{Y(0)} \right )}{\sum_{t=0}^{T^*}t}.
-\end{align}
-
-
-
-For the above estimate of $\rr$, we observe the duration of serial intervals in a period of exponential growth of the number of infectious individuals.  Deciding when exponential growth occurs and which data points to use to estimate $\rr$ may be difficult.  We can use sensitivity analysis to see how the estimate $\rr$ changes as we increase or decrease $T^{*}$, the number of time points used. The reader may notice some similarities to the estimate for $\rr$ in Equation \eqref{eq:r0-eg} and from the log-linear model in Equation \eqref{eq:harko_lin}.  This method is a simplification of the SIR model as the $R$ compartment is not used to estimate $r$, only the recovery rate $\gamma$. 
-
-An advantage to this method are its (and similar adaptations) prevalence in the literature, which allows one to to compare estimates $\rr$ directly to one another.  Another advantage is its flexibility.  Here, we assumed the serial interval has an exponential distribution, but this is not a requirement and other distributions may be used (see \cite{wallinga2007generation}).  However, a disadvantage to this method is that is a simplification of the SIR model and we have to decide how many time points to use to estimate the exponential growth rate of infectious.  Another disadvantage to this method is that one also has to decide how to treat the additional paramter $\gamma$, whether to treat it as fixed, a range of fixed values, or even having a probability distribution.
-
-
-\subsection{Incidence Decay and Exponential Adjustment (IDEA)}\label{sec:idea}
-The Incidence Decay and Exponential Adjustment (IDEA) model is a way to account for a declining effective reproduction number of time due to both depletion of susceptible individuals and spontaneous and planned control activities and behaviors'' \citep{fisman2013}.  They model the incidence counts during the $t$th interval, $J(t),$ as
-\begin{align*}
-  J(t) &= \left [ \frac{\rr}{(1 + d)^t}\right ]^t,
-\end{align*}
-where $d$ is a dampening or discount factor.  As $d$ increases, the incidence at time $t$  decreases. The estimate for $\rr$ is obtained by minimizing the sum of squares over $\rr$ and $d$,
-\begin{align*}
-  \hat{\rr} &=  \arg \min_{\rr,d} \sum_{t=0}^{T^*}\left (J_{obs}(t) - J(t) \right)^2.
-\end{align*}
-The method presented in \cite{fisman2013} is a mathematical, rather than statistical model.  Sensitivity analysis is conducted with respect to $T^*$, $d$, and $\rr$, and lower and upper bounds are reported as a result of this analysis.
-
-Advantages of this method include its usefulness in estimating $\rr$ \citep{fisman2014,majumder2016}.  Additionally, this model may be employed to address the effect of control measures and better estimate the final size of an epidemic.  A disadvantage to this model is that its upper and lower bounds do not correspond to CIs.  Also, in this method we must select the interval size of the incidence counts.
 
 
 \end{document}

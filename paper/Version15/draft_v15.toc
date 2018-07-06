@@ -30,6 +30,3 @@
 \contentsline {subsubsection}{\numberline {5.3.1}USA H1N1 Influenza 2009 data}{33}
 \contentsline {subsubsection}{\numberline {5.3.2}Results of H1N1 data}{34}
 \contentsline {section}{\numberline {6}Discussion}{35}
-\contentsline {section}{\numberline {A}Beyond the SIR Model}{41}
-\contentsline {subsection}{\numberline {A.1}Exponential Growth (EG)}{41}
-\contentsline {subsection}{\numberline {A.2}Incidence Decay and Exponential Adjustment (IDEA)}{43}
