@@ -46,6 +46,12 @@ Bonabeau, E., Toubiana, L., and Flahault, A. (1998).
 \newblock The geographical spread of influenza.
 \newblock {\em Proceedings: Biological Sciences}, 265(1413):2421--2425.
 
+\bibitem[\protect\astroncite{Brooks et~al.}{2015}]{brooks2015}
+Brooks, L.~C., Farrow, D.~C., Hyun, S., Tibshirani, R.~J., and Rosenfeld, R.
+  (2015).
+\newblock Flexible modeling of epidemics with an empirical bayes framework.
+\newblock {\em PLOS Computational Biology}, 11(8):1--18.
+
 \bibitem[\protect\astroncite{Cao}{1999}]{cao1999}
 Cao, R. (1999).
 \newblock An overview of bootstrap methods for estimating and predicting in
@@ -58,11 +64,6 @@ Capaldi, A., Behrend, S., Berman, B., Smith, J., Wright, J., and Lloyd, A.~L.
 \newblock Parameter estimation and uncertainty quantication for an epidemic
   model.
 \newblock {\em Mathematical Biosciences and Engineering}, page 553.
-
-\bibitem[\protect\astroncite{Chang and Eddy}{2017}]{chang2017}
-Chang, A. and Eddy, W.~F. (2017).
-\newblock {A Statistical Approach to the SIR Model}.
-\newblock {\em Submitted.}
 
 \bibitem[\protect\astroncite{Chowell et~al.}{2008}]{chowell2008}
 Chowell, G., Miller, M., and Viboud, C. (2008).
@@ -130,17 +131,11 @@ Epstein, J.~M. (2007).
 \newblock Agent-based computational models and generative social science.
 \newblock {\em Introductory Chapters}.
 
-\bibitem[\protect\astroncite{Fisman et~al.}{2014a}]{fisman2014}
-Fisman, D., Khoo, E., and Tuite, A. (2014a).
+\bibitem[\protect\astroncite{Fisman et~al.}{2014}]{fisman2014}
+Fisman, D., Khoo, E., and Tuite, A. (2014).
 \newblock Early epidemic dynamics of the west african 2014 ebola outbreak:
   estimates derived with a simple two-parameter model.
 \newblock {\em PLoS currents}, 6.
-
-\bibitem[\protect\astroncite{Fisman et~al.}{2014b}]{fisman2013}
-Fisman, D.~N., Hauck, T.~S., Tuite, A.~R., and Greer, A.~L. (2014b).
-\newblock An idea for short term outbreak projection: Nearcasting using the
-  basic reproduction number.
-\newblock {\em PLOS ONE}, 8(12):1--8.
 
 \bibitem[\protect\astroncite{FluView}{2018}]{cdc-fluview}
 FluView, C. (2018).
@@ -215,9 +210,8 @@ Lash, T.~L. and Fink, A.~K. (2003).
   observational data.
 \newblock {\em Epidemiology}, 14(4):451--458.
 
-\bibitem[\protect\astroncite{Legrand et~al.}{2007}]{legrand2007}
+\bibitem[\protect\astroncite{Legrand et~al.}{}]{legrand2007}
 Legrand, J., Grais, R.~F., Boelle, P.~Y., Valleron, A.~J., and Flahault, A.
-  (2007).
 \newblock Understanding the dynamics of ebola epidemics.
 \newblock {\em Epidemiology and Infection}, 135(4):610--621.
 
@@ -302,14 +296,6 @@ Towers, S., Patterson-Lomba, O., and Castillo-Chavez, C. (2014).
 Van~den Driessche, P. (2017).
 \newblock Reproduction numbers of infectious disease models.
 \newblock {\em Infectious Disease Modelling}, 2(3):288--303.
-
-\bibitem[\protect\astroncite{Wallinga and
-  Lipsitch}{2007}]{wallinga2007generation}
-Wallinga, J. and Lipsitch, M. (2007).
-\newblock How generation intervals shape the relationship between growth rates
-  and reproductive numbers.
-\newblock {\em Proceedings of the Royal Society of London B: Biological
-  Sciences}, 274(1609):599--604.
 
 \bibitem[\protect\astroncite{Wasserman}{2004}]{wasserman2004}
 Wasserman, L., editor (2004).

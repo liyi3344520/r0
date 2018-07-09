@@ -70,11 +70,11 @@ For nearly a century, the initial reproduction number ($\rr$) has been used to s
 
 
 \section{Introduction}\label{sec:intro}
-What has been called ``arguably the most important quantity in the study of epidemics'' \citep{Heesterbeek2002},  $\mathcal{R}_0$, the reproduction number (by convention pronounced ``R-naught'') is an elusive quantity for epidemic modelers to estimate.  As defined by \citet{anderson1992}, $\rr$ is the ``the average number of secondary infections produced when one infected individual is introduced into a host population where everyone is susceptible.''  In some ways,$\rr$ summarizes an entire outbreak of a disease; it  is used to assess whether a disease epidemic will occur.  Additionally, it describes what percentage of the population needs to be vaccinated to avoid such an epidemic, roughly $1-\rr^{-1}$ \citep{anderson1992}).  Despite a clear definition of $\rr$, epidemiologists have struggled to create a standard  estimator for $\rr$  \citep{hethcote2000}.  A major issue in estimating $\rr$ is that the quantity is a \textit{property of the model}, meaning that $\rr$ is dependent not only on the usual noise that comes with statistical modeling but also on a variety of assumptions on how researchers assume a disease is transmitted through a population \citep{diekmann2009}.
+What has been called ``arguably the most important quantity in the study of epidemics'' \citep{Heesterbeek2002},  $\mathcal{R}_0$, the initial reproduction number (by convention pronounced ``R-naught'') is an elusive quantity for epidemic modelers to estimate.  As defined by \citet{anderson1992}, $\rr$ is the ``the average number of secondary infections produced when one infected individual is introduced into a host population where everyone is susceptible.''  In some ways, $\rr$ summarizes an entire outbreak of a disease; it  is used to assess whether a disease epidemic will occur.  Additionally, it describes what percentage of the population needs to be vaccinated to avoid such an epidemic, roughly $1-\rr^{-1}$ \citep{anderson1992}).  Despite a clear definition of $\rr$, epidemiologists have struggled to create a standard  estimator for $\rr$  \citep{hethcote2000}.  A major issue in estimating $\rr$ is that the quantity is a \textit{property of the model}, meaning that $\rr$ is dependent not only on the usual noise that comes with statistical modeling but also on a variety of assumptions on how researchers assume a disease is transmitted through a population \citep{diekmann2009}.
 
 To elaborate on $\rr$ being a property of the model, we first need to introduce the concept of the ``SI-framework,'' which was pioneered by Kermack and McKendrick in the 1920s \citep{getz2006}.   Here, S and I are known as compartments where S stands for ``susceptible'' and I for ``infectious.'' Infectious disease models then specify how individuals move from the S compartment to the I compartment.  Often, ancillary compartments are added such as R, which stands for recovered or dead, or E, which stands for exposed but not yet infectious.  The estimate of $\rr$ from a SIR model will not be directly comparable to the estimate of $\rr$ from a SEIR model, for example.  The difficulties of estimating $\rr$ are summarized and expanded upon by \cite{li2011}.  \cite{driessche2017} overviews a number of methods used to estimate $\rr$ but looks at systems beyond the SIR model and so these methods may not be directly compared.   As a result of $\rr$ being a property of the model, we limit our review to methods for estimating $\rr$ for the SIR model introduced by \cite{Kermack700}.
 
-Even when limiting $\rr$ estimates to those from SIR models, estimation is still difficult.  Problems include mathematical versus statistical methods (i.e. solving for $\rr$ versus estimating $\rr$), the number of observations used to estimate $\rr$ (i.e. time), boundary cases of infection and recovery rates, population size, initial SI ratio, and restrictive assumptions placed upon the noise.  These are all issues for producing point estimates, to say nothing of confidence or credible intervals (CI).
+Even when limiting $\rr$ estimates to those from SIR models, estimation is still difficult.  Problems include mathematical versus statistical methods (i.e. solving for $\rr$ versus estimating $\rr$), the number of observations used to estimate $\rr$ (i.e. time), boundary cases of infection and recovery rates, population size, initial SI ratio, and restrictive assumptions placed upon the noise.  These are all issues for producing point estimates, to say nothing of issues related to confidence or credible intervals (CI).
 
 We review \wxxsir methods for estimating $\rr$.  We note that these methods are not exhaustive but are chosen due to their impact and use in epidemiology.  We find that these methods also help to highlight the problems discussed above.
 
@@ -100,11 +100,11 @@ where $p(a)$ denotes the probability of a woman surviving to age $a$ and $\beta(
 
 Equation \ref{eq:surv} is the chronologically first, and in many ways, the most direct method to estimate $\rr$.  The premise of this whole paper is based upon the fact that estimating $\rr$ from the survival function in Equation \eqref{eq:surv} is a difficult task.  It is due to this difficulty that other estimates even exist and why we must treat $\rr$ as a property of the SIR model.
 
-Other difficulties in estimating $\rr$ arise from model assumptions on how randomness enters the model and sensitivity of the estimate to changes in the model parameters.  For example, the SIR model is special in that two of its compartments, S and R are monotonic.  The number of susceptibles is non-increasing and the number of susceptibles is non-decreasing.  Logically, models should enforce this monotonicity of the two compartments.  As a consequence, this restricts assumptions on how randomness enters the model.  For example, Gaussian error, a common assumption in statistics and machine learning, becomes highly suspect due to the non-symmetrical nature of the noise imposed by the monotonic $S$ and $R$ compartments.  Without assuming Gaussian noise, it becomes much more difficult to guarantee properties such as unbiased and consistent estimates of $\rr$.
+Other difficulties in estimating $\rr$ arise from model assumptions on how randomness enters the model and sensitivity of the estimate to changes in the model parameters.  For example, the SIR model is special in that two of its compartments, S and R are monotonic.  The number of susceptibles is non-increasing and the number of susceptibles is non-decreasing.  Logically, models should enforce this monotonicity of the two compartments.  As a consequence, this restricts assumptions on how randomness enters the model.  For example, Gaussian error, a common assumption in statistics and machine learning, becomes highly suspect due to the non-symmetrical nature of the noise imposed by the monotonic $S$ and $R$ compartments. 
 
-These difficulties in estimating $\rr$ have led a number of researchers to analyze the sensitivity of $\rr$ with respect to small perturbations in parameters like $\beta$ and $\gamma$ \citep{lash2003,epstein2007agent,capaldi2012}.  Even this is a difficult task. Since there is no analytic solution to the SIR model, estimating the set of derivatives with respect to $\beta$ and $\gamma$ must be done numerically, which can substantially increase computation time.  We should note that this sensitivity analysis is done before even adding any distributional assumptions on how randomness enters the model.
+These difficulties in estimating $\rr$ have led a number of researchers to analyze the sensitivity of $\rr$ with respect to small perturbations in parameters like $\beta$ and $\gamma$, respectively the infection and recovery rate \citep{lash2003,epstein2007agent,capaldi2012}.  Even this is a difficult task. Since there is no analytic solution to the SIR model, estimating the set of derivatives with respect to $\beta$ and $\gamma$ must be done numerically, which can substantially increase computation time.  We should note that this sensitivity analysis is done before even adding any distributional assumptions on how randomness enters the model.
 
-Below in Table \ref{tab:r0-real-ex}, we provide examples of estimates of $\rr$ for specific diseases from publications over the past three decades, spanning various locations over the world.  We display estimates for HIV, Zika (ZIK-V), Ebola (EVD), seasonal influenza, H1N1 influenza, and measles.  These estimates of $\rr$ are not limited to those of SIR model, although most results come from this framework.  Of these, Zika seems to have the largest estimated values of $\rr$, followed by Ebola, H1N1 influenza, seasonal influenza, and HIV.  We see that African locations seem to have larger estimates of $\rr$ compared to the rest of the world, regardless of the disease.  Some of the accompanying intervals (not necessarily CIs) are extremely large such as the case of HIV in Uganda (Interval: [0.12, 14.17]) whereas some are extremely small such as for Ebola in Guinea (Interval: [1.50, 1.52]).  We see that estimates for H1N1 influenza are generally higher than that of seasonal influenza, which is evidence that H1N1 should have been treated as a more critical concern than the typical seasonal influenza cycle.  The lowest possible estimate for $\rr$ reported is 0.12 for HIV in Uganda, and the largest is 17.00 for measles in England and Wales.  Within diseases, we see that estimates for $\rr$ seem to be similar, although typically do not lie in one another's intervals, suggesting that there is disparity in estimates of $\rr$.
+Below in Table \ref{tab:r0-real-ex}, we provide examples of estimates of $\rr$ for specific diseases from publications over the past three decades, spanning various locations over the world.  We display estimates for HIV, Zika (ZIK-V), Ebola (EVD), seasonal influenza, H1N1 influenza, and measles.  These estimates of $\rr$ are not limited to those of SIR model, although most results come from this framework.  Of these, Zika seems to have the largest estimated values of $\rr$, followed by Ebola, H1N1 influenza, seasonal influenza, and HIV.  We see that African locations seem to have larger estimates of $\rr$ compared to the rest of the world, regardless of the disease.  Some of the accompanying intervals (not necessarily CIs) are extremely large such as the case of HIV in Uganda (Interval: [0.12, 14.17]) whereas some are extremely small such as for Ebola in Guinea (Interval: [1.50, 1.52]).  We see that estimates for H1N1 influenza are generally higher than that of seasonal influenza, although we find that in our appliaction the opposite is true.  The lowest possible estimate for $\rr$ reported is 0.12 for HIV in Uganda, and the largest is 17.00 for measles in England and Wales.  Within diseases, we see that estimates for $\rr$ seem to be similar, although typically do not lie in one another's intervals, suggesting that there is disparity in estimates of $\rr$.
 
 % Please add the following required packages to your document preamble:
 % \usepackage{booktabs}
@@ -120,32 +120,33 @@ HIV                 & Belgium                          & 2004-2010              
 HIV                 & Netherlands                      & 2004-2010                     & 1.11        & 1.10            & 1.18           & \cite{coelho2011}    \\
 HIV                 & Portugal                         & 2004-2010                     & 1.08        & 1.06           & 1.15           & \cite{coelho2011}   \\
 HIV                 & San Francisco, USA               & 1993                          & 5.00           & 2.00              & 8.00              & \cite{blower1994}    \\
-HIV                 & Uganda                           & 2002-2008                     & 3.31        & 0.12           & 14.17          & \cite{nsubuga2014}    \\ \hline
+  HIV                 & Uganda                           & 2002-2008                     & 3.31        & 0.12           & 14.17          & \cite{nsubuga2014}    \\ \hline
+ZIK-V                & Colombia - Barrranquilla           & 2015                          & 2.40         & 3.80            & 5.60            & \cite{towers2016}    \\  
+  ZIK-V                & Colombia                         & 2015-2016                     & 2.50         & 3.00              & 3.60            & \cite{nishiura2016}    \\
+ZIK-V                & Colombia                         & 2015                          & 1.42        & 2.56           & 3.83           & \cite{majumder2016}  \\
 ZIK-V                & French Polynesia                 & 2013                          & 2.75        & 2.53           & 2.98           & \cite{zhang2017}        \\
 ZIK-V                & French Polynesia                 & 2013-2014                     & 3.70         & 2.60            & 4.80            & \cite{kucharski2016}  \\
-ZIK-V                & Florida                          & 2016                          & 0.16        & 0.13           & 0.19           & \cite{dinh2016}       \\
-ZIK-V                & Colombia                         & 2015-2016                     & 2.50         & 3.00              & 3.60            & \cite{nishiura2016}    \\
-ZIK-V                & Barranquilla, Colombia           & 2015                          & 2.40         & 3.80            & 5.60            & \cite{towers2016}    \\
-ZIK-V                & Colombia                         & 2015                          & 1.42        & 2.56           & 3.83           & \cite{majumder2016}  \\ \hline
+  ZIK-V                & Florida                          & 2016                          & 0.16        & 0.13           & 0.19           & \cite{dinh2016}       \\ \hline
+EVD                 & Democratic Republic of the Congo & 1995                          & 2.70         & 1.90            & 2.80            & \cite{legrand2007}  \\  
+  EVD                 & Guinea                           & 2014                          & 1.51        & 1.50            & 1.52           & \cite{althaus2014}   \\
+  EVD                 & Liberia                          & 2014                          & 1.59        & 1.57           & 1.60            & \cite{althaus2014}    \\
+  EVD                 & Sierra Leone                     & 2014                          & 2.53        & 2.41           & 2.67           & \cite{althaus2014}      \\
+EVD                 & Uganda                           & 2000                          & 2.70         & 2.50            & 4.10            & \cite{legrand2007}   \\
 EVD               & Western Africa                   & 2014                          & 1.78        & 1.60            & 2.00              & \cite{fisman2014}   \\
 EVD & Western Africa                   & 2014                          & 1.60         & 1.40            & 1.80            & \cite{towers2014}  \\
-EVD                 & Democratic Republic of the Congo & 1995                          & 2.70         & 1.90            & 2.80            & \cite{legrand2007}  \\
-EVD                 & Uganda                           & 2000                          & 2.70         & 2.50            & 4.10            & \cite{legrand2007}  \\
-EVD                 & Guinea                           & 2014                          & 1.51        & 1.50            & 1.52           & \cite{althaus2014}   \\
-EVD                 & Sierra Leone                     & 2014                          & 2.53        & 2.41           & 2.67           & \cite{althaus2014}      \\
-EVD                 & Liberia                          & 2014                          & 1.59        & 1.57           & 1.60            & \cite{althaus2014}    \\ \hline
-Seasonal Influenza  & USA, France, Australia           & 1972-2002 & 1.30         & 1.20            & 1.40            & \cite{chowell2008}  \\
-Seasonal Influenza  & French Territory                 & 1987-1995                     & 1.50         & 1.09           & 1.73           & \cite{bonabeau1998}  \\ \hline
+\hline
+Seasonal Influenza  & Australia, France, USA          & 1972-2002 & 1.30         & 1.20            & 1.40            & \cite{chowell2008}  \\
+  Seasonal Influenza  & French Territory                 & 1987-1995                     & 1.50         & 1.09           & 1.73           & \cite{bonabeau1998}  \\ \hline
+  H1N1 Influenza     & Peru                             & 2009                          & 1.37        & 1.20            & 1.70            & \cite{desilva2009}        \\   
 H1N1 Influenza      & Thailand                         & 2009                          & 2.07        & 1.92           & 2.22           & \cite{desilva2009}     \\
-  H1N1 Influenza     & Peru                             & 2009                          & 1.37        & 1.20            & 1.70            & \cite{desilva2009}        \\ 
   H1N1 Influenza & USA & 2009 & 1.50 & 1.30 & 1.70 &\cite{towers2009} \\ \hline
-Measles      & Cirencester, England                 & 1947-1950                          & 13.50   & 13.00           & 14.00            & \cite{fraser2009}     \\ 
+  Measles     & Canada - Ontario                  & 1912-1913                         & 11.50        & 11.00           & 12.00            & \cite{anderson1992}     \\
+    Measles     & Eastern Nigeria                  & 1960-1968                          & 16.50        & 16.00          & 17.00           & \cite{anderson1992}     \\
+  Measles      & England - Cirencester                 & 1947-1950                          & 13.50   & 13.00           & 14.00            & \cite{fraser2009}     \\
+  Measles     & England - Willesden                  & 1912-1913                          & 11.00        & 12.00       & 1.60            & \cite{anderson1992}     \\  
   Measles     & England and Wales                  & 1950-1968                          & 17.00      & 16.00          & 18.00         & \cite{anderson1992}     \\
-  Measles     & Kansas, USA                  & 1918-1921                          & 5.50    & 5.00          & 6.00          & \cite{anderson1992}     \\
-  Measles     & Ontario, Canada                  & 1912-1913                         & 11.50        & 11.00           & 12.00            & \cite{anderson1992}     \\
-  Measles     & Willesden, England                  & 1912-1913                          & 11.00        & 12.00       & 1.60            & \cite{anderson1992}     \\
-  Measles     & Ghana                 & 1960-1968                          & 14.50       & 14.00          & 15.00            & \cite{anderson1992}     \\
-  Measles     & Eastern Nigeria                  & 1960-1968                          & 16.50        & 16.00          & 17.00           & \cite{anderson1992}     \\
+    Measles     & Ghana                 & 1960-1968                          & 14.50       & 14.00          & 15.00            & \cite{anderson1992}     \\
+  Measles     & USA - Kansas                  & 1918-1921                          & 5.50    & 5.00          & 6.00          & \cite{anderson1992}     \\
 \bottomrule
 \end{tabular}
 \caption{Estimates of $\rr$ from various researchers for the infectious diseases of HIV, (Zika) ZIK-V, Ebola (EVD), seasonal influenza, and H1N1 pandemic influenza ranging from the years 1972-2016 in various locations.  We also report the lower and upper bounds reported by the researchers.}
@@ -178,6 +179,8 @@ In this particular  SIR model (displayed in Figure \ref{fig::sir}), the number o
 In words, susceptible individuals become infected at a rate that is proportional to the percentage of infected individuals multiplied by $\beta$, the infection rate, and the number of susceptible individuals.  Infectious individuals recover at a rate of $\gamma$ multiplied by the number of infected individuals.
 
 
+
+
 The SIR model is represented graphically in Figure \ref{fig::sir}. 
 \begin{figure}[h]
 \centering
@@ -187,10 +190,13 @@ The SIR model is represented graphically in Figure \ref{fig::sir}.
     \node [int,  fill = white!70!blue] (e) [right of=c] {$Z$};
     \path[->, auto=false] (a) edge node {} (c)
                           (c) edge node {} (e) ;
-
 \end{tikzpicture}
-\caption{Depiction of a SIR model where $X=S, Y=I,$ and $Z=R$.  One can only get the disease once in this model.}\label{fig::sir}
+\caption{Depiction of a SIR model where $X=S, Y=I,$ and $Z=R$.  One can only be infected once by the disease once in this model.}\label{fig::sir}
 \end{figure}
+Since the number of indivudals ($N$) is constant, then
+\begin{align*}
+\frac{dX}{dt} + \frac{dY}{dt} + \frac{dZ}{dt} \equiv 0.
+\end{align*}
 An outbreak occurs if the rate of change of infectious individuals is positive, $\frac{dY}{dt} > 0$, or equivalently,
 \begin{align*}
   \frac{dY}{dt} &> 0 \\
@@ -205,15 +211,15 @@ That is,  the rate of new infections is greater than the rate of recovery.  So a
   \end{align*}
   To incorporate randomness into the model, we add noise, namely,
   \begin{align}\label{eq:sir-noise}
-    X_{obs}(t) &= X(t) + \epsilon_{X,t}\\
-    Y_{obs}(t) &=  N - X_{obs}(t) -Y_{obs}(t)  \nonumber\\
-    Z_{obs}(t) &= Z(t) - \epsilon_{Z,t}. \nonumber
+    \hat{X}(t) &= X(t) + \epsilon_{X,t}\\
+    \hat{Y}(t) &=  N - \hat{X}(t) -\hat{Y}(t)  \nonumber\\
+    \hat{Z}(t) &= Z(t) - \epsilon_{Z,t}. \nonumber
   \end{align}
-We are assuming the observations are generated based on the discrete-time,  deterministic ODEs presented in Equation \ref{eq:sir} with time and compartment dependent noise $\epsilon_{X,t}$ and $\epsilon_{Z,t}$.  Since, $N$, the total population, is constant, then $Y_{obs}$ is adjusted accordingly.
+The ``hats'' in Equation \ref{eq:sir-noise} are used to distinguish real, observed data from the ``true'' model without hats.  We are assuming the observations are generated based on the  deterministic ODEs (possibly converted to discrete time) presented in Equation \ref{eq:sir} with time and compartment dependent noise $\epsilon_{X,t}$ and $\epsilon_{Z,t}$.  Since, $N$, the total population, is constant, then $\hat{Y}$ is adjusted accordingly.
 
 In summary, when we discuss estimators for $\rr$ for the SIR model, we mean to say we are forming an estimator of $\rr$ from the given set of data in Eq. \ref{eq:sir-noise},
 \begin{align*}
-  \textnormal{Data} &= \left \{\left (X_{obs}(t), Y_{obs}(t), Z_{obs}(t) \right ) : t=0, 1, \dots, T\right \}, \\
+  \textnormal{Data} &= \left \{\left (\hat{X}(t), \hat{Y}(t), \hat{Z}(t) \right ) : t=0, 1, \dots, T\right \}, \\
   \hat{\rr} &= m(\textnormal{Data}),
 \end{align*}
 where $m$ is a function of the data.
@@ -235,24 +241,24 @@ Then for some $\alpha \in [0,1]$, we would like to know for some $\hat{a}, \hat{
 \begin{align*}
 P(\hat{a} \le \rr \le \hat{b}) \le 1 - \alpha.
 \end{align*}
-This property is particularly desirable, as we can estimate $\hat{a}$ and $\hat{b}$ from the distribution $F$.  At any rate, we would like to be able to estimate $\hat{a}$ and $\hat{b}$ for a given $\alpha$-level.  We could also make similar hypothesis tests such as that the $\rr$ for H1N1 influenza is greater than the reported $\rr$ for seasonal influenza.
+This property is particularly desirable, as we can estimate $\hat{a}$ and $\hat{b}$ from the distribution $F$.  At any rate, we would like to be able to estimate $\hat{a}$ and $\hat{b}$ for a given $\alpha$-level.  We could also make similar hypothesis tests such as  $\rr$ for H1N1 influenza is greater than the reported $\rr$ for seasonal influenza.
 
 \subsection{$\rr$ is a property of the model}
 
 We provide an example of how $\rr$ is a property of the model.  Consider the situation of data generated from an SEIR (XEYZ) model (described by \cite{cintronarias2009}), generated from the following ODEs,
 
 \begin{align*}
-  \frac{dX}{dt} &= - \frac{\beta XY}{N} \\
-  \frac{dE}{dt} &= \frac{\beta XY}{N}  - \mu E\\
-  \frac{dY}{dt} &= \mu E - \gamma Y \\
-  \frac{dZ}{dt} &= \gamma Y,
+  \frac{dX}{dt} &= - \frac{\beta_{XEYZ} XY}{N} \\
+  \frac{dE}{dt} &= \frac{\beta_{XEYZ} XY}{N}  - \mu_{XEYZ} E\\
+  \frac{dY}{dt} &= \mu_{XEYZ} E - \gamma_{XEYZ} Y \\
+  \frac{dZ}{dt} &= \gamma_{XEYZ} Y,
 \end{align*}
-again, with a constant population of $N$ and with known initial values $(X(0), E(0), Y(0), Z(t))$.  The parameter $\mu$ is the rate at which latently exposed individuals become infectious.  As $\frac{1}{\mu} \to 0$, the XEYZ model converges to the XYZ model.  The reproduction number for the XEYZ model, is the same as in the XYZ model, that is $\rr = \frac{\beta}{\gamma}$.
+again, with a constant population of $N$ and with known initial values $(X(0), E(0), Y(0), Z(t))$.  The parameter $\mu_{XEYZ}$ is the rate at which latently exposed individuals become infectious.  The subscript ``XEYZ'' is used to emphasize that the disease parameters (especially $\beta$ and $\gamma$) are different than of those in the XYZ model.  The reproduction number for the XEYZ model, is $\rr = \frac{\beta_{XEYZ}}{\gamma_{XEYZ}}$, compared to the reproduction number for the XYZ model, $\rr = \frac{\beta_{XYZ}}{\gamma_{XYZ}}$.
 
 Consider the case when $N=10000, (\beta, \gamma) = (.06, .03)$, $(X(0), E(0), Y(0), Z(t)) = (9500, 0, 500, 0)$ for times $t=1, \dots, 365$.  Let the parameter $\mu$ range between [0.005, 0.250].  This generates data set
-$$D_{\mu, \textnormal{XEYZ}} = \left \{(X_{XEYZ}(t), E_{XEYZ}(t), Y_{XEYZ}(t), Z_{XEYZ}(t): t=1, \dots, 365\right \},$$
-which is observed by researcher 1.  Now assume that researcher 2 misspecifies the model for this data as a SIR (XYZ) model rather than a SEIR (XEYZ) model.  That is, she observes all non-infectious individuals as susceptibles and generates data set
-$$D_{\mu, XYZ} = \left \{X_{XYZ}(t) = X_{XEYZ} + E_{XEYZ}, Y_{XYZ} = Y_{XEYZ}, Z_{XEYZ} = Z_{XYZ} : t = 1, \dots, 365 \right \}.$$
+$$D_{\mu, \textnormal{XEYZ}} = \left \{(\hat{X}_{XEYZ}(t), \hat{E}_{XEYZ}(t), \hat{Y}_{XEYZ}(t), \hat{Z}_{XEYZ}(t): t=1, \dots, 365\right \},$$
+which is observed by researcher 1.  Now assume that researcher 2 misspecifies the model for this data as a SIR (XYZ) model rather than a SEIR (XEYZ) model.  That is, she observes all non-infectious individuals as susceptibles and generates data sets
+$$D_{\mu, XYZ} = \left \{\hat{X}_{XYZ}(t) = X_{XEYZ} + E_{XEYZ}, \hat{Y}_{XYZ} = Y_{XEYZ}, \hat{Z}_{XEYZ} = Z_{XYZ} : t = 1, \dots, 365 \right \}.$$
 This situation is illustrated in Figure \ref{fig:sir-vs-seir} with $\mu = 0.01$.
 
 \begin{figure}
@@ -261,13 +267,13 @@ This situation is illustrated in Figure \ref{fig:sir-vs-seir} with $\mu = 0.01$.
   \caption{Top: XEYZ generated data over the course of a year.  Bottom: data tranformed from the XEYZ model to the XYZ model by combining all X and E compartments from the XEYZ model for the X compartment in the XYZ model.}\label{fig:sir-vs-seir}
   \end{figure}
 
-Both researchers want to estimate $\rr$ and so fit models to their data sets.  The details of how the models are fit are not so important at the moment (but will be in the later sections), but to fairly compare one model to another assume both researchers use ratio estimator to fit the models.  That is researcher 1 estimates $\rr$ with
+Both researchers want to estimate $\rr$ and so fit models to their data sets.  The details of how the models are fit are not so important at the moment (but will be in the later sections), but to fairly compare one model to another assume both researchers use a least squares estimates to estimate the disease parameters and then use the ratio estimator (RE) as an estimate of $\rr$.  That is researcher 1 estimates $\rr$ with
 \begin{align*}
   (\hat{\beta}_{XEYZ}, \hat{\gamma}_{XEYZ}, \hat{\mu}_{XEYZ} )&=\arg \min_{\beta, \gamma, \mu} \sum_{t} \left [ \left (X_{XEYZ}(t) - X(t)\right )^2  \right . \\
                                                                  &+\left ( E_{XEYZ}(t) - E(t) \right )^2  \\
   &\left . + \left ( Z_{XEYZ}(t) - Z(t) \right )^2\right ]
 \end{align*}
-Then the ratio estimator (RE) for $\rr^{XYZ}$ is given by Equation \ref{eq:sirls},
+Then the RE for $\rr^{XYZ}$ is given by Equation \ref{eq:sirls},
 \begin{align*}
   \hat{\rr}^{XEYZ}= \frac{\hat{\beta}_{XEYZ}}{\hat{\gamma}_{XEYZ}}.
 \end{align*}
@@ -280,7 +286,7 @@ Then the RE for $\rr^{XYZ}$ is given by Equation \ref{eq:sirls},
   \hat{\rr}^{XYZ}= \frac{\hat{\beta}_{XYZ}}{\hat{\gamma}_{XYZ}}.
 \end{align*}
 
-We plot the two estimates of $\rr$ as a function of $\mu$ in Figure \ref{fig:r0-alpha}.  We should note we also estimated the standard errors of the estimates of $\rr$, but they do not show up on the figure because they are of an order of magnitude of $10^{-4}$.  Unsurprisingly, under the SEIR model speficiation, $\hat{\rr}=2$ because there is no noise in the data, and the data is generated from an SEIR model.  However, as we see in Figure \ref{fig:r0-alpha} the RE of $\rr$ from the SIR model for small values of $\mu$ can result in double the size of $\rr$!
+We plot the two estimates of $\rr$ as a function of $\mu$ in Figure \ref{fig:r0-alpha}.  We should note we also estimated the standard errors of the estimates of $\rr$, but they do not show up on the figure because they are of the order of $10^{-4}$.  Unsurprisingly, under the SEIR model speficiation, $\hat{\rr}=2$ because there is no noise in the data, and the data is generated from an SEIR model.  However, as we see in Figure \ref{fig:r0-alpha} the RE of $\hat{\rr}$ from the SIR model for small values of $\mu$ (a long latency period) can result in double the size of $\hat{\rr}$!
 
 \begin{figure}
   \centering
@@ -289,14 +295,14 @@ We plot the two estimates of $\rr$ as a function of $\mu$ in Figure \ref{fig:r0-
   \end{figure}
 
 
-For those readers not convinced by our small example, we offer this mathematical intuition of the next generation model (NGM) described by \cite{diekmann1990} and \cite{diekmann2009}.
+For those readers not convinced by our small example, we offer this mathematical intuition of the next generation model (NGM).
 
- The NGM is a generalization of any compartment model at the infection-free steady state ($Y(t)=0$ and all derivatives with respect to time sum equal zero). Originally, introduced by \citep{diekmann1990}, \cite{diekmann2009} posit a recipe to find $\rr$ for a wide class of compartment models, including SIR and SEIR. First, define the infected subsystem as ``the equations of the ODE system that describe the production of new infections and changes in state among infected individuals.''  Let $x = (C_1, C_2, \dots, C_m)^T$ where $C_i$ are the different compartments of the infected subsystem.  The steps to find $\rr$ are as follows:
+ The NGM is a generalization of any compartment model at the infection-free steady state ($Y(t)=0$ and all derivatives with respect to time sum to zero). Originally, introduced by \citep{diekmann1990}, \cite{diekmann2009} posit a recipe to find $\rr$ for a wide class of compartment models, including SIR and SEIR. First, define the infected subsystem as ``the equations of the ODE system that describe the production of new infections and changes in state among infected individuals.''  Let $x = (C_1, C_2, \dots, C_m)^T$ where $C_i$ are the different compartments of the infected subsystem.  The steps to find $\rr$ are as follows:
 
 
 \begin{enumerate}
-\item ``Linearize the infected subsystem of nonlinear ODEs about the infection-free steady state''
-\item Decompose the linearized infected subsystem into $(T + \Sigma )x$ where $T$ is a $m\times m$ matrix of transmissions and $\Sigma$ is a $m \times m$ matrix of transitions.
+\item Take the subsystem of infected individuals (including those who have been exposed) and linearize the subsystem about the infection-free steady state
+\item Decompose the linearized infected subsystem into $(T + \Sigma )x$ where $T$ is a $m\times m$ matrix of \textit{transmissions} and $\Sigma$ is a $m \times m$ matrix of \textit{transitions}.
 \item $\rr$ is the spectral radius (i.e. the dominant eigenvalue) of $-T \Sigma^{-1}$.  
 \end{enumerate}
 
@@ -304,28 +310,28 @@ Here, $T_{ij}$ is the rate of transmission of \textit{newly} infected individual
 
 This method has the assumptions of a basic compartment model: homogeneous mixing among populations and the law of mass action, i.e., that the number of infected individuals are proportional to the number of infected individuals at the previous step.   Additionally, this method is advantageous in that the matrix $-\Sigma^{-1}$ has intuitive meaning.  The $ij$th entry of $- \Sigma^{-1}$ is the ``expected time that an individual who presently has state $j$ will spend in infected state $i$.''
 
-The NGM shows that $\rr$ is the spectral radius of a matrix composed from the transmission of disease from diseased individuals to susceptible individuals and transition of diseased individuals from among the compartments and is indeed a property of the model.
+The NGM shows that $\rr$ is the spectral radius of a matrix which is composed of the transmission of disease to susceptible individuals and transition of individuals among the other compartments.  $\rr$ is thus a property of the model.
 
 Following the examples presented in \cite{diekmann1990}, for the SIR (XYZ) model, the linearized infection-free sub-system occurs when $Y(t)=0$ and $X(t)=N$ and is
 \begin{align*}
-\frac{dY}{dt} &= - \beta Y + \gamma .
+\frac{dY}{dt} &= - \beta_{XYZ} Y + \gamma_{XYZ} .
   \end{align*}
-  Then $T= \beta$ (the rate of new infections) and $\Sigma = -\gamma$.  Then $K = \frac{\beta}{\gamma}$ which is also, trivially, the dominant eigenvalue, and hence, $R_0 = \frac{\beta}{\gamma}$.
+  Then $T= \beta_{XYZ}$ (the rate of new infections) and $\Sigma = -\gamma_{XYZ}$.  Then $K = \frac{\beta_{XYZ}}{\gamma_{XYZ}}$ which is also, trivially, the dominant eigenvalue, and hence, $R_0 = \frac{\beta_{XYZ}}{\gamma_{XYZ}}$.
 
 We can also derive the NGM for the SEIR (XEYZ) model.  We have an infection-free steady state when $E=Y=0$ and set $X=N$.  Then $x = (E, Y)^T$ is the infected subsystem.  The linearized subsystem is
   \begin{align*}
   \left \{
   \begin{array}{cl}
-    \frac{dE}{dt} &= \beta Y  - \mu E\\
-    \frac{dY}{dt} &=  \mu E  - \gamma Y \\
+    \frac{dE}{dt} &= \beta_{XEYZ} Y  - \mu_{XEYZ} E\vspace{.5em}\\
+    \frac{dY}{dt} &=  \mu_{XEYZ} E  - \gamma_{XEYZ} Y \\
   \end{array}
   \right .
   \end{align*}
-  Then $T = \left ( \begin{array}{cc} 0 & \beta \\ 0 & 0  \end{array} \right )$ and $\Sigma = \left ( \begin{array}{cc} -\mu & 0 \\ \mu & - \gamma \end{array} \right )$, and $K =\left ( \begin{array}{cc} 0& \beta / \gamma \\ 0 & 0 \end{array} \right  )$.
+  Then $T = \left ( \begin{array}{cc} 0 & \beta_{XEYZ} \\ 0 & 0  \end{array} \right )$ and $\Sigma = \left ( \begin{array}{cc} -\mu_{XEYZ} & 0 \\ \mu_{XEYZ} & - \gamma_{XEYZ} \end{array} \right )$, and $K =\left ( \begin{array}{cc} 0& \beta_{XEYZ} / \gamma_{XEYZ} \\ 0 & 0 \end{array} \right  )$.
 
-  Then the spectral radius of $K$ is $R_0  = \frac{\beta}{\gamma}$, which makes sense as exposed individuals are not contributing to the number of new infections.
+  Then the spectral radius of $K$ is $R_0  = \frac{\beta_{XEYZ}}{\gamma_{XEYZ}}$, which makes sense as exposed individuals are not contributing to the number of new infections.
 
-  Although the $\rr$ ends up being the same in both the SIR (XYZ) and SEIR (XEYZ) case, the derivations were different because of the addition of the exposed compartment.  In general, more complicated models will result in different derivations of $T$ and $\Sigma$ and hence different derivations of $\rr$.
+  Although the $\rr$ ends up being similar (infection rate over the recovery rate) for both the SIR (XYZ) and SEIR (XEYZ) models, the derivations are different because of the addition of the exposed compartment.  In general, more complicated models will result in different derivations of $T$ and $\Sigma$ and hence different derivations of $\rr$.
 
 
 
@@ -339,18 +345,18 @@ In this section, we describe the \wxxsir methods in detail, including advantages
 Our first approach to estimate $\rr$ in the SIR model is to minimize the joint mean square error for the data collected at each time point and use the plug-in estimator found in Equation \ref{eq:sirls}.  In particular, we find
 
 \begin{align*}
-(\hat{\beta}, \hat{\gamma} )&=\arg \min_{\beta, \gamma} \sum_{t} \left [ \left (X_{obs}(t) - X(t)\right )^2 + \left ( Z_{obs}(t) - Z(t) \right )^2 \right ]
+(\hat{\beta}, \hat{\gamma} )&=\arg \min_{\beta, \gamma} \sum_{t} \left [ \left (\hat{X}(t) - X(t)\right )^2 + \left ( \hat{Z}(t) - Z(t) \right )^2 \right ]
 \end{align*}
 Then the ratio estimator (RE) estimate for $\rr$ is given by Equation \ref{eq:sirls},
 \begin{align}\label{eq:sirls}
   \hat{\rr}= \frac{\hat{\beta}}{\hat{\gamma}}.
 \end{align}
 
-The estimates from this method are often found via a grid search of $\beta$ and $\gamma$ values to minimize the squared error.  The estimates can also be found using more sophisticated optimization algorithms. Since we typically cannot explicitly write down the partial derivatives of $S$, $I$, and $R$ with respect to $\beta$ and $\gamma$, we can only use minimization algorithms which do not rely on an explicit gradient such as Nelder-Mead simplex minimization \citep{nelder-mead1965}.
+The estimate resulting from this method are often found via a grid search of $\beta$ and $\gamma$ values to minimize the squared error.  The estimates can also be found using more sophisticated optimization algorithms. Since we typically cannot explicitly write down the partial derivatives of $S$, $I$, and $R$ with respect to $\beta$ and $\gamma$, we can only use minimization algorithms which do not rely on an explicit gradient such as Nelder-Mead simplex minimization \citep{nelder-mead1965}.
 
-A reasonable question one may ask is why use the $L_2$-norm as opposed to $L_1$ or some other similarity score.  A possible answer is that if we were to assume Gaussian noise, then the $L_2$-norm would be equivalent to the maximum likelihood estimation.  Another answer is that $L_2$ is a continuously differentiable function and hence is easier to compute, which allows for sensitivity analysis to  be conducted more easily.  Finally, RE can be done without writing down explicit assumptions about the noise within the model.  However, we cannot guarantee properties of consistency or convergence to a known distribution without more explicit assumptions.  
+A reasonable question one may ask is why use the $L_2$-norm as opposed to $L_1$ or some other similarity score.  A possible answer is that if we were to assume Gaussian noise, then the $L_2$-norm would be equivalent to the maximum likelihood estimation.  Another answer is that $L_2$ is a continuously differentiable function and hence is easier to compute, which allows for sensitivity analysis to  be conducted more easily.  Finally, the RE estimate can be found without writing down explicit assumptions about the noise within the model.  However, we cannot guarantee properties of consistency or convergence to a known distribution without more explicit assumptions.  
 
-On the other hand, ratio estimator is easy to implement using software such as \texttt{R}'s \texttt{optim()} function, and as we see in Section \ref{sec:results} produces results comparable methods to other methods.  ratio estimator and similar variants have been used to estimate $\rr$ in \cite{majumder2016}.
+On the other hand, the RE is easy to implement using software such as \texttt{R}'s \texttt{optim()} function, and as we see in Section \ref{sec:results} produces results comparable to other methods.  RE and similar variants have been used to estimate $\rr$ in \cite{majumder2016}.
 
 \subsection{Reparametrized Ratio Estimator ($\rr$, $\gamma$) (rRE)}\label{reparametrized-least-squares-rux5f0-gamma}
 
@@ -369,15 +375,15 @@ We find
 \begin{align*}
 (\hat{\rr}, \hat{\gamma} ) &= \text{argmin}_{\rr, \gamma} \sum_{t} \left [ \left (X_{obs}(t) - X(t)\right )^2 + \left ( Z_{obs}(t) - Z(t) \right )^2 \right ]
 \end{align*}
-We use the $\hat{\rr}$ directly from the above estimation problem, which again can be found with a grid search or another optimization process.  It may be surprising that this method leads to different results than simply using the ratio estimator.  One reason we obtain different results may be attributed to better numerical precision as there is one fewer step to obtain an estimate for $\rr$.  However, we also see that this method further results in different standard errors than in RE, which we discuss further in Section \ref{sec:results}.
+We use the $\hat{\rr}$ directly from the above estimation problem, which again can be found with a grid search or another optimization process.  It may be surprising that this method leads to different results than simply using the ratio estimator.  We also see that this method results in different standard errors than in RE, which we discuss further in Section \ref{sec:results}.
 
-Like RE, while we have no explicit parametric assumptions on the noise, we also are uncertain of any theoretical properties of our resulting estimator.  Likewise, the same difficulties in sensitivity analysis arise as in RE.
+Like RE, while we have no explicit assumptions on the noise, we also are uncertain of any theoretical properties of our resulting estimator.  Likewise, the same difficulties in sensitivity analysis arise as for the RE.
 
 
 
 \subsection{Linear Model Approximation (LMA)}\label{linear-model-approximation-degree-10}
 
-The SIR ODEs in Eq. \ref{eq:sir} have no known closed form solution, and so we use numerical integration to obtain approximate solutions.  In addition to this, data collected from real diseases are typically very noisy to begin with.  \cite{chang2017} showed that the SIR model may be well approximated by a linear model.  We use this method to estimate $\rr$.
+The SIR ODEs in Eq. \ref{eq:sir} have no known closed form solution, and so we use numerical integration to obtain approximate solutions.  In addition to this, data collected from real diseases are typically very noisy to begin with.  The SIR model may be approximated by a linear model.  We use this method to estimate $\rr$.
 
 Specifically, we estimate two polynomials in \(t\) with degree $K$  to \(X_{obs}\)
 and \(Z_{obs}\) using least squares to find the coefficients $\{(\hat{x}_k,
@@ -400,15 +406,15 @@ Following,  an estimator for \(\rr\) is derived from the ODEs in Equation \eqref
   \end{align}
   Here, $K$ is arbitrary and should be selected using some criterion such as AIC.  Besides optionally deciding on the degree of polynomials to fit, this model is simple to implement and gives comparable results to using the ratio estimator with the SIR model.  The time $t=0$ is used to best capture the initial outbreak.
 
-  An advantage of using this estimation method is that it is simple to implement using any linear modelling software.  On the other hand, we assume $X(t) = \hat{X}(t)$ and so if the data truly follows the SIR model, then we will likely have a biased result for $\rr$.  Using this method, we are able to check how sensitive $\rr$ is to the degree of the fitted polynomial.
+  An advantage of using this estimation method is that it is simple to implement using any linear modelling software.  On the other hand, we assume $X(t) = \hat{X}(t)$ and so if the data truly follows the SIR model, then we will likely have a result for $\rr$.  Using this method, we are able to check how sensitive $\rr$ is to the degree of the fitted polynomial.
 
 \subsection{Linear Model Approximation, All Time Points (LMAT)}\label{linear-model-approximation-all-time-points-degree-10}
 
-The above formulation (Section \ref{linear-model-approximation-degree-10}) of a linear model approximation only uses the estimate at time $t=0$ to estimate $\rr$.  We can instead, use all time points $O$ available to estimate $\rr$.  We fit a polynomial in \(t\) with degree \(K\) to \(X_{obs}\)
+The above formulation (Section \ref{linear-model-approximation-degree-10}) of a linear model approximation only uses the estimate at time $t=0$ to estimate $\rr$.  We can instead, use all time points $T$ available to estimate $\rr$.  We fit a polynomial in \(t\) with degree \(K\) to \(X_{obs}\)
 and \(Z_{obs}\) as above, with a slight modification in how we estimate
 \(\rr\),
 \begin{align*}
-  \hat{\rr} &= \frac{1}{O} \sum_t \frac{-\hat{X}^\prime(t)}{\hat{Z}^\prime(t)} \cdot \frac{N}{X(0)} 
+  \hat{\rr} &= \frac{1}{T} \sum_t \frac{-\hat{X}^\prime(t)}{\hat{Z}^\prime(t)} \cdot \frac{N}{X(0)} 
 \end{align*}
 The intuition is that $\frac{-X^\prime(t)}{Z^\prime(t)}$ is constant in $t$, but due to our approximations with the linear model, this is no longer the case.  Here, we average over the different possible values of $\rr$, estimated at different times.  An advantage to this approach is that we have a more robust estimate of $\rr$ than just using one time point.  Like in LMA, we can examine how sensitive $\rr$ is to the order of the polynomial $K$.
 
@@ -416,19 +422,19 @@ The intuition is that $\frac{-X^\prime(t)}{Z^\prime(t)}$ is constant in $t$, but
 \subsection{Incidence to Prevalence Ratio (IPR)}\label{incidence-to-prevalence-ratio}
 The incidence to prevalence ratio (IPR), described by \cite{Nishiura2009}, is another intuitive method to estimate $\rr$.  It incorporates some of the most basic epidemiological quantities: incidence and prevalence.
 
-In terms of data from the SIR model, the incidence $J(t) \approx -(X(t+1) - X(t))$, and the IPR$(t) = \frac{J(t)}{Y(t)}$.  This method assumes that we have some prior knowledge about $\gamma$, the recovery rate.  Thus we use as our estimate,
+In terms of data from the SIR model, the incidence is approximately the number of new infectious for a given time step, $J(t) \approx -(X(t+1) - X(t))$, and the IPR is the ratio of incidence to prevalence, IPR$(t) = \frac{J(t)}{Y(t)}$.  This method assumes that we have some prior knowledge about $\gamma$, the recovery rate.  Thus we use as our estimate,
 \begin{align*}
 \hat{\rr} &= \textnormal{IPR}(t) \cdot \frac{1}{\gamma}
 \end{align*}
 
-Here we assume that the time step is small enough to approximate the incidence.  The advantage of this method is that incidence data is generally readily available as is prevalence data for certain diseases such as HIV.  However, as one is required to have prior knowledge about $\gamma$, it may be easier to directly estimate $\rr$ with one of the many other methods described that does not require  prior knowledge.  Again, we are using only one time point to estimate $\rr$.  This model is agnostic to assumptions on the noise, but again, it is unclear if this is an unbiased or consistent estimator of $\rr$.
+Here we assume that the time step is small enough to approximate the incidence.  The advantage of this method is that incidence data is generally readily available as is prevalence data for certain diseases such as HIV.  However, as one is required to have prior knowledge about $\gamma$, it may be easier to directly estimate $\rr$ with one of the many other methods described that does not require  prior knowledge.  Again, we are using only one time point to estimate $\rr$.  This model is agnostic to assumptions on the noise, but the estimate is biased, as we show in Section \ref{sec:results}.
 
 \subsection{Smoothed Incidence to Prevalence Ratio (SIPR)}
-We use the same method as above, IPR, but first estimate splines with $K$ degrees of freedom, where $K$ is small, $\hat{X}(t)$ and $\hat{Y}(t)$, to fit to $X_{obs}$ and $Y_{obs}$, respectively.  Then  $J(t) \approx -(\hat{X}(t+1) - \hat{X}(t))$, and the $\hat{\textnormal{IPR}}(t) = \frac{J(t)}{\hat{Y}(t)}$.  Then
+We use the same method as above, IPR, but first smooth the epidemic curves $\left(\hat{X}(t), \hat{Y}(t) \right)$ (we use B-splines with $K=4$ degrees of freedom).  Then  $J(t) \approx -(\hat{X}(t+1) - \hat{X}(t))$, and the $\hat{\textnormal{IPR}}(t) = \frac{J(t)}{\hat{Y}(t)}$.  Then
 \begin{align*}
 \rr &= \hat{\textnormal{IPR}}(t) \cdot \frac{1}{\gamma}
 \end{align*}
-Splines are used because they typically can be used to make good approximations of epidemic curves (CITE).  However, the researcher could use their method of choice to estimate $\hat{X}(t)$ and $\hat{Y}(t)$.  An advantage of this method is that it creates a less variable estimate than estimating IPR using only one point.  It has the same disadvantages as the usual IPR ratio in that it requires knowledge about $\gamma$.
+We use splines to smooth the curves because they  have proven to be good approximations of epidemic curves \citep{brooks2015}.  However, the researcher can use their method of choice to estimate $\hat{X}(t)$ and $\hat{Y}(t)$.  An advantage of this method is that it creates a less variable estimate than estimating IPR using only one point.  It has the same disadvantages as the usual IPR ratio in that it requires knowledge about $\gamma$.
 
 %%%%%%%%%%%%%%%%%%%%%
 \subsection{Log-Linear (LL)}
@@ -439,7 +445,7 @@ Splines are used because they typically can be used to make good approximations 
   \log \frac{X(t)}{X(0)} &=  -\rr \frac{Z(t)}{N}. \label{eq:harko_lin}
 \end{align}
 
-We can regress the left hand side in Eq. \ref{eq:harko_lin} on $Z(t)$ (using least squares to estimate the coefficients), the number of recovered individuals, with $\rr$ as the coefficient of $Z(t)/N$ and with an intercept term of $\beta_0=0$ to obtain an estimate of $\rr$,
+We can regress the left hand side in Eq. \ref{eq:harko_lin} on $Z(t)$ (using least squares to estimate the coefficients), the number of recovered individuals, with $\rr$ as the coefficient of $Z(t)/N$ to obtain an estimate of $\rr$,
 \begin{align*}
   \hat{\rr} = -\frac{\sum_{t=0}^T \log \frac{ X(t)}{X(0)}}{\sum_{t=0}^T\frac{Z(t)}{N}}.
 \end{align*}
@@ -456,15 +462,15 @@ The advantages of this method are many.  One, the estimate of $\rr$ is highly in
 \subsection{Markov chain estimation (MC)}
 A natural approach to epidemic modelling is that of Markov chains (MC), since it is assumed an individual's next state is only dependent on its current state and the current states of other individuals.  Much work has been done over the years in this specific field including asymptotic behavior, continuous time MC, confidence intervals, and more \citep{jacquez1991,gani1995,daley2001epidemic}.  We present one simple instantiation of the model, the discrete time case, which traces its origin back to the Reed-Frost model \citep{abbey1952}.
 
-In this method, the number of susceptibles at the next step, $X_{obs}(t+1)$, has a Binomial distribution based on the contacts with the current number of infectious, $Y(t)$ and the current number of susceptibles.  That is $X_{obs}(t+1) \sim \text{Binomial}\left(X_{obs}(t), \alpha^{Y_{obs}(t)}\right)$, where $\alpha$ is the probability of avoiding infection from an infective.  One can write out the likelihood for $\alpha$ in this model, namely,
+In this model, the number of susceptibles at the next step, $\hat{X}(t+1)$, has a Binomial distribution based on the contacts with the current number of infectious, $\hat{Y}(t)$ and the current number of susceptibles.  That is $\hat{X}(t+1) \sim \text{Binomial}\left(\hat{X}(t), \alpha^{\hat{Y}(t)}\right)$, where $\alpha$ is the probability of avoiding infection from an infective.  One can write out the likelihood for $\alpha$ in this model, namely,
 \begin{align*}
-\mathcal{L}\left ( \alpha ; \textnormal{data}\right ) \propto \prod_{t=0}^{T-1}\left ( \alpha^{Y_{obs}(t)} \right )^{X_{obs}(t+1)} \left (1- \alpha^{Y_{obs}(t)} \right )^{X_{obs}(t) - X_{obs}(t+1)}.
+\mathcal{L}\left ( \alpha ; \textnormal{Data}\right ) \propto \prod_{t=0}^{T-1}\left ( \alpha^{\hat{Y}(t)} \right )^{\hat{X}(t+1)} \left (1- \alpha^{\hat{Y}(t)} \right )^{\hat{X}(t) - \hat{X}(t+1)}.
 \end{align*}
 Maximizing the likelihood yields an estimate for $\alpha$,
 \begin{align*}
 \hat{\alpha} = \arg \max_{\alpha} \mathcal{L}\left(\alpha; \textnormal{data} \right ).
   \end{align*}
- \cite{barbour2004} report that the estimated reproduction number is thus,
+ \cite{barbour2004} report that the estimated reproduction number is then,
 \begin{align}\label{eq:r0-mc}
 \hat{\rr} &= \log \left ( \frac{1}{1-\hat{\alpha}}\right ).
 \end{align}

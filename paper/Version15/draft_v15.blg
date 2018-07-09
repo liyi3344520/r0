@@ -3,44 +3,51 @@ Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
 The top-level auxiliary file: draft_v15.aux
 The style file: apa.bst
 Database file #1: Master.bib
-You've used 53 entries,
+I was expecting an "="---line 310 of file Master.bib
+ :  
+ :  year = {2007}
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+Warning--empty year in legrand2007
+You've used 51 entries,
             1940 wiz_defined-function locations,
-            806 strings with 14133 characters,
-and the built_in function-call counts, 22030 in all, are:
-= -- 2111
-> -- 967
-< -- 33
-+ -- 353
-- -- 326
-* -- 2035
-:= -- 3819
-add.period$ -- 162
-call.type$ -- 53
-change.case$ -- 421
-chr.to.int$ -- 52
-cite$ -- 53
-duplicate$ -- 790
-empty$ -- 1481
-format.name$ -- 411
-if$ -- 4242
-int.to.chr$ -- 2
+            798 strings with 13836 characters,
+and the built_in function-call counts, 21343 in all, are:
+= -- 2042
+> -- 946
+< -- 31
++ -- 344
+- -- 320
+* -- 1974
+:= -- 3699
+add.period$ -- 156
+call.type$ -- 51
+change.case$ -- 408
+chr.to.int$ -- 51
+cite$ -- 52
+duplicate$ -- 763
+empty$ -- 1432
+format.name$ -- 399
+if$ -- 4111
+int.to.chr$ -- 1
 int.to.str$ -- 0
-missing$ -- 55
-newline$ -- 270
-num.names$ -- 162
-pop$ -- 322
+missing$ -- 53
+newline$ -- 260
+num.names$ -- 156
+pop$ -- 315
 preamble$ -- 2
-purify$ -- 424
+purify$ -- 411
 quote$ -- 0
-skip$ -- 627
+skip$ -- 604
 stack$ -- 0
-substring$ -- 1524
-swap$ -- 155
+substring$ -- 1476
+swap$ -- 151
 text.length$ -- 5
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 312
-warning$ -- 0
-while$ -- 168
+type$ -- 300
+warning$ -- 1
+while$ -- 162
 width$ -- 0
-write$ -- 693
+write$ -- 667
+(There was 1 error message)
