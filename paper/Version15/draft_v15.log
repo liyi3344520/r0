@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/Arch Linux) (preloaded format=pdflatex 2018.6.16)  9 JUL 2018 11:10
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/Arch Linux) (preloaded format=pdflatex 2018.6.16)  14 JUL 2018 10:20
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -686,91 +686,91 @@ Overfull \hbox (11.47801pt too wide) in paragraph at lines 329--331
 and $\OML/cmm/m/it/12 K \OT1/cmr/m/n/12 = []$. 
  []
 
-[10] [11] [12] [13] [14] [15] [16] [17] [18]
-<images/baseline_sir.pdf, id=94, 838.13126pt x 533.995pt>
+[10] [11] [12] [13] [14] [15] [16] [17] [18] [19]
+<images/baseline_sir.pdf, id=98, 838.13126pt x 533.995pt>
 File: images/baseline_sir.pdf Graphic file (type pdf)
 <use images/baseline_sir.pdf>
-Package pdftex.def Info: images/baseline_sir.pdf  used on input line 635.
+Package pdftex.def Info: images/baseline_sir.pdf  used on input line 644.
 (pdftex.def)             Requested size: 375.80544pt x 239.43182pt.
- [19] [20 <./images/baseline_sir.pdf>]
+
 
 LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 668.
+               Default added (so using `tbp') on input line 677.
 
-[21] [22]
+[20] [21] [22 <./images/baseline_sir.pdf>]
 <images/BaseBase.jpeg, id=114, 752.8125pt x 526.96875pt>
 File: images/BaseBase.jpeg Graphic file (type jpg)
 <use images/BaseBase.jpeg>
-Package pdftex.def Info: images/BaseBase.jpeg  used on input line 774.
+Package pdftex.def Info: images/BaseBase.jpeg  used on input line 783.
 (pdftex.def)             Requested size: 376.40532pt x 263.48372pt.
- [23 <./images/BaseBase.jpeg>] [24]
+ [23] [24 <./images/BaseBase.jpeg>]
 <images/parchange_ar.jpeg, id=121, 752.8125pt x 526.96875pt>
 File: images/parchange_ar.jpeg Graphic file (type jpg)
 <use images/parchange_ar.jpeg>
-Package pdftex.def Info: images/parchange_ar.jpeg  used on input line 822.
-(pdftex.def)             Requested size: 376.40532pt x 263.48372pt.
-<images/err_robust.jpeg, id=122, 752.8125pt x 526.96875pt>
-File: images/err_robust.jpeg Graphic file (type jpg)
-<use images/err_robust.jpeg>
-Package pdftex.def Info: images/err_robust.jpeg  used on input line 832.
-(pdftex.def)             Requested size: 376.40532pt x 263.48372pt.
- [25 <./images/parchange_ar.jpeg>]
-<images/model_robust.jpeg, id=127, 752.8125pt x 526.96875pt>
-File: images/model_robust.jpeg Graphic file (type jpg)
-<use images/model_robust.jpeg>
-Package pdftex.def Info: images/model_robust.jpeg  used on input line 841.
+Package pdftex.def Info: images/parchange_ar.jpeg  used on input line 831.
 (pdftex.def)             Requested size: 376.40532pt x 263.48372pt.
 
-[26 <./images/err_robust.jpeg> <./images/model_robust.jpeg>]
+[25]
+<images/err_robust.jpeg, id=126, 752.8125pt x 526.96875pt>
+File: images/err_robust.jpeg Graphic file (type jpg)
+<use images/err_robust.jpeg>
+Package pdftex.def Info: images/err_robust.jpeg  used on input line 841.
+(pdftex.def)             Requested size: 376.40532pt x 263.48372pt.
+ [26 <./images/parchange_ar.jpeg> <./images/err_robust.jpeg>]
+<images/model_robust.jpeg, id=130, 752.8125pt x 526.96875pt>
+File: images/model_robust.jpeg Graphic file (type jpg)
+<use images/model_robust.jpeg>
+Package pdftex.def Info: images/model_robust.jpeg  used on input line 850.
+(pdftex.def)             Requested size: 376.40532pt x 263.48372pt.
 <images/timediff.jpeg, id=131, 752.8125pt x 526.96875pt>
 File: images/timediff.jpeg Graphic file (type jpg)
 <use images/timediff.jpeg>
-Package pdftex.def Info: images/timediff.jpeg  used on input line 853.
+Package pdftex.def Info: images/timediff.jpeg  used on input line 862.
 (pdftex.def)             Requested size: 376.40532pt x 263.48372pt.
-<images/obs.jpeg, id=132, 752.8125pt x 526.96875pt>
+ [27 <./images/model_robust.jpeg>]
+<images/obs.jpeg, id=135, 752.8125pt x 526.96875pt>
 File: images/obs.jpeg Graphic file (type jpg)
 <use images/obs.jpeg>
-Package pdftex.def Info: images/obs.jpeg  used on input line 859.
+Package pdftex.def Info: images/obs.jpeg  used on input line 868.
 (pdftex.def)             Requested size: 376.40532pt x 263.48372pt.
- [27 <./images/timediff.jpeg>]
 <images/start_arm.jpeg, id=136, 752.8125pt x 526.96875pt>
 File: images/start_arm.jpeg Graphic file (type jpg)
 <use images/start_arm.jpeg>
-Package pdftex.def Info: images/start_arm.jpeg  used on input line 866.
+Package pdftex.def Info: images/start_arm.jpeg  used on input line 875.
 (pdftex.def)             Requested size: 376.40532pt x 263.48372pt.
- [28 <./images/obs.jpeg> <./images/start_arm.jpeg>] [29]
+ [28 <./images/timediff.jpeg> <./images/obs.jpeg>] [29 <./images/start_arm.jpeg
+>]
 <images/coverage2.jpeg, id=143, 752.8125pt x 526.96875pt>
 File: images/coverage2.jpeg Graphic file (type jpg)
 <use images/coverage2.jpeg>
-Package pdftex.def Info: images/coverage2.jpeg  used on input line 943.
+Package pdftex.def Info: images/coverage2.jpeg  used on input line 952.
 (pdftex.def)             Requested size: 376.40532pt x 263.48372pt.
  [30]
 <images/coverage.jpeg, id=147, 752.8125pt x 526.96875pt>
 File: images/coverage.jpeg Graphic file (type jpg)
 <use images/coverage.jpeg>
-Package pdftex.def Info: images/coverage.jpeg  used on input line 951.
+Package pdftex.def Info: images/coverage.jpeg  used on input line 960.
 (pdftex.def)             Requested size: 376.40532pt x 263.48372pt.
-
-[31 <./images/coverage2.jpeg>] [32 <./images/coverage.jpeg>]
+ [31 <./images/coverage2.jpeg>] [32 <./images/coverage.jpeg>]
 <images/h1n1-sir.pdf, id=155, 722.7pt x 433.62pt>
 File: images/h1n1-sir.pdf Graphic file (type pdf)
 <use images/h1n1-sir.pdf>
-Package pdftex.def Info: images/h1n1-sir.pdf  used on input line 990.
+Package pdftex.def Info: images/h1n1-sir.pdf  used on input line 999.
 (pdftex.def)             Requested size: 469.75502pt x 281.85628pt.
 <images/h1n1.jpeg, id=156, 698.61pt x 468.24937pt>
 File: images/h1n1.jpeg Graphic file (type jpg)
 <use images/h1n1.jpeg>
-Package pdftex.def Info: images/h1n1.jpeg  used on input line 1000.
+Package pdftex.def Info: images/h1n1.jpeg  used on input line 1009.
 (pdftex.def)             Requested size: 469.75502pt x 314.86148pt.
  [33 <./images/h1n1-sir.pdf>] [34 <./images/h1n1.jpeg>]
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 1065
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 1074
 .
 
 (/usr/share/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 1065.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 1074.
 
  [35] [36] (./draft_v15.bbl
 [37] [38] [39]) [40] (./draft_v15.aux)
@@ -800,7 +800,7 @@ f-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-dist/fonts/t
 ype1/public/amsfonts/cm/cmsy6.pfb></usr/share/texmf-dist/fonts/type1/public/ams
 fonts/cm/cmsy8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12
 .pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on draft_v15.pdf (40 pages, 2066590 bytes).
+Output written on draft_v15.pdf (40 pages, 2067311 bytes).
 PDF statistics:
  246 PDF objects out of 1000 (max. 8388607)
  167 compressed objects within 2 object streams

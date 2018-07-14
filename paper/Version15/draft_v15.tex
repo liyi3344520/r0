@@ -509,40 +509,49 @@ Estimating $\rr$ is difficult and estimating $V[\rr]$, the variance and confiden
 \subsection{Delta Method}\label{delta-method}
 
 When the method estimates \(\beta\) and \(\gamma\) instead of \(\rr\) directly, we use the delta method approximation to estimate the
-variance of \(\rr\).   From \cite{wasserman2004}, if
+variance of \(\rr\).   From \cite{wasserman2004}, if we have $\hat{\theta}_T$, an estimate of some parameter(s) $\theta$, dependent on the data and number of observations $T$ and
 \begin{align*}
-  \sqrt{O} \left ( \hat{\mathbf{\theta}}_o - \mathbf{\theta} \right ) \overset{d}{\to} N\left ( \mathbf{0}, \Sigma \right  )
+  \sqrt{T} \left ( \hat{\mathbf{\theta}}_n - \mathbf{\theta} \right ) \overset{d}{\to} N\left ( \mathbf{0}, \Sigma \right  )
 \end{align*}
 and $h$ is a continuously differentiable function then
 \begin{align*}
-  \sqrt{O} \left (h(\hat{\theta}_n) - h(\theta) \right ) \overset{d}{\to} N \left (0,  \nabla^T h(\theta)\Sigma \nabla h(\theta)\right ),
+  \sqrt{T} \left (h(\hat{\theta}_T) - h(\theta) \right ) \overset{d}{\to} N \left (0,  \nabla^T h(\theta)\Sigma \nabla h(\theta)\right ),
 \end{align*}
-where $\nabla h$ is the gradient of $h$.
+where $\nabla h$ is the gradient of $h$ and $\Sigma$ is some variance-covariance matrix..
 
 For the method RE, we know $\rr = h(\beta, \gamma) = \frac{\beta}{\gamma}$. Then, if $E\left [\frac{\hat{\beta}}{\hat{\gamma}}\right] \to \frac{\beta}{\gamma}$, then  $(\nabla h = (\frac{1}{\gamma},  -\frac{\beta}{\gamma^2})^T)$ and
 \begin{align*}
-  V[\rr] &\to \nabla h^T(\beta, \gamma) \Sigma_{\beta, \gamma} \nabla h(\beta, \gamma) \\
-  &= \frac{\Sigma_{\beta, \beta}}{\gamma^2} - \frac{\Sigma_{\beta, \gamma}(1 + \beta)}{\gamma^3} + \frac{\beta \Sigma_{\gamma, \gamma}}{\gamma^4}
+  V[\rr] &\approx \frac{1}{T} \left ( \nabla h^T(\beta, \gamma) \Sigma_{\beta, \gamma} \nabla h(\beta, \gamma) \right ) \\
+  &= \frac{1}{T} \left ( \frac{\Sigma_{\beta, \beta}}{\gamma^2} - \frac{\Sigma_{\beta, \gamma}(1 + \beta)}{\gamma^3} + \frac{\beta \Sigma_{\gamma, \gamma}}{\gamma^4} \right )
 \end{align*}
-where $\Sigma_{\beta, \gamma}$ is covariance matrix of \(\beta\) and \(\gamma\). .  We can use plug-in estimators for $\hat{\beta}$, $\hat{\gamma}$, and $\hat{\Sigma}$ where $\hat{\Sigma}$ is taken to the inverse of the Hessian from the least squares optimzation of $\beta$ and $\gamma$.
+where $\Sigma_{\beta, \gamma}$ is covariance matrix of $\hat{\beta}$ and $\hat{\gamma}$.  We can use plug-in estimators for $\hat{\beta}$, $\hat{\gamma}$, and $\hat{\Sigma}$ where $\hat{\Sigma}$ is taken to the inverse of the Hessian from the least squares optimzation of $\beta$ and $\gamma$.
 
 For rRE, we use the estimate of $\Sigma_{\rr, \gamma}$ taken from the optmization of $\rr$ and $\gamma$ as to find our estimate for $\hat{\Sigma}_{\rr}$.
 
 This estimate assumes that the distribution of $\beta$ and $\gamma$ are asymptotically normal.  Here, we use the relationship of $\rr = \frac{\beta}{\gamma}$ in order to estimate the variance, which is specific to the SIR model.  This method may be extended to other frameworks such as the SEIR model.  The advantages of the delta method are that since the Next Generation Matrix \citep{diekmann2009} gives recipe for deriving $\rr$ from the deterministic ODEs, then it is theoretically possible to use the delta method to derive an expression for the variance of $\rr$ for any compartment model.
 
-We can also use the Delta method to derive variance estimates of LMA, LMAT, LL, and MC as for all these estimates first estimate parameters $\theta$ since $\rr= h(\theta)$
+We can also use the Delta method to derive variance estimates of LMA, LMAT, LL, (which in this case is equivalent to the standard error derived from the typical linear regression framework).  We can also use the Delta method to derive an estimate for MC, where $\hat{\sigma}$ is the estimate of the variance of the $\hat{\alpha}$,
+\begin{align*}
+h(\alpha) &= \log \left ( \frac{1}{1-\alpha}\right ) \\
+  h^\prime(\alpha) &= \alpha - 1 \\
+                     V[ \hat{\rr} ] & \approx \frac{1}{T}  \left (\frac{\hat{\sigma}}{(\hat{\alpha} - 1)^2} \right ).
+\end{align*}
 
 \subsection{Block Bootstrap}
 
-The block bootstrap is a variant of the bootstrap in which the $n$ observations are dependent on one another.  In contrast to the original bootstrap, the block bootstrap partitions consectutive observations into $k$ blocks with block-length $b$ ($n=kb$).  These are non-overlapping partitions or blocks, although there are variants for which blocks can overlap.  For iteration $\ell$, one samples $k$ blocks uniformly with replacement and estimates $\hat{\rr}_b$, repeating the sampling and estimation for a total of $L$ estimates of $\hat{\rr}$.  Then
+The block bootstrap is a variant of the bootstrap in which the $n$ observations are dependent on one another.  In contrast to the original bootstrap, the block bootstrap partitions consectutive observations into $k$ blocks with block-length $b$ ($n=kb$).  These are non-overlapping partitions or blocks, although there are variants for which blocks can overlap.  For iteration $\ell$, one samples $k$ blocks uniformly with replacement and estimates $\hat{\rr}_{,\ell}$, repeating the sampling and estimation for a total of $L$ estimates of $\hat{\rr}_{,\ell}$.  Then
 \begin{align*}
-  V\left [ \hat{\rr} \right ] &\approx V\left [\hat{\rr}_\ell \right ].
+  V\left [ \hat{\rr} \right ] &\approx V\left [\hat{\rr}_{,\ell} \right ].
 \end{align*}
 More about the asympotic distributions of the blockwise-bootstrap can be found in \cite{cao1999}, along with descriptions of variants of the block bootstrap.
 
-The asympotic properties hold when the stochastic process is $m$-dependent, that is when observations $t, t+1, \dots$ and $s, s+1, \dots$ are independent whenever $s+m < t$ and under some smoothness conditions on the statistic used to estimate $\rr$.
+The asympotic properties hold when the stochastic process is $m$-dependent, that is when observations $t, t+1, \dots$ and $s, s+1, \dots$ are independent whenever $s+m < t$ and under some smoothness conditions on the statistic used to estimate $\rr$.  Intuitively, this means if two observations are at least length $b$ apart (in terms of observation sequence), then one observation has no effect on the other. The conventional bootstrap is recovered by setting $b=1$.
 
-A choice one must make in the block bootstrap is the block size $b$.  One simple recommendation is to take $b= n^{1/3}$, which is derived from the asymptotic mean square error of the method.
+A choice one must make in the block bootstrap is the block size $b$.  The asymptotic mean squared error of the estimate is
+\begin{align*}
+\frac{1}{n^2} \left (\frac{C_1}{b^2} + \frac{C_2b}{n} \right ),
+\end{align*}
+where $C_1$ and $C_2$ are unknown constants which are dependent on the estimation problem.  \cite{cao1999} reports then that the optimal block size is order $n^{1/3}$.
 
 
 \subsection{Posterior Distribution}
