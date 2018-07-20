@@ -46,6 +46,11 @@ Bonabeau, E., Toubiana, L., and Flahault, A. (1998).
 \newblock The geographical spread of influenza.
 \newblock {\em Proceedings: Biological Sciences}, 265(1413):2421--2425.
 
+\bibitem[\protect\astroncite{Britton}{2010}]{britton2010}
+Britton, T. (2010).
+\newblock Stochastic epidemic models: A survey.
+\newblock {\em Mathematical Biosciences}, 225(1):24 -- 35.
+
 \bibitem[\protect\astroncite{Brooks et~al.}{2015}]{brooks2015}
 Brooks, L.~C., Farrow, D.~C., Hyun, S., Tibshirani, R.~J., and Rosenfeld, R.
   (2015).
@@ -210,8 +215,9 @@ Lash, T.~L. and Fink, A.~K. (2003).
   observational data.
 \newblock {\em Epidemiology}, 14(4):451--458.
 
-\bibitem[\protect\astroncite{Legrand et~al.}{}]{legrand2007}
+\bibitem[\protect\astroncite{Legrand et~al.}{2007}]{legrand2007}
 Legrand, J., Grais, R.~F., Boelle, P.~Y., Valleron, A.~J., and Flahault, A.
+  (2007).
 \newblock Understanding the dynamics of ebola epidemics.
 \newblock {\em Epidemiology and Infection}, 135(4):610--621.
 
