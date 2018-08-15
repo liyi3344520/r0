@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/Arch Linux) (preloaded format=pdflatex 2018.6.16)  20 JUL 2018 14:50
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/Arch Linux) (preloaded format=pdflatex 2018.6.16)  15 AUG 2018 10:45
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -686,106 +686,120 @@ Overfull \hbox (11.47801pt too wide) in paragraph at lines 329--331
 and $\OML/cmm/m/it/12 K \OT1/cmr/m/n/12 = []$. 
  []
 
-[11] [12] [13] [14] [15] [16] [17] [18] [19] [20]
-<images/baseline_sir.pdf, id=101, 838.13126pt x 533.995pt>
+[11] [12] [13] [14] [15] [16]
+Overfull \hbox (12.10114pt too wide) in paragraph at lines 492--493
+[]\OT1/cmr/m/n/12 Denote $[](\OML/cmm/m/it/12 t\OT1/cmr/m/n/12 )\OML/cmm/m/it/1
+2 ; []\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 t\OT1/cmr/m/n/12 )$, and $[](\OML/cmm/m
+/it/12 t\OT1/cmr/m/n/12 )$ to be the ob-served num-ber in each com-part-ment an
+d $\OML/cmm/m/it/12 X\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 t\OT1/cmr/m/n/12 )\OML/c
+mm/m/it/12 ; Y\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 t\OT1/cmr/m/n/12 )$,
+ []
+
+
+Overfull \hbox (7.75354pt too wide) detected at line 516
+[]
+ []
+
+[17] [18] [19] [20] [21]
+<images/baseline_sir.pdf, id=104, 838.13126pt x 533.995pt>
 File: images/baseline_sir.pdf Graphic file (type pdf)
 <use images/baseline_sir.pdf>
-Package pdftex.def Info: images/baseline_sir.pdf  used on input line 644.
+Package pdftex.def Info: images/baseline_sir.pdf  used on input line 689.
 (pdftex.def)             Requested size: 375.80544pt x 239.43182pt.
-
+ [22 <./images/baseline_sir.pdf>]
 
 LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 677.
+               Default added (so using `tbp') on input line 722.
 
-[21] [22 <./images/baseline_sir.pdf>] [23]
-<images/BaseBase.jpeg, id=117, 752.8125pt x 526.96875pt>
+[23] [24]
+<images/BaseBase.jpeg, id=120, 752.8125pt x 526.96875pt>
 File: images/BaseBase.jpeg Graphic file (type jpg)
 <use images/BaseBase.jpeg>
-Package pdftex.def Info: images/BaseBase.jpeg  used on input line 782.
+Package pdftex.def Info: images/BaseBase.jpeg  used on input line 827.
 (pdftex.def)             Requested size: 376.40532pt x 263.48372pt.
- [24] [25 <./images/BaseBase.jpeg>]
-<images/start_arm.jpeg, id=125, 752.8125pt x 526.96875pt>
+ [25] [26 <./images/BaseBase.jpeg>]
+<images/start_arm.jpeg, id=128, 752.8125pt x 526.96875pt>
 File: images/start_arm.jpeg Graphic file (type jpg)
 <use images/start_arm.jpeg>
-Package pdftex.def Info: images/start_arm.jpeg  used on input line 828.
+Package pdftex.def Info: images/start_arm.jpeg  used on input line 873.
 (pdftex.def)             Requested size: 376.40532pt x 263.48372pt.
-
-[26]
-<images/parchange_ar.jpeg, id=129, 752.8125pt x 526.96875pt>
+ [27]
+<images/parchange_ar.jpeg, id=132, 752.8125pt x 526.96875pt>
 File: images/parchange_ar.jpeg Graphic file (type jpg)
 <use images/parchange_ar.jpeg>
-Package pdftex.def Info: images/parchange_ar.jpeg  used on input line 836.
+Package pdftex.def Info: images/parchange_ar.jpeg  used on input line 881.
 (pdftex.def)             Requested size: 376.40532pt x 263.48372pt.
- [27 <./images/start_arm.jpeg>]
-<images/err_robust.jpeg, id=133, 752.8125pt x 526.96875pt>
+ [28 <./images/start_arm.jpeg>]
+<images/err_robust.jpeg, id=136, 752.8125pt x 526.96875pt>
 File: images/err_robust.jpeg Graphic file (type jpg)
 <use images/err_robust.jpeg>
-Package pdftex.def Info: images/err_robust.jpeg  used on input line 846.
+Package pdftex.def Info: images/err_robust.jpeg  used on input line 891.
 (pdftex.def)             Requested size: 376.40532pt x 263.48372pt.
- [28 <./images/parchange_ar.jpeg>]
-<images/model_robust.jpeg, id=137, 752.8125pt x 526.96875pt>
+ [29 <./images/parchange_ar.jpeg>]
+<images/model_robust.jpeg, id=140, 752.8125pt x 526.96875pt>
 File: images/model_robust.jpeg Graphic file (type jpg)
 <use images/model_robust.jpeg>
-Package pdftex.def Info: images/model_robust.jpeg  used on input line 855.
+Package pdftex.def Info: images/model_robust.jpeg  used on input line 900.
 (pdftex.def)             Requested size: 376.40532pt x 263.48372pt.
- [29 <./images/err_robust.jpeg>]
-<images/timediff.jpeg, id=141, 752.8125pt x 526.96875pt>
+ [30 <./images/err_robust.jpeg>]
+<images/timediff.jpeg, id=144, 752.8125pt x 526.96875pt>
 File: images/timediff.jpeg Graphic file (type jpg)
 <use images/timediff.jpeg>
-Package pdftex.def Info: images/timediff.jpeg  used on input line 867.
+Package pdftex.def Info: images/timediff.jpeg  used on input line 912.
 (pdftex.def)             Requested size: 376.40532pt x 263.48372pt.
- [30 <./images/model_robust.jpeg>]
-<images/obs.jpeg, id=145, 752.8125pt x 526.96875pt>
+ [31 <./images/model_robust.jpeg>]
+<images/obs.jpeg, id=149, 752.8125pt x 526.96875pt>
 File: images/obs.jpeg Graphic file (type jpg)
 <use images/obs.jpeg>
-Package pdftex.def Info: images/obs.jpeg  used on input line 878.
+Package pdftex.def Info: images/obs.jpeg  used on input line 923.
 (pdftex.def)             Requested size: 376.40532pt x 263.48372pt.
- [31 <./images/timediff.jpeg>] [32 <./images/obs.jpeg>] [33]
-<images/coverage2.jpeg, id=156, 752.8125pt x 526.96875pt>
+ [32 <./images/timediff.jpeg>] [33 <./images/obs.jpeg>]
+[34]
+<images/coverage2.jpeg, id=159, 752.8125pt x 526.96875pt>
 File: images/coverage2.jpeg Graphic file (type jpg)
 <use images/coverage2.jpeg>
-Package pdftex.def Info: images/coverage2.jpeg  used on input line 958.
+Package pdftex.def Info: images/coverage2.jpeg  used on input line 1003.
 (pdftex.def)             Requested size: 376.40532pt x 263.48372pt.
-<images/coverage.jpeg, id=157, 752.8125pt x 526.96875pt>
+<images/coverage.jpeg, id=160, 752.8125pt x 526.96875pt>
 File: images/coverage.jpeg Graphic file (type jpg)
 <use images/coverage.jpeg>
-Package pdftex.def Info: images/coverage.jpeg  used on input line 966.
+Package pdftex.def Info: images/coverage.jpeg  used on input line 1011.
 (pdftex.def)             Requested size: 376.40532pt x 263.48372pt.
- [34 <./images/coverage2.jpeg>] [35 <./images/coverage.jpeg>]
-<images/h1n1-sir.pdf, id=164, 722.7pt x 433.62pt>
+ [35 <./images/coverage2.jpeg>] [36 <./images/coverage.jpeg>]
+<images/h1n1-sir.pdf, id=167, 722.7pt x 433.62pt>
 File: images/h1n1-sir.pdf Graphic file (type pdf)
 <use images/h1n1-sir.pdf>
-Package pdftex.def Info: images/h1n1-sir.pdf  used on input line 1004.
+Package pdftex.def Info: images/h1n1-sir.pdf  used on input line 1049.
 (pdftex.def)             Requested size: 469.75502pt x 281.85628pt.
-<images/h1n1.jpeg, id=165, 698.61pt x 468.24937pt>
+<images/h1n1.jpeg, id=168, 698.61pt x 468.24937pt>
 File: images/h1n1.jpeg Graphic file (type jpg)
 <use images/h1n1.jpeg>
-Package pdftex.def Info: images/h1n1.jpeg  used on input line 1014.
+Package pdftex.def Info: images/h1n1.jpeg  used on input line 1059.
 (pdftex.def)             Requested size: 469.75502pt x 314.86148pt.
- [36 <./images/h1n1-sir.pdf>] [37 <./images/h1n1.jpeg>]
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 1079
+ [37 <./images/h1n1-sir.pdf>] [38 <./images/h1n1.jpeg>]
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 1124
 .
 
 (/usr/share/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 1079.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 1124.
 
- [38] [39] (./draft_v15.bbl
-[40] [41] [42]) [43] (./draft_v15.aux)
+ [39] [40] (./draft_v15.bbl
+[41] [42] [43]) [44] (./draft_v15.aux)
 
 LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 15011 strings out of 492649
- 300925 string characters out of 6135778
- 368106 words of memory out of 5000000
- 18571 multiletter control sequences out of 15000+600000
+ 15019 strings out of 492649
+ 301060 string characters out of 6135778
+ 368126 words of memory out of 5000000
+ 18579 multiletter control sequences out of 15000+600000
  18676 words of font info for 72 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 55i,15n,66p,1466b,839s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 55i,18n,66p,1466b,839s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/
 texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texmf-dist/fon
 ts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texmf-dist/fonts/type1/publi
@@ -800,10 +814,10 @@ f-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-dist/fonts/t
 ype1/public/amsfonts/cm/cmsy6.pfb></usr/share/texmf-dist/fonts/type1/public/ams
 fonts/cm/cmsy8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12
 .pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on draft_v15.pdf (43 pages, 2073691 bytes).
+Output written on draft_v15.pdf (44 pages, 2080517 bytes).
 PDF statistics:
- 256 PDF objects out of 1000 (max. 8388607)
- 174 compressed objects within 2 object streams
+ 259 PDF objects out of 1000 (max. 8388607)
+ 176 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
  83 words of extra memory for PDF output out of 10000 (max. 10000000)
 
