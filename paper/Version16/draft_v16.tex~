@@ -70,7 +70,7 @@ For nearly a century, the initial reproduction number ($\rr$) has been used to s
 
 
 \section{Introduction}\label{sec:intro}
-What has been called ``arguably the most important quantity in the study of epidemics'' \citep{Heesterbeek2002},  $\mathcal{R}_0$, the initial reproduction number (by convention pronounced ``R-naught'') is an elusive quantity for epidemic modelers to estimate.  As defined by \citet{anderson1992}, $\rr$ is the ``the average number of secondary infections produced when one infected individual is introduced into a host population where everyone is susceptible.''  In some ways, $\rr$ summarizes an entire outbreak of a disease; it is used to assess whether a disease outbreak will occur and its severity.  Additionally, it describes what percentage of the population needs to be vaccinated to avoid such an epidemic, roughly $1-\rr^{-1}$, tells us the final size of the total number of infected individuals, and describes the probability of which we will observe an outbreak under the same conditions \citep{anderson1992,britton2010}).  Despite a clear definition of $\rr$, epidemiologists have struggled to create a standard  estimator for $\rr$  \citep{hethcote2000}.  A major issue in estimating $\rr$ is that the quantity is a \textit{property of the model}, meaning that $\rr$ is dependent not only on the usual noise that comes with statistical modeling but also on a variety of assumptions on how researchers assume a disease is transmitted through a population \citep{diekmann2009,brown2016}.
+What has been called ``arguably the most important quantity in the study of epidemics'' \citep{Heesterbeek2002},  $\mathcal{R}_0$, the initial reproduction number (by convention pronounced ``R-naught'') is an elusive quantity for epidemic modelers to estimate.  As defined by \citet{anderson1992}, $\rr$ is the ``the average number of secondary infections produced when one infected individual is introduced into a host population where everyone is susceptible.''  In some ways, $\rr$ summarizes an entire outbreak of a disease; it is used to assess whether a disease outbreak will occur and its severity.  Additionally, it describes what percentage of the population needs to be vaccinated to avoid such an epidemic, roughly $1-\rr^{-1}$, tells us the final size of the total number of infected individuals, and describes the probability of which we will observe an outbreak under the same conditions \citep{anderson1992,britton2010}).  Despite a clear definition of $\rr$, epidemiologists have struggled to create a standard  estimator for $\rr$  \citep{hethcote2000}.  A major issue in estimating $\rr$ is that the quantity is a \textit{property of the model}, meaning that $\rr$ is dependent not only on the usual noise that comes with statistical modeling but also on a variety of assumptions on how researchers assume a disease is transmitted through a population \citep{diekmann2009}.
 
 To elaborate on $\rr$ being a property of the model, we first need to introduce the concept of the ``SI-framework,'' which was pioneered by Kermack and McKendrick in the 1920s \citep{getz2006}.   Here, S and I are known as compartments where S stands for ``susceptible'' and I for ``infectious.'' Infectious disease models then specify how individuals move from the S compartment to the I compartment.  Often, ancillary compartments are added such as R, which stands for recovered or dead, or E, which stands for exposed but not yet infectious.  The estimate of $\rr$ from a SIR model will not be directly comparable to the estimate of $\rr$ from a SEIR model, for example.  The difficulties of estimating $\rr$ are summarized and expanded upon by \cite{li2011}.  \cite{driessche2017} overviews a number of methods used to estimate $\rr$ but looks at systems beyond the SIR model and so these methods may not be directly compared.   As a result of $\rr$ being a property of the model, we limit our review to methods for estimating $\rr$ for the SIR model introduced by \cite{Kermack700}.
 
@@ -477,7 +477,7 @@ The advantages of this model are its simplicity of interpretation and ability to
 
 %%%%%%%%%%%%55
 \subsection{Likelihood Based Estimation (LBE)}\label{sec:likelihood-based}
-A common way used to estimate epidemiological quantities is through likelihood based estimation.  We saw an example of this in the previous section with MC estimation.  However, as we will see in the results, this particular model does not seem to fit the data well.  As a result, many researchers specify different models for the generation of SIR data; estimate the likelihood through direct calculation, a method such as iterated filtering used in ``plug-and-play'' and derive point estimates and CIs from this likelihood estimate  \citep{abbey1952,forsberg2008,king2009,bhadra2012}.  
+A common way used to estimate epidemiological quantities is through likelihood based estimation.  We saw an example of this in the previous section with MC estimation.  However, as we will see in the results, this particular model does not seem to fit the data well.  As a result, many researchers specify different models for the generation of SIR data; estimate the likelihood through direct calculation, a method such as particle filtering, or an MCMC or other Bayesian approach; and derive point estimates and confidence intervals from this likelihood estimate.  Add in CITATIONS.
 %https://kingaa.github.io/sbied/stochsim/stochsim.html
 
 
@@ -491,14 +491,14 @@ The discrete XYZ model is as follows, where we have replaced $d$ with $\Delta$,
 
 Denote $\hat{X}(t), \hat{Y}(t)$, and $\hat{Z}(t)$ to be the observed number in each compartment and $X(t), Y(t)$, and $Z(t)$ to be the true, underlying model at time $t$.   The stochastic model is given by
 \begin{align*}
-  \hat{X}(t+1) &= \hat{X}(t) - x_t\\
+  \hat{X}(t+1) &= \hat{X}(t) - s_t\\
   \hat{Y}(t+1) & = N - \hat{X}(t+1) - \hat{Z}(t+1), \nonumber \\
   \hat{Z}(t+1) &= \hat{Z}(t) + z_t \nonumber
 \end{align*}
 with $\hat{X}(0)$, $\hat{Y}(0)$, and $\hat{Z}(0)$ known. The random terms in Equation \eqref{eq:sir-noise} are random variables.  Here we choose them to have the following distributions,
 \begin{align*}
-  x_{t} &\sim \text{Binomial}\left (\hat{X}(t), \frac{\beta Y(t)}{N} \right ) \\
-  z_{t} &\sim \text{Binomial}\left (\hat{Y}(t), \gamma \right ). \nonumber
+  s_{t} &\sim \text{Binomial}\left (\hat{X}(t), \frac{\beta Y(t)}{N} \right ) \\
+  r_{t} &\sim \text{Binomial}\left (\hat{Y}(t), \gamma \right ). \nonumber
 \end{align*}
 Then the likelihood is
 \begin{align*}
@@ -510,7 +510,7 @@ Then the likelihood is
   \right ) \left (\beta - \frac{\beta\left (X(t) +Z(t) \right )}{N} \right )^{x_t} \left (1 - \beta +  \frac{\beta\left (X(t) + Z(t) \right )}{N} \right )^{\hat{X}(t) - x_t} \cdot \right .\\
   & \left . \left ( \begin{array}{c}
               N -\left ( \hat{X}(t) + \hat{Z}(t)\right ) \\
-              z_t
+              y_t
             \end{array}
   \right ) \left (\gamma \right )^{z_t} \left ( 1 - \gamma\right )^{N -\left ( \hat{X}(t) + \hat{Z}(t)\right ) - z_t} \right ].
 \end{align*}
@@ -519,7 +519,7 @@ The estimate for $\rr$ is then
   (\hat{\beta}, \hat{\gamma}) &= \arg \max_{\beta, \gamma} \mathcal{L}\left ( \beta, \gamma; \textnormal{Data} \right )\nonumber\\
   \rr &= \frac{\hat{\beta}}{\hat{\gamma}}
   \end{align}
-  The two main differences between this model and MC are  that 1) LBE looks at the joint likelihood of the XYZ model, whereas MC only explicitly models the number of susceptibles and 2) the difference in the structure of the transition probability.  We use the delta method in conjunction with $\hat{\beta}$ and $\hat{\gamma}$ estimations from the Nelder-Mead optimization of the likelihood to estimate the stantard error of $\hat{\rr}$.
+  The two main differences between this model and MC are  that 1) LBE looks at the joint likelihood of the XYZ model, whereas MC only explicitly models the number of susceptibles and 2) the difference in the structure of the transition probability.  We can also use a profile likelihood to estimate confidence itnervals in conjunction with the point estimation of $\hat{\rr}$.
   The advantages of using this model are that our modelling assumptions are explicit and that the modelling process seeems to be reasonable.  Disadvantages include maximizing the liklihood may be more time consuming than other methods due to the need to approximate $X(t)$ and $Z(t)$ for many different values of $\beta$ and $\gamma$ and that if we are wrong about the generating process of the XYZ curves, then this model may be a very poor fit.
 
 
@@ -608,7 +608,7 @@ f(\rr | \textnormal{data} ) \propto \mathcal{L}(\textnormal{data} | \rr) f(\rr)
 \end{align*}
 Then commonly, $\hat{\rr} = \hat{F}_{.5}$, the median of $\hat{F}$.  Correspondingly, the 95\% credible interval is $\left[\hat{F}_{.025}, \hat{F}_{.975} \right ]$. Advantages of this method include having an entire distribution instead of a point estimate.  A disadvantage is that using conjugate priors may not be justified for the given data and MCMC may be computationally intractable.  One should note that these 95\% credible intervals are not the same as confidence intervals since the ``true'' value of $\rr$ may not be contained in the credible intervals 95\% of the time.  We only use the posterior distribution to form a CI for the SB method, as it is the only Bayesian method presented here.
 
-
+\subsection{Profile Likelihood}
 
 
 
@@ -624,9 +624,9 @@ We compare the performance of the SIR models on simulated data from both the SIR
   \hat{Z}(t) &= N - \hat{X}(t) - \hat{Y}(t)\nonumber 
 \end{align}
 We adjust the recovered compartment $Z$ so the total population is constant. 
-We simulate with two different types of error distributions, Gaussian (G) and autoregressive (AR),
+We simulate with two different types of error distributions, Gaussian (Norm) and autoregressive (AR),
 
-\noindent \textbf{Gaussian (G) ($\hat{X}_{G}$, $\hat{Y}_{G}$, $\hat{Z}_{G}$)}
+\noindent \textbf{Gaussian (Norm) ($\hat{X}_{G}$, $\hat{Y}_{G}$, $\hat{Z}_{G}$)}
 \begin{align*}
   f(t) &= X_{XYZ}(t) \\
   g(t) &= Y_{XYZ}(t) \\
@@ -640,21 +640,21 @@ We simulate with two different types of error distributions, Gaussian (G) and au
   \epsilon_{X,t} &\sim N(0, \sigma_X^2) \\
   \epsilon_{Y,t} &\sim N(0, \sigma_Y^2).\\
 \end{align*}
-For each of the Gaussian and AR datasets, we form an additional dataset which enforces the monotonicity of X and Z via the Pool Adjacent Violators Algorithm (PAVA), described by \cite{friedman1984}).  Here, we adjust $Y$ so the constant population is maintained, since X and Z are both monotone functions.
+For each of the Gaussian and AR datasets, we form an additional dataset which enforces the monotonicity of X and Z via the Pool Adjacent Violators Algorithm (PAVA), described by \cite{friedman1984}).  Here, we adjust $Y$ so the constant population is maintained.
 
-\noindent \textbf{Gaussian-Monotone-PAVA (G-M) ($\hat{X}_{GP}$, $\hat{Y}_{GP}$, $\hat{Z}_{GP}$)}
+\noindent \textbf{Gaussian-PAVA (Norm-M) ($\hat{X}_{GP}$, $\hat{Y}_{GP}$, $\hat{Z}_{GP}$)}
 \begin{align*}
  X_{GP}(t) &= \textnormal{PAVA}(X_G(t)) \\
   Y_{GP}(t) &= N - X_{GP}(t) - Z_{GP}(t) \\
   Z_{GP}(t) &= \textnormal{PAVA}(Z_G(t)) \\
 \end{align*}
-\textbf{Autoregressive-Monotone-PAVA (AR-M) ($\hat{X}_{ARP}$, $\hat{Y}_{ARP}$, $\hat{Z}_{ARP}$)}
+\textbf{Autoregressive-PAVA (AR-M) ($\hat{X}_{ARP}$, $\hat{Y}_{ARP}$, $\hat{Z}_{ARP}$)}
 \begin{align*}
   X_{ARP}(t) &= \textnormal{PAVA}(X_{AR}(t)) \\
   Y_{ARP}(t) &= N - X_{ARP}(t) - Z_{ARP}(t) \\
   Z_{ARP}(t) &= \textnormal{PAVA}(Z_{AR}(t)) 
 \end{align*}
-This gives us a total of four error structures for each set of conditions  (1) Gaussian (G), (2) Gaussian monotone - PAVA (G-M),  (3) autoregressive (AR), and (4) autoregressive monotone - PAVA (AR-M) for a given set of parameters $\left (\beta, \gamma, T, X(0), Y(0), Z(0), \sigma_X, \sigma_Y, N \right )$, the infection rate; recovery rate; total number of time points; initial conditions for number of susceptibles, infectious, and recovered individuals; the standard deviations for both the susceptible and infectious compartments; and the total population, respectively.
+This gives us a total of four error structures for each set of conditions  (1) Gaussian (Norm), (2) Gaussian monotone (Norm-M),  (3) autoregressive (AR), and (4) autoregressive monotone (AR-M) for a given set of parameters $\left (\beta, \gamma, T, X(0), Y(0), Z(0), \sigma_X, \sigma_Y, N \right )$, the infection rate; recovery rate; total number of time points; initial conditions for number of susceptibles, infectious, and recovered individuals; the standard deviations for both the susceptible and infectious compartments; and the total population, respectively.
 
 
 \subsection{SIR Data}
@@ -683,13 +683,13 @@ We first simulate a ``baseline'' data set from the SIR model under the following
         Error: Gaussian.
 	
       \end{center}
-      The baseline data set is generated by adding noise to the susceptible and infectious curves from deterministic SIR paths, which are shown in Figure \ref{fig:baseline-data}.  The recovered compartment is then adjusted to maintain a constant population value.  In this scenario, we see that the infection begins slowly but over the course of a year infects nearly 75\% of the population.
+      The baseline data set is generated by adding noise to the susceptible and infectious curves from  deterministic SIR, shown in Figure \ref{fig:baseline-data}.  The recovered compartment is then adjusted to maintain a constant population value.  In this scenario, we see that the infection begins slowly but over the course of a year infects nearly 75\% of the population.
       \begin{figure}
         \centering
         \includegraphics[width=.8\textwidth]{images/baseline_sir.pdf}
-        \caption{SIR (XYZ) curves for the deterministic model with $N=100,000$, $(\beta, \gamma) = (0.06, 0.03)$, $(X(0), Y(0), Z(0))= (99950, 50,0)$  The baseline data is generated by using this model and adding noise to the $X$ and $Y$ compartments and adjusting $Z$ at each time step to maintain a constant population.}\label{fig:baseline-data}
+        \caption{SIR (XYZ) curves for the deterministic model with $N=100,000$, $(\beta, \gamma) = (0.06, 0.03)$, $(X(0), Y(0), Z(0))= (99,950, 50,0)$  The baseline data is generated by using this model and adding noise to the $X$ and $Y$ compartments and adjusting $Z$ at each time step to maintain a constant population.}\label{fig:baseline-data}
         \end{figure}
-      This baseline data set is chosen due to its moderate $\rr$ size of 2, which indicates an outbreak of an epidemic similar to HIV, ZIK-V, EVD, and H1N1 pandemic influenza (see Table \ref{tab:r0-real-ex}).  The infection rate and recovery rate ($\beta, \gamma$) are relatively small.  The duration of the disease, under the true model, spans nearly a whole year (see Figure \ref{fig:baseline-data}) and so we use a year's worth of daily observations of ($\hat{X},\hat{Y}, \hat{Z}$) values.  Initially, 50 (0.05\%) infectious individuals are introduced to the population of 100,000 individuals (approximately the average population size of a US county in 2015).  The standard deviation of the $\hat{X}$ values is 0.1\% of the magnitude of the initial number of susceptible individuals, and the standard deviation of the $\hat{Y}$ values is 10\% of the magnitude of the initial number of infectious individuals, although in this setting, the number of infectious individuals increases rapidly.  We use Gaussian error as our baseline error because of its well known statistical properties so we can more easily compare methods to one another.  Later on, we explore the autoregressive and PAVA simulated data, which may better simulate data from  a real epidemic.
+      This baseline data set is chosen due to its moderate $\rr$ size of 2, which indicates an outbreak of an epidemic similar to HIV, ZIK-V, EVD, and H1N1 pandemic influenza (see Table \ref{tab:r0-real-ex}).  The infection rate and recovery rate ($\beta, \gamma$) are relatively small.  The duration of the disease, under the true model, spans nearly a whole year (see Figure \ref{fig:baseline-data}) and so we use a year's worth of daily observations of ($\hat{X},\hat{Y}, \hat{Z}$) values.  Initially, 50 (0.05\%) infectious individuals are introduced to the population of 100,000 individuals (approximately the average population size of a US county in 2015).  The standard deviation of the $\hat{X}$ values is 0.1\% of the magnitude of the initial number of susceptible individuals, and the standard deviation of the $\hat{Y}$ values is 10\% of the magnitude of the initial number of infectious individuals, although in this setting the number of infectious individuals increases rapidly.  We use Gaussian error as our baseline error because of its well known statistical properties so we can more easily compare methods to one another.  Later on, we explore the autoregressive and PAVA simulated data, which may better simulate data from  a real epidemic.
 
       \subsection{Other Simulated Data}
 
@@ -724,37 +724,37 @@ After generating our baseline data set, we  generate different SIR data sets, ch
 \begin{tabular}{@{}llllllll@{}}
 \toprule
 \textbf{Name} & \textbf{Model} & \textbf{Error} & \textbf{($\beta, \gamma$)} & \textbf{T} & \textbf{(X(0),Y(0))} & \textbf{N} & \textbf{($\sigma_X, \sigma_Y$)} \\ \midrule
-  Baseline        & SIR      &   G             & (.06, .03)                          &     365       &  (99950, 50)                    &  $10^5$          &(100, 5)                                \\ \midrule
+  Baseline        & SIR      &   Norm             & (.06, .03)                          &     365       &  (99950, 50)                    &  $10^5$          &(100, 5)                                \\ \midrule
 %  AR       & SIR      &   AR ($\rho=.7)$             & (.06, .03)                          &     365       &  (99950, 50)                    &  $10^5$          &(100, 5)                            \\ \midrule
-%  \textcolor{red}{G-M}      & SIR      &   G-M ($\rho=.7)$             & (.06, .03)                          &     365       &  (99950, 50)                    &  $10^5$          &(100, 5)                            \\ \midrule
+%  \textcolor{red}{Norm-M}      & SIR      &   Norm-M ($\rho=.7)$             & (.06, .03)                          &     365       &  (99950, 50)                    &  $10^5$          &(100, 5)                            \\ \midrule
 %   \textcolor{red}{AR-M}       & SIR      &   AR-M ($\rho=.7)$             & (.06, .03)                          &     365       &  (99950, 50)                    &  $10^5$          &(100, 5)                            \\ \midrule
-  InfRec1       & SIR      &   G             & (60000, .001)                          &     365       &  (99950, 50)                    &  $10^5$          &(100, 5)\\
-  InfRec2      & SIR      &   G             & (1500, .001)                          &     365       &  (99950, 50)                    &  $10^5$          &(100, 5)                                \\
-  InfRec3      & SIR      &   G             & (1000, .001)                          &     365       &  (99950, 50)                    &  $10^5$          &(100, 5)                                \\
-InfRec4      & SIR      &   G             & (06, .24)                          &     365       &  (99950, 50)                    &  $10^5$          &(100, 5)                                \\ \midrule
-  Time1 & SIR &  G   & (.06, .03)                          &     200       &  (99950, 50)                    &  $10^5$          &(100, 5)                                \\
-  Time2 & SIR &  G   & (.06, .03)                          &     100       &  (99950, 50)                    &  $10^5$          &(100, 5)                                \\
-  Time3 & SIR &  G   & (.06, .03)                          &     50       &  (99950, 50)                    &  $10^5$          &(100, 5)                                \\
-  Time4 & SIR &  G   & (.06, .03)                          &     20       &  (99950, 50)                    &  $10^5$          &(100, 5)                                \\ \midrule
-  Initial1    & SIR      &   G             & (.06, .03)                          &     365       &  (99999, 1)                    &  $10^5$          &(100, 5)                                \\
-  Initial2    & SIR      &   G             & (.06, .03)                          &     365       &  (99990, 10)                    &  $10^5$          &(100, 5)                                \\
-  Initial3    & SIR      &   G             & (.06, .03)                          &     365       &  (99900, 100)                    &  $10^5$          &(100, 5)                                \\
-  Initial4    & SIR      &   G             & (.06, .03)                          &     365       &  (99000, 1000)                    &  $10^5$          &(100, 5)                                \\ \midrule
-PopSize1      & SIR      &   G             & (.06, .03)                          &     365       &  (999500, 500)                    &  $10^6$          &(100, 5)                                \\
-PopSize2      & SIR      &   G             & (.06, .03)                          &     365       &  (9995, 5)                    &  $10^4$          &(100, 5)                                \\
-PopSize3        & SIR      &   G             & (.06, .03)                          &     365       &  (990, 10)                    &  $10^3$          &(100, 5)                                \\
-PopSize4       & SIR      &   G             & (.06, .03)                          &     365       &  (99, 1)                    &  $10^2$          &(100, 5)                                \\
+  InfRec1       & SIR      &   Norm             & (60000, .001)                          &     365       &  (99950, 50)                    &  $10^5$          &(100, 5)\\
+  InfRec2      & SIR      &   Norm             & (1500, .001)                          &     365       &  (99950, 50)                    &  $10^5$          &(100, 5)                                \\
+  InfRec3      & SIR      &   Norm             & (1000, .001)                          &     365       &  (99950, 50)                    &  $10^5$          &(100, 5)                                \\
+InfRec4      & SIR      &   Norm             & (06, .24)                          &     365       &  (99950, 50)                    &  $10^5$          &(100, 5)                                \\ \midrule
+  Time1 & SIR &  Norm   & (.06, .03)                          &     200       &  (99950, 50)                    &  $10^5$          &(100, 5)                                \\
+  Time2 & SIR &  Norm   & (.06, .03)                          &     100       &  (99950, 50)                    &  $10^5$          &(100, 5)                                \\
+  Time3 & SIR &  Norm   & (.06, .03)                          &     50       &  (99950, 50)                    &  $10^5$          &(100, 5)                                \\
+  Time4 & SIR &  Norm   & (.06, .03)                          &     20       &  (99950, 50)                    &  $10^5$          &(100, 5)                                \\ \midrule
+  Initial1    & SIR      &   Norm             & (.06, .03)                          &     365       &  (99999, 1)                    &  $10^5$          &(100, 5)                                \\
+  Initial2    & SIR      &   Norm             & (.06, .03)                          &     365       &  (99990, 10)                    &  $10^5$          &(100, 5)                                \\
+  Initial3    & SIR      &   Norm             & (.06, .03)                          &     365       &  (99900, 100)                    &  $10^5$          &(100, 5)                                \\
+  Initial4    & SIR      &   Norm             & (.06, .03)                          &     365       &  (99000, 1000)                    &  $10^5$          &(100, 5)                                \\ \midrule
+PopSize1      & SIR      &   Norm             & (.06, .03)                          &     365       &  (999500, 500)                    &  $10^6$          &(100, 5)                                \\
+PopSize2      & SIR      &   Norm             & (.06, .03)                          &     365       &  (9995, 5)                    &  $10^4$          &(100, 5)                                \\
+PopSize3        & SIR      &   Norm             & (.06, .03)                          &     365       &  (990, 10)                    &  $10^3$          &(100, 5)                                \\
+PopSize4       & SIR      &   Norm             & (.06, .03)                          &     365       &  (99, 1)                    &  $10^2$          &(100, 5)                                \\
  \midrule
-  Var1      & SIR      &   G             & (.06, .03)                          &     365       &  (99950, 50)                    &  $10^5$          &(50, 2)                                \\
-  Var2      & SIR      &   G             & (.06, .03)                          &     365       &  (99950, 50)                    &  $10^5$          &(500, 20)                                \\
-  Var3      & SIR      &   G             & (.06, .03)                          &     365       &  (99950, 50)                    &  $10^5$          &(2500, 1000)                                \\
-  Var4      & SIR      &   G             & (.06, .03)                          &     365       &  (99950, 50)                    &  $10^5$          &(10000, 500)                                \\ \midrule
- Poly1     & Linear      &   G             & (.06, .03)                          &     365       &  (99950, 50)                    &  $10^5$          &(100, 5)                            \\
-Poly2    & Quartic      &   G             & (.06, .03)                          &     365       &  (99950, 50)                    &  $10^5$          &(100, 5)                            \\ 
-   LSIR     & LSIR      &   G             & (.06, .03)                          &     365       &  (99950, 50)                    &  $10^5$          &(100, 5)                            \\ 
+  Var1      & SIR      &   Norm             & (.06, .03)                          &     365       &  (99950, 50)                    &  $10^5$          &(50, 2)                                \\
+  Var2      & SIR      &   Norm             & (.06, .03)                          &     365       &  (99950, 50)                    &  $10^5$          &(500, 20)                                \\
+  Var3      & SIR      &   Norm             & (.06, .03)                          &     365       &  (99950, 50)                    &  $10^5$          &(2500, 1000)                                \\
+  Var4      & SIR      &   Norm             & (.06, .03)                          &     365       &  (99950, 50)                    &  $10^5$          &(10000, 500)                                \\ \midrule
+ Poly1     & Linear      &   Norm             & (.06, .03)                          &     365       &  (99950, 50)                    &  $10^5$          &(100, 5)                            \\
+Poly2    & Quartic      &   Norm             & (.06, .03)                          &     365       &  (99950, 50)                    &  $10^5$          &(100, 5)                            \\ 
+   LSIR     & LSIR      &   Norm             & (.06, .03)                          &     365       &  (99950, 50)                    &  $10^5$          &(100, 5)                            \\ 
   \bottomrule
 \end{tabular}
-\caption{Table of simulated data sets for the ``G'' error.  We also repeat the tables with the other three error structures: AR, G-M, and AR-M.  We simulate $4 \times 24=96$ total data sets with the given parameters.}
+\caption{Table of simulated data sets for the ``Norm'' error.  We also repeat the tables with the other three error structures: AR, Norm-M, and AR-M.  We simulate $4 \times 24=96$ total data sets with the given parameters.}
 \label{tab:simulated-data}
 \end{table}
 
@@ -791,7 +791,7 @@ To test how well the $\rr$ estimation methods perform when the underlying model 
 
 %\subsection{Model Fitting Details}\label{sec:model-fit}
 
-Table \ref{tab:se-methods} shows the ways that standard errors are acquired for the different methods. The method IPR requires knowledge of the length of the average infectious period $\gamma^{-1}$ in order to fit the model. For the results below, we assume the best case scenario that the true average infectious period is known for the data set. 
+Table \ref{tab:se-methods} shows the ways that standard errors are acquired for the different methods. The IPR, and SIPRknowledge of the length of the average infectious period $\gamma^{-1}$. For the results below, we assume the best case scenario that the true average infectious period is known for the data set. 
 
 \begin{table}[H]
 	\centering
@@ -803,9 +803,9 @@ Table \ref{tab:se-methods} shows the ways that standard errors are acquired for 
 		Linear Model Approximation (LMA) & Delta (linear regression SE) \\
 		LMA, All Time Points  (LMAT)& Delta (linear regression SE)\\
 		Incidence-Prevalence Ratio (IPR) & Block bootstrap (Jackknife resampling) \\
+		Smoothed IPR (SIPR) & Block bootstrap (Jackknife resampling) \\
 		Log-Linear (LL) & Delta (linear regression SE) \\
-          Markov Chain (MC) & Delta (GLM regression SE) \\
-          Likelihood Based Estimation (LBE) & Delta (with inverse Hessian)\\
+		Markov Chain (MC) & Delta (GLM regression SE) \\
 		Sequential Bayes (SB) & Posterior\\
 		% Exponential Growth (EG) & Delta method with linear regression standard error \\
 		% IDEA & Delta method with linear regression standard error \\
@@ -860,7 +860,7 @@ Overall, in Figure \ref{fig:baseline-res}, we see a wide variation in the estima
 
 From examining the full results in the Supplementary Material, the results of the baseline data set with normal error seem to be a good summary of the methods as a whole.  In Figure \ref{fig:baseline-res}, we see that the clear best methods to estimate $\rr$ are RE, rRE, and LL.  These three methods consistently outperform the other methods of accurately estimating $\rr$ with a reasonably small CI when varying a single parameter and holding the others as fixed from the generated data sets.
 
-In particular, MC and SB almost never capture the true estimate and typically underestimate the true value of $\rr$.  This leads us to believe that these models are inadequate in capturing the effects of a disease following the SIR model.  Both models rely on parametric assumptions of simple underlying statistical distributions for the course of infection (Binomial and Poisson, respectively) with time-invariant transmission parameters ($\alpha$ and $\lambda$).  These are good examples of why we need to consider other reasons for using a model other than the math resulting in a simple estimate.  That is not to say that variants of these models are unviable for modelling $\rr$, but they do not make for good defaults.  It is also an issue that these two methods consistently underestimate $\rr$, which could possibly lead to an unchecked epidemic.
+In particular, MC and SB almost never capture the true estimate and typically underestimate the true value of $\rr$.  This leads us to believe that these models are inadequate in capturing the effects of a disease following the SIR model.  Both models rely on parametric assumptions of simple underlying statistical distributions for the course of infection (binomial and Poisson, respectively) with time-invariant transmission parameters ($\alpha$ and $\lambda$).  These are good examples of why we need to consider other reasons for using a model other than the math resulting in a simple estimate.  That is not to say that variants of these models are unviable for modelling $\rr$, but they do not make for good defaults.  It is also an issue that these two methods consistently underestimate $\rr$, which could possibly lead to an unchecked epidemic.
 
 IPR often produces reasonable point estimates for $\rr$ but simply has too large of a CI to be considered a useful estimate.  On the other hand, SIPR has a small CI that typically underestimates the true value of $\rr$.  Since SIPR smoothes the SIR curves, the peak of the infectious curve in particular is shrunken.  Since the peak value of number of infectious is crucial in estimating $\rr$ for SIPR, it makes sense that SIPR underestimates this result.  Additionally, LMA and LMAT are generally prone to underestimating $\rr$ and have large and generally uninformative CIs.
 
@@ -874,7 +874,7 @@ However, we do see instances where LL completely outperforms RE and rRE such as 
 	\caption{Forest plots of estimates of $\rr$ for the \xxsir methods for the Inits1-4 data sets $(\beta=.06, \gamma=.03, T=365,  Z(0)=0, \sigma_X=100, \sigma_Y=5, N=10^5)$.  The points are the estimates of $\rr$ and the lines denote $\pm 2\cdot $Std. Err.  The vertical line is the true $\rr$ value.}\label{fig:ar-small-I}
 \end{figure}
 
-One interesting feature we see in the results is that RE and rRE can result in very different estimations and CIs, which may seem unintuitive since rRE is a simple reparametrization of RE.  For example, in Figure \ref{fig:ar-r0}, we see that when the true value of $\rr$ is 1, rRE has a much smaller CI than RE, which may be one reason to prefer rRE to RE.  In this figure, we see when $\gamma << \beta$ (e.g. $\rr=60)$, then all estimates for $\hat{\rr}$ fail.  However, when $\beta >. \gamma$, we the estimates (besides IPR) can accurately obtain the true estimate. This figure also helps to show that RE and rRE are robust to extreme values of $\beta$ and $\gamma$ and hence extreme values of $\rr$.  \com{(For R0=1.5, why do RE, rRE, and LL look like 2 and not 1.5?))}
+One interesting feature we see in the results is that RE and rRE can result in very different estimations and CIs, which may seem unintuitive since rRE is a simple reparametrization of RE.  For example, in Figure \ref{fig:ar-r0}, we see that when the true value of $\rr$ is 1, rRE has a much smaller CI than RE, which may be one reason to prefer rRE to RE.  This figure also helps to show that RE and rRE are robust to extreme values of $\beta$ and $\gamma$ and hence extreme values of $\rr$.
 
 \begin{figure}[H]
 	\centering
@@ -884,7 +884,7 @@ One interesting feature we see in the results is that RE and rRE can result in v
 
 
 %% robust to different error assumptions
- In Figure \ref{fig:err-rob} we plot the standardized residuals of $\rr$ focusing on the three best methods: RE, rRE, and LL.  Reassuringly, we find that $\hat{\rr}$ estimates from RE and rRE seem to be generally robust to the error structure.  \com{((What's up with varying $\rr$ values??))}
+ In Figure \ref{fig:err-rob} we plot the standardized residuals of $\rr$ focusing on the three best methods: RE, rRE, and LL.  Reassuringly, we find that $\hat{\rr}$ estimates from RE and rRE seem to be generally robust to the error structure.  ((What's up with varying $\rr$ values??))
 
 \begin{figure}[H]
 	\centering
@@ -892,8 +892,8 @@ One interesting feature we see in the results is that RE and rRE can result in v
 	\caption{Standardized residuals $\frac{\left ( \hat{\rr} - \rr\right ) }{SE \left [\hat{\rr}\right ]}$ for the estimation methods of RE, rRE, and LL faceted by the four error structures.  The dashed line is the true value of $\rr$.}\label{fig:err-rob}
 \end{figure}
 
-%% model misspecification is terribly unrobust
-We also examine circumstances where the data is generated from underlying models different from the SIR model.  The results are plotted in Figure \ref{fig:mod-rob}  All three sets of data sets generated by the non-SIR models result in poor estimates of $\rr$, meaning that even our best estimation techniques fail under model misspecification.  Moreover, these methods seem to underestimate $\rr$ \com{Illegible plot, Does RR=0?}
+%% model misspecification is fairly robust
+We also examine circumstances where the data is generated from underlying models different from the SIR model.  The results are plotted in Figure \ref{fig:mod-rob}  All three sets of data sets generated by the non-SIR models result in poor estimates of $\rr$, meaning that even our best estimation techniques fail under model misspecification.
 
 \begin{figure}[H]
 	\centering
@@ -905,7 +905,7 @@ We also examine circumstances where the data is generated from underlying models
 
 Generally, we find that when $N$, the number of individuals decreases, then the CIs of our estimates generally increase.  This is evidence of the  central limit theorem (CLT) taking effect.   When the noise parameters $\sigma_X$ or $\sigma_Y$ increase then the CI lengths of our estimates also generally increase.  For both small $N$ and large $\sigma_X$ or $\sigma_Y$, we find that the point estimates of $\rr$ seem to be unbiased but may have large CIs depending on the other parameters.
 
-We find the parameter $T$ to be particularly important, as shown in Figure \ref{fig:timediff}.  For one, it can play a role similar to that of $N$, as the number of time points increases, the amount of data may also increase.  Thus, larger $T$ may result in smaller CIs due to the CLT.  However, $T$ also plays an even more important role than $N$ in estimating $\rr$.  We see in Figure \ref{fig:timediff}, for RE and rRE, about 50 time points are required to accurately capture the true estimate of $\rr$.  For LL, we see that at least 100 time points are required.
+We find the parameter $T$ to be particularly important, as shown in Figure \ref{fig:timediff}.  For one, it can play a role similar to that of $N$, directly giving the researcher more data for a larger $T$.  Thus, larger $T$ may result in smaller CIs due to the CLT.  However, $T$ also plays an even more important role than $N$ in estimating $\rr$.  We see in Figure \ref{fig:timediff}, for RE and rRE, about 50 time points are required to accurately capture the true estimate of $\rr$.  For LL, we see that at least 100 time points are required.
 
 \begin{figure}[H]
 	\centering
@@ -913,9 +913,9 @@ We find the parameter $T$ to be particularly important, as shown in Figure \ref{
 	\caption{Forest plots of estimates of $\rr$ for the \xxsir methods for the baseline data sets with normall error structure $(\beta=.06, \gamma=.03, X(0) = 99950, Y(0)=50, \sigma_X=100, \sigma_Y=5, N=10^5)$.  The points are the estimates of $\rr$ and the lines denote $\pm 2\cdot $Std. Err.  The vertical line is the true $\rr$ value.}\label{fig:timediff}
       \end{figure}
 
-      In the previous plots, we assume that we are collecting incidence and recovery date every day.  However, it is also possible to observe weekly, monthly, or even quarterly incidence and recovery data, for example.  In Figure \ref{fig:obs}, we explore estimates of $\rr$ using the data collected at different time periods for our baseline data structure with a full year's worth of data.  We find that we can reliably estimate $\hat{\rr}$ regardless of the collection period.  This is likely due to the previously discussed relationship between $\rr$ and the final size of the epidemic. 
+      In the previous plots, we assume that we are collecting incidence and recovery date every day.  However, it is also possible to observe weekly, monthly, or even quarterly incidence and recovery data, for example.  In Figure \ref{fig:obs}, we explore estimates of $\rr$ using the data collected at different time periods for our baseline data structure with a full year's worth of data.  We find that we can reliably estimate $\hat{\rr}$ regardless of the collection period.  This is likely due to the previously discussed relationship between $\rr$ and the final size of the epidemic.  (ADD IN)
 
-However, if we are given only 200 days worth of data, we find that the collection period size does result in different estimates.    
+However, if we are given only 200 days worth of data, we find that the collection period size does result in different estimates.  PLOT      
       
 
 \begin{figure}[H]
@@ -1020,7 +1020,7 @@ Figure \ref{fig:coverage} shows the proportion of repetitions for both repeated 
       We apply our methods using data from the 2009 H1N1 pandemic in the United States.
 
       \subsubsection{USA H1N1 Influenza A 2009 data}
-      The data is from the Center of Disease Control and Prevention's (CDC) FluView \citep{cdc-fluview}.  The data source is ILINet and is the national level data.  We use the same date range as in \cite{towers2009}, namely \com{Epiweeks 21-33} (May 23, 2009-August 22, 2009).  From the United States Census Bureau, we use the population estimate of the USA as of April 1, 2010 of $N=308,740,000$ individuals \citep{census-2010}.  The main features in this data set are weighted influenza like illness (wILI) for a given week (Epiweek).  The wILI values are estimated based on the number of patients diagnosed with influenza like illness and weighted based on the reporting locations.  To obtain weekly incidence from wILI, we use $J(t) = \textnormal{wILI}(t) / 100 \cdot N$.  Then to obtain prevalence $I(t)$, we use the relation of $I(t) = \gamma^{-1}J(t)$, where $\gamma$ is the inverse of the expected time to recovery, which we here use as $\gamma^{-1} = \frac{3}{7}=.429$ weeks \citep{vespignani2007}.  Then $S(t) = N - \sum_{s=0}^{t}J(s)$, the total population size minus the cumulative sum of the incidence, and $R(t) = N - S(t) - I(t)$.  As prior knowledge of $\gamma$ is used to estimate our data for $I$, we expect it to influence our estimates of $\rr$.  The data is summarized in Table \ref{tab:h1n1-data}.
+      The data is from the Center of Disease Control and Prevention's (CDC) FluView \citep{cdc-fluview}.  The data source is ILINet and is the national level data.  We use the same date range as in \cite{towers2009}, namely Epiweeks 21-33 (May 23, 2009-August 22, 2009).  From the United States Census Bureau, we use the population estimate of the USA as of April 1, 2010 of $N=308,740,000$ individuals \citep{census-2010}.  The main features in this data set are weighted influenza like illness (wILI) for a given week (Epiweek).  The wILI values are estimated based on the number of patients diagnosed with influenza like illness and weighted based on the reporting locations.  To obtain weekly incidence from wILI, we use $J(t) = \textnormal{wILI}(t) / 100 \cdot N$.  Then to obtain prevalence $I(t)$, we use the relation of $I(t) = \gamma^{-1}J(t)$, where $\gamma$ is the inverse of the expected time to recovery, which we here use as $\gamma^{-1} = \frac{3}{7}=.429$ weeks \citep{vespignani2007}.  Then $S(t) = N - \sum_{s=0}^{t}J(s)$, the total population size minus the cumulative sum of the incidence, and $R(t) = N - S(t) - I(t)$.  As prior knowledge of $\gamma$ is used to estimate our data for $I$, we expect it to influence our estimates of $\rr$.  The data is summarized in Table \ref{tab:h1n1-data}.
 
 
 % Please add the following required packages to your document preamble:
@@ -1060,7 +1060,6 @@ Population    & $N$=308,740,000 people                                          
 	\caption{Results from SIR models on H1N1 data.}
 \end{figure}
 
-\com{Table and graph do not agree}
 \begin{table}[H]
 	
 	
@@ -1091,7 +1090,6 @@ Population    & $N$=308,740,000 people                                          
 	\caption{H1N1 Data, $\rr$ Estimates and Standard Errors}
 \end{table}
 
-\com{Results TBD}
 
       
 \section{Discussion}\label{sec:discussion}
@@ -1131,7 +1129,7 @@ Overall, we recommend based on our analysis:
   \item 100 data points seems to be a reasonable number of data points to have enough power for testing that $\rr > 1$ and 50 seems to be too few
   \item The larger the number of initially infectious individuals is, the smaller the CIs for $\rr$ are
   \item The noisier the epidemic data is, the larger our CIs for $\rr$ are
-  \item Estimations of $\rr$ are not robust to the misspecified data sets we presented.  Therefore, model specification is of grave importance
+  \item Estimations of $\rr$ are fairly robust to the misspecified data sets we presented, at least for the methods of RE, rRE, and LL
   \item Block bootstrap matches the empirical variance through repeated sampling.
   \end{itemize}
 
