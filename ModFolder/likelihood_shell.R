@@ -17,6 +17,7 @@ sir_likelihood <- function(start_pop, sus_data, inf_data,
     data <- data.frame(tt = times, X1 = sus_data,
                        X2 = inf_data,
                        X3 = N - sus_data - inf_data)
+    data$ll <- 1
     do_plug_in <- FALSE # Run the SIR CM each time as opposed to using observed values
     disease_list <- list(params = starting_params,
                          params_names = c("beta", "gamma"),
@@ -200,9 +201,9 @@ get_SIR_diffs <- function(data){
     ## Return X1, X2, X3 diffs and previous values
     sub_df <- plyr::ddply(.data = data, .variables = c("ll"),
                           .fun =  function(x){
-                              obs_X1 <- c(lag(x$X1, 1))
-                              obs_X2 <- c(lag(x$X2, 1))
-                              obs_X3 <- c(lag(x$X3, 1))
+                              obs_X1 <- c(dplyr::lag(x$X1, 1))
+                              obs_X2 <- c(dplyr::lag(x$X2, 1))
+                              obs_X3 <- c(dplyr::lag(x$X3, 1))
                               return(data.frame(obs_X1= obs_X1,
                                                 obs_X2 = obs_X2,
                                                 obs_X3 = obs_X3))
