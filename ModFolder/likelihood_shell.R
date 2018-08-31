@@ -1,3 +1,5 @@
+require(plyr)
+require(dplyr)
 
 # Inputs:
 ### start_pop is the starting estimate for the number of people in each compartment
@@ -27,16 +29,17 @@ sir_likelihood <- function(start_pop, sus_data, inf_data,
     optim_pars <- optim(par = starting_params,
                            fn = loglike_sir, data = data,
                            disease_list = disease_list,
-                           do_plug_in = do_plug_in)
-    r0_est <- optim_pars$par[2] / optim_pars$par[2]
-
+                           do_plug_in = do_plug_in,
+                        hessian = TRUE)
+    
+    r0_est <- optim_pars$par[1] / optim_pars$par[2]
+    
     ## Using delta method and hessian
-    r0_hessian <- model_est$hessian / model_est$value
-    dh <- c(1/model_est$par["gamma"], - model_est$par["beta"] / (1/model_est$par["gamma"]^2))
+    r0_hessian <- optim_pars$hessian / optim_pars$value
+    dh <- c(1/optim_pars$par[2], - optim_pars$par[1] / (1/optim_pars$par[2]^2))
     r0_sd <- sqrt(t(dh) %*% solve(r0_hessian) %*% dh)
                          
-    
-  return(list(est = r0, sd = r0_sd))
+  return(list(est = r0_est, sd = r0_sd, output = optim_pars$par))
 }
 
 
@@ -64,7 +67,7 @@ loglike_sir <- function(params,
 
     N <- sum(disease_list$init_vals)
     beta <- params[1]
-    gamma <- params[2]
+    gamma <-params[2]
 
     new_data <- get_SIR_diffs(data)
     new_data <- get_SIR_lags(params, new_data, disease_list, do_plug_in)
@@ -76,11 +79,11 @@ loglike_sir <- function(params,
     s_loglike <- sum(apply(new_data, 1,
                            function(row){
                                prob <- beta * row["lag_X2"] / N
-                               if(prob == 0){
+                               if(prob < 0 | prob > 1){
                                   return(-10e3)
                                }
-                               like <- dbinom(row["diff_X1"],
-                                          size = row["obs_X1"],
+                               like <- dbinom(round(row["diff_X1"]),
+                                          size = pmax(round(row["obs_X1"]), 0),
                                           prob = prob)
                                if(like > 0) return(log(like))
                                return(-10e3)
@@ -88,9 +91,12 @@ loglike_sir <- function(params,
                             }))
     r_loglike <- sum(apply(new_data, 1,
                            function(row){
-                               if((N - row["obs_X1"] - row["obs_X3"]) == 0) return(0)
-                               like <- dbinom(row["diff_X3"],
-                                          size = (N - row["obs_X1"] - row["obs_X3"]),
+                               if((N - row["obs_X1"] - row["obs_X3"]) <= 0) return(0)
+                             if(gamma < 0 | gamma > 1){
+                               return(-10e3)
+                             }
+                               like <- dbinom(round(row["diff_X3"]),
+                                          size = pmax(round(N - row["obs_X1"] - row["obs_X3"]), 0),
                                           prob = gamma)
                                if(like > 0) return(log(like))
                                return(-10e3)
@@ -142,11 +148,10 @@ integrate_CM <- function(disease_list, CM_fxn=SIR_fxn,
     params <- disease_list$params
     state <- disease_list$init_vals
     K <- length(state)
-
     names(state) <- paste0("X", 1:K)
     times <- disease_list$times
     ## Integrate with the solver
-    ode_results <- deSolve::ode(state, times, func = SIR_fxn,
+    ode_results <- deSolve::ode(state, times, func = CM_fxn,
                                 parms = params, maxsteps = 10000,
                                 method = "rk4")
 
@@ -161,7 +166,6 @@ integrate_CM <- function(disease_list, CM_fxn=SIR_fxn,
     results <- as.data.frame(ode_results)
     return(results)
 
-   
 
 }
 
@@ -211,7 +215,6 @@ get_SIR_diffs <- function(data){
     sub_df$diff_X1 <- sub_df$obs_X1 - data$X1
     sub_df$diff_X3 <- -sub_df$obs_X3 + data$X3
     return(data.frame(data, sub_df[, -1]))
-
 }
                           
 
@@ -246,6 +249,6 @@ get_SIR_lags <- function(params,
         new_data$lag_X3 <- new_data$obs_X3
 
     }
-    return(new_data)
+  return(new_data)
 
 }

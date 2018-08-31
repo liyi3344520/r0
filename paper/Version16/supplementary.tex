@@ -56,7 +56,7 @@
 We implement the \wxxsir methods to estimate $\rr$ using the baseline data set.  The results are displayed in Figure \ref{fig:baseline-res} and Table \ref{tab:baseline-res}.
 \begin{figure}[H]
   \centering
-  \includegraphics[scale=0.5]{images/BaseBase.jpeg}
+  \includegraphics[scale=0.5]{images/BaseBase.tiff}
   \caption{Forest plots of estimates of $\rr$ for the \xxsir methods for the baseline data set $(\beta=.06, \gamma=.03, O=365, X(0)=99950, Y(0)=50, Z(0)=0, \sigma_X=100, \sigma_Y=5, N=10^5)$.  The points are the estimates of $\rr$ and the lines denote $\pm 2\cdot $Std. Err.  The vertical line is the true $\rr$ value.}\label{fig:baseline-res}
   \end{figure}
 
@@ -66,23 +66,25 @@ We implement the \wxxsir methods to estimate $\rr$ using the baseline data set. 
 		\hline
 		Model & Estimate & Std. Err\\
 		\hline
-		RE & 1.9999711 & 0.0056\\
+		RE & 2.0000 & 0.0056\\
 		\hline
-		rRE & 1.9997340 & 0.0050\\
+		rRE & 2.0000 & 0.0050\\
 		\hline
-		LMA & 1.6863640 & 0.1886\\
+		LMA & 1.6863 & 0.1886\\
 		\hline
-		LMAT & 1.4063227 & 0.6309\\
+		LMAT & 1.406 & 0.6309\\
 		\hline
-		IPR & 4.4203632 & 12.3593\\
+		IPR & 4.4204 & 12.3593\\
 		\hline
-		SIPR & 1.8870824 & $<$ 1e-04 \\
+		SIPR & 1.8871 & $<$ 1e-04 \\
 		\hline
-		LL & 1.9998072 & 0.0002\\
+		LL & 2.0000 & 0.0002\\
 		\hline
-		MC & 0.9485555 &  $<$ 1e-04 \\
+		MC & 0.9486 &  $<$ 1e-04 \\
 		\hline
-		SB & 1.6495023 & 0.0672\\
+		SB & 1.6495 & 0.0672\\
+		\hline
+		LBE & 14.6784 & 1.2330\\
 		\hline
 	\end{tabular}
         \caption{Baseline Data $(\beta=.06, \gamma=.03, O=365, X(0)=99950, Y(0)=50, Z(0)=0, \sigma_X=100, \sigma_Y=5, N=10^5)$, $\rr$ Estimates and Standard Errors}\label{tab:baseline-res}
@@ -102,7 +104,7 @@ In this setting, the CIs from RE, rRE, LMAT, SIPR, and LL cover the true $\rr=2$
 
 \begin{figure}[H]
   \centering
-  \includegraphics[scale=0.5]{images/AR.jpeg}
+  \includegraphics[scale=0.5]{images/AR.tiff}
   \caption{Forest plots of estimates of $\rr$ for the \xxsir methods for the autoregressive (AR) ($\rho=.7)$ simulated data set $(\beta=.06, \gamma=.03, O=365, X(0)=99950, Y(0)=50, Z(0)=0, \sigma_X=100, \sigma_Y=5, N=10^5)$.  The points are the estimates of $\rr$ and the lines denote $\pm 2\cdot $Std. Err.  The vertical line is the true $\rr$ value.}
   \end{figure}\label{fig:ar-res}
 \begin{table}[H]
@@ -130,6 +132,8 @@ In this setting, the CIs from RE, rRE, LMAT, SIPR, and LL cover the true $\rr=2$
 		\hline
 		SB & 1.0000 & 0.0523\\
 		\hline
+		LBE & 18.2509 & 1.2795\\
+		\hline
 	\end{tabular}
         \caption{Autoregressive Errors, $\rr$ Estimates and Standard Errors}\label{tab:ar-res}
 \end{table}
@@ -143,7 +147,7 @@ The methods that contain the true value of $\rr$ are RE, rRE, LMAT, IPR for both
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[scale=0.5]{images/mono.jpeg}
+	\includegraphics[scale=0.5]{images/mono.tiff}
 	\caption{Forest plots of estimates of $\rr$ for the \xxsir methods for the Norm-M and AR-M data sets $(\beta=.06, \gamma=.03, O=365, X(0)=99950, Y(0)=50, Z(0)=0, \sigma_X=100, \sigma_Y=5, N=10^5)$.  The points are the estimates of $\rr$ and the lines denote $\pm 2\cdot $Std. Err.  The vertical lines are the true $\rr$ value.}
 	\label{fig:pava-res}
 \end{figure}
@@ -153,7 +157,7 @@ The methods that contain the true value of $\rr$ are RE, rRE, LMAT, IPR for both
 	\centering
 	\begin{tabular}[t]{l|r|r|r|r}
 		\hline
-		Model & Norm-M Est. & Norm-M SE & AR-M Est. & AR-E SE\\
+		Model & Norm-M Est. & Norm-M SE & AR-M Est. & AR-M SE\\
 		\hline
 		RE & 2.0002 & 0.0044 & 1.9999 & 0.0074\\
 		\hline
@@ -171,7 +175,9 @@ The methods that contain the true value of $\rr$ are RE, rRE, LMAT, IPR for both
 		\hline
 		MC & 0.9486 & $<$ 1e-04 & 0.9486 & $<$ 1e-04\\
 		\hline
-		SB & 1.0000 & 0.0523 & 1.7143505 & 0.0685\\
+		SB & 1.0000 & 0.0523 & 1.7146 & 0.0685\\
+		\hline
+		LBE & 0.8350 & 1.0661 & 0.2434 & 1.0399\\
 		\hline
 	\end{tabular}
 \caption{Gaussian and Autoregressive Data with PAVA Applied, $\rr$ Estimates and Standard Errors}\label{tab:pava-res}
@@ -189,7 +195,7 @@ We next examine the simulated data sets InfRec1-4, three of which have different
 
 \begin{figure}[H]
   \centering
-  \includegraphics[scale=0.5]{images/parchange_n.jpeg}
+  \includegraphics[scale=0.5]{images/parchange_n.tiff}
   \caption{Forest plots of estimates of $\rr$ for the \xxsir methods for the infrec1-4 data sets $(\beta=.06, \gamma=.03, O=365, X(0)=99950, Y(0)=50, Z(0)=0, \sigma_X=100, \sigma_Y=5, N=10^5)$.  The points are the estimates of $\rr$ and the lines denote $\pm 2\cdot $Std. Err.  The vertical line is the true $\rr$ value.}
   \label{fig:infrec1-res}
 \end{figure}
@@ -217,6 +223,8 @@ We next examine the simulated data sets InfRec1-4, three of which have different
 		MC & 0.9486 & $<$ 1e-04 \\
 		\hline
 		SB & 0.9767 & 0.0517\\
+		\hline
+		LBE & 15.7283 & 7.4059\\
 		\hline
 	\end{tabular}
         \caption{\label{tab:infrec1-res}$\gamma = 0.001$, $\rr$ Estimates and Standard Errors}
@@ -253,6 +261,8 @@ When $\rr=1$, we are unsure whether there will be an epidemic or not.  In this c
 		\hline
 		SB & 1.2355 & 0.0582\\
 		\hline
+		LBE & 1.1560 & 16.3047\\
+		\hline
 	\end{tabular}
         \caption{$\gamma = 0.24$, $\rr$ Estimates and Standard Errors}\label{tab:infrec4-res}
 \end{table}
@@ -263,7 +273,7 @@ Table \ref{tab:infrec4-res} corresponds to the case where $\gamma = 0.24$ and $\
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[scale=0.5]{images/parchange_nm.jpeg}
+	\includegraphics[scale=0.5]{images/parchange_nm.tiff}
 	\caption{Forest plots of estimates of $\rr$ for the \xxsir methods for the infrec1-4 data sets $(\beta=.06, \gamma=.03, O=365, X(0)=99950, Y(0)=50, Z(0)=0, \sigma_X=100, \sigma_Y=5, N=10^5)$.  The points are the estimates of $\rr$ and the lines denote $\pm 2\cdot $Std. Err.  The vertical line is the true $\rr$ value.}
 \end{figure}
 \begin{table}[H]
@@ -290,6 +300,8 @@ Table \ref{tab:infrec4-res} corresponds to the case where $\gamma = 0.24$ and $\
 		MC & 0.9486 & $<$ 1e-04\\
 		\hline
 		SB & 1.0000 & 0.0523\\
+		\hline
+		LBE & 31.1718 & 14.4469\\
 		\hline
 	\end{tabular}
 	\caption{$\gamma = 0.001$, $\rr$ Estimates and Standard Errors}
@@ -321,6 +333,8 @@ Table \ref{tab:infrec4-res} corresponds to the case where $\gamma = 0.24$ and $\
 		\hline
 		SB & 1.5587 & 0.0653\\
 		\hline
+		LBE & 0.0034 & 0.0034\\
+		\hline
 	\end{tabular}
 	\caption{$\gamma = 0.24$, $\rr$ Estimates and Standard Errors}
 \end{table}
@@ -329,7 +343,7 @@ Table \ref{tab:infrec4-res} corresponds to the case where $\gamma = 0.24$ and $\
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[scale=0.5]{images/parchange_ar.jpeg}
+	\includegraphics[scale=0.5]{images/parchange_ar.tiff}
 	\caption{Forest plots of estimates of $\rr$ for the \xxsir methods for the infrec1-4 data sets $(\beta=.06, \gamma=.03, O=365, X(0)=99950, Y(0)=50, Z(0)=0, \sigma_X=100, \sigma_Y=5, N=10^5)$.  The points are the estimates of $\rr$ and the lines denote $\pm 2\cdot $Std. Err.  The vertical line is the true $\rr$ value.}
 \end{figure}
 \begin{table}[H]
@@ -356,6 +370,8 @@ Table \ref{tab:infrec4-res} corresponds to the case where $\gamma = 0.24$ and $\
 		MC & 0.9486 & $<$ 1e-04\\
 		\hline
 		SB & 1.0000 & 0.0523\\
+		\hline
+		LBE & 219.8314 & 6213.8700 \\
 		\hline
 	\end{tabular}
 	\caption{$\gamma = 0.001$, $\rr$ Estimates and Standard Errors}
@@ -387,6 +403,8 @@ Table \ref{tab:infrec4-res} corresponds to the case where $\gamma = 0.24$ and $\
 		\hline
 		SB & 1.0160 & 0.0528\\
 		\hline
+		LBE & 0.5765 & 5.9119 \\
+		\hline
 	\end{tabular}
 	\caption{$\gamma = 0.24$, $\rr$ Estimates and Standard Errors}
 \end{table}
@@ -395,7 +413,7 @@ Table \ref{tab:infrec4-res} corresponds to the case where $\gamma = 0.24$ and $\
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[scale=0.5]{images/parchange_arm.jpeg}
+	\includegraphics[scale=0.5]{images/parchange_arm.tiff}
 	\caption{Forest plots of estimates of $\rr$ for the \xxsir methods for the infrec1-4 data sets $(\beta=.06, \gamma=.03, O=365, X(0)=99950, Y(0)=50, Z(0)=0, \sigma_X=100, \sigma_Y=5, N=10^5)$.  The points are the estimates of $\rr$ and the lines denote $\pm 2\cdot $Std. Err.  The vertical line is the true $\rr$ value.}
 \end{figure}
 \begin{table}[H]
@@ -422,6 +440,8 @@ Table \ref{tab:infrec4-res} corresponds to the case where $\gamma = 0.24$ and $\
 		MC & 0.9486 & $<$ 1e-04\\
 		\hline
 		SB & 1.0000 & 0.0523\\
+		\hline
+		LBE & 25.2824 & 25.3557\\
 		\hline
 	\end{tabular}
 	\caption{$\gamma = 0.001$, $\rr$ Estimates and Standard Errors}
@@ -453,6 +473,8 @@ Table \ref{tab:infrec4-res} corresponds to the case where $\gamma = 0.24$ and $\
 		\hline
 		SB & 1.0000 & 0.0523\\
 		\hline
+		LBE & 0.008451 & 0.0092\\
+		\hline
 	\end{tabular}
 	\caption{$\gamma = 0.24$, $\rr$ Estimates and Standard Errors}
 \end{table}
@@ -468,7 +490,7 @@ Again, we see that IPR does very poorly in estimating $\rr$, regardless of the a
 
 \begin{figure}[H]
   \centering
-  \includegraphics[scale=0.5]{images/time_n.jpeg}
+  \includegraphics[scale=0.5]{images/time_n.tiff}
   \caption{Forest plots of estimates of $\rr$ for the \xxsir methods for the Time1-4 data sets with Gaussian errors $(\beta=.06, \gamma=.03, X(0)=99950, Y(0)=50, Z(0)=0, \sigma_X=100, \sigma_Y=5, N=10^5)$.  The points are the estimates of $\rr$ and the lines denote $\pm 2\cdot $Std. Err.  The vertical line is the true $\rr$ value.}\label{fig:time-res}
   \end{figure}
 
@@ -498,6 +520,8 @@ Again, we see that IPR does very poorly in estimating $\rr$, regardless of the a
 		MC & 0.9486 & $<$ 1e-04\\
 		\hline
 		SB & 2.4289 & 0.1102\\
+		\hline
+		LBE & 1.7935 & 0.1778\\
 		\hline
 	\end{tabular}
         \caption{ $T$ = 100, $\rr$ Estimates and Standard Errors}\label{tab:time-res1}
@@ -529,6 +553,8 @@ Table \ref{tab:time-res1} shows the methods applied to the first 100 time steps,
 		\hline
 		SB & 1.0000 & 0.2236\\
 		\hline
+		SB & 0.0698 & 1.0353\\
+		\hline
 	\end{tabular}
         \caption{$T$ = 20, $\rr$ Estimates and Standard Errors}\label{tab:time-res2}
 \end{table}
@@ -538,7 +564,7 @@ Table \ref{tab:time-res2} shows the methods applied to the first 20 time steps o
 \subsubsection{Gaussian Monotonic Errors}
 \begin{figure}[H]
 	\centering
-	\includegraphics[scale=0.5]{images/time_nm.jpeg}
+	\includegraphics[scale=0.5]{images/time_nm.tiff}
 	\caption{Forest plots of estimates of $\rr$ for the \xxsir methods for the Time1-4 data sets with Gaussian errors $(\beta=.06, \gamma=.03, X(0)=99950, Y(0)=50, Z(0)=0, \sigma_X=100, \sigma_Y=5, N=10^5)$.  The points are the estimates of $\rr$ and the lines denote $\pm 2\cdot $Std. Err.  The vertical line is the true $\rr$ value.}
 \end{figure}
 
@@ -568,6 +594,8 @@ Table \ref{tab:time-res2} shows the methods applied to the first 20 time steps o
 		\hline
 		SB & 1.0000 & 0.1000\\
 		\hline
+		LBE & 0.0827 & 0.4294 \\
+		\hline
 	\end{tabular}
 	\caption{ $T$ = 100, $\rr$ Estimates and Standard Errors}
 \end{table}
@@ -596,6 +624,8 @@ Table \ref{tab:time-res2} shows the methods applied to the first 20 time steps o
 		\hline
 		SB & 1.0000 & 0.2236\\
 		\hline
+		LBE & 0.0779 & 0.0047\\
+		\hline
 	\end{tabular}
 	\caption{$T$ = 20, $\rr$ Estimates and Standard Errors}
 \end{table}
@@ -603,7 +633,7 @@ Table \ref{tab:time-res2} shows the methods applied to the first 20 time steps o
 \subsubsection{Autoregressive Errors}
 \begin{figure}[H]
 	\centering
-	\includegraphics[scale=0.5]{images/time_ar.jpeg}
+	\includegraphics[scale=0.5]{images/time_ar.tiff}
 	\caption{Forest plots of estimates of $\rr$ for the \xxsir methods for the Time1-4 data sets with Gaussian errors $(\beta=.06, \gamma=.03, X(0)=99950, Y(0)=50, Z(0)=0, \sigma_X=100, \sigma_Y=5, N=10^5)$.  The points are the estimates of $\rr$ and the lines denote $\pm 2\cdot $Std. Err.  The vertical line is the true $\rr$ value.}
 \end{figure}
 
@@ -633,6 +663,8 @@ Table \ref{tab:time-res2} shows the methods applied to the first 20 time steps o
 		\hline
 		SB & 3.3635 & 0.1834\\
 		\hline
+		LBE & 0.2030 & 0.1157\\
+		\hline
 	\end{tabular}
 	\caption{ $T$ = 100, $\rr$ Estimates and Standard Errors}
 \end{table}
@@ -661,6 +693,8 @@ Table \ref{tab:time-res2} shows the methods applied to the first 20 time steps o
 		\hline
 		SB & 11.3793 & 0.7543\\
 		\hline
+		SB & 0.1401 & 2.4986\\
+		\hline
 	\end{tabular}
 	\caption{$T$ = 20, $\rr$ Estimates and Standard Errors}
 \end{table}
@@ -668,7 +702,7 @@ Table \ref{tab:time-res2} shows the methods applied to the first 20 time steps o
 \subsubsection{Autoregressive Monotonic Errors}
 \begin{figure}[H]
 	\centering
-	\includegraphics[scale=0.5]{images/time_arm.jpeg}
+	\includegraphics[scale=0.5]{images/time_arm.tiff}
 	\caption{Forest plots of estimates of $\rr$ for the \xxsir methods for the Time1-4 data sets with Gaussian errors $(\beta=.06, \gamma=.03, X(0)=99950, Y(0)=50, Z(0)=0, \sigma_X=100, \sigma_Y=5, N=10^5)$.  The points are the estimates of $\rr$ and the lines denote $\pm 2\cdot $Std. Err.  The vertical line is the true $\rr$ value.}
 \end{figure}
 
@@ -698,6 +732,8 @@ Table \ref{tab:time-res2} shows the methods applied to the first 20 time steps o
 		\hline
 		SB & 1.0000 & 0.1000\\
 		\hline
+		SB & 1.0110 & 0.1356\\
+		\hline
 	\end{tabular}
 	\caption{ $T$ = 100, $\rr$ Estimates and Standard Errors}
 \end{table}
@@ -726,6 +762,8 @@ Table \ref{tab:time-res2} shows the methods applied to the first 20 time steps o
 		\hline
 		SB & 1.0000 & 0.2236\\
 		\hline
+		SB & 0.0703 & 0.1436\\
+		\hline
 	\end{tabular}
 	\caption{$T$ = 20, $\rr$ Estimates and Standard Errors}
 \end{table}
@@ -740,7 +778,7 @@ In Figure \ref{fig:inits-res} and Tables \ref{tab:inits-res1} and \ref{tab:inits
 
 \begin{figure}[H]
   \centering
-  \includegraphics[scale=0.5]{images/start_n.jpeg}
+  \includegraphics[scale=0.5]{images/start_n.tiff}
     \caption{Forest plots of estimates of $\rr$ for the \xxsir methods for the Inits1-4 data sets $(\beta=.06, \gamma=.03, O=365, \sigma_X=100, \sigma_Y=5, N=10^5)$.  The points are the estimates of $\rr$ and the lines denote $\pm 2\cdot $Std. Err.  The vertical line is the true $\rr$ value.}\label{fig:inits-res}
   \end{figure}
 
@@ -775,6 +813,8 @@ Table \ref{tab:inits-res2} shows the methods applied to data where $Y(0) = 1$, s
 		\hline
 		SB & 0.9729 & 0.0516\\
 		\hline
+		LBE & 16.9935 & 1.2104\\
+		\hline
 	\end{tabular}
         \caption{$Y(0) = 1000$, $\rr$ Estimates and Standard Errors}\label{tab:inits-res1}
 \end{table}
@@ -804,6 +844,8 @@ Table \ref{tab:inits-res2} shows the methods applied to data where $Y(0) = 1$, s
 		\hline
 		SB & 1.4715 & 0.0635\\
 		\hline
+		LBE & 10.2359 & 341.8888\\
+		\hline
 	\end{tabular}
         \caption{$Y(0) = 1$, $\rr$ Estimates and Standard Errors}\label{tab:inits-res2}
 \end{table}
@@ -812,7 +854,7 @@ Table \ref{tab:inits-res2} shows the methods applied to data where $Y(0) = 1$, s
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[scale=0.5]{images/start_nm.jpeg}
+	\includegraphics[scale=0.5]{images/start_nm.tiff}
 	\caption{Forest plots of estimates of $\rr$ for the \xxsir methods for the Inits1-4 data sets $(\beta=.06, \gamma=.03, O=365, \sigma_X=100, \sigma_Y=5, N=10^5)$.  The points are the estimates of $\rr$ and the lines denote $\pm 2\cdot $Std. Err.  The vertical line is the true $\rr$ value.}
 \end{figure}
 
@@ -841,6 +883,8 @@ Table \ref{tab:inits-res2} shows the methods applied to data where $Y(0) = 1$, s
 		MC & 0.9486 & $<$ 1e-04\\
 		\hline
 		SB & 1.0868 & 0.0546\\
+		\hline
+		LBE & 0.8441 & 1.0400\\
 		\hline
 	\end{tabular}
 	\caption{$Y(0) = 1000$, $\rr$ Estimates and Standard Errors}
@@ -871,6 +915,8 @@ Table \ref{tab:inits-res2} shows the methods applied to data where $Y(0) = 1$, s
 		\hline
 		SB & 1.7685 & 0.0696\\
 		\hline
+		LBE & 0.5064 & 0.8122\\
+		\hline
 	\end{tabular}
 	\caption{$Y(0) = 1$, $\rr$ Estimates and Standard Errors}
 \end{table}
@@ -880,7 +926,7 @@ Table \ref{tab:inits-res2} shows the methods applied to data where $Y(0) = 1$, s
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[scale=0.5]{images/start_ar.jpeg}
+	\includegraphics[scale=0.5]{images/start_ar.tiff}
 	\caption{Forest plots of estimates of $\rr$ for the \xxsir methods for the Inits1-4 data sets $(\beta=.06, \gamma=.03, O=365, \sigma_X=100, \sigma_Y=5, N=10^5)$.  The points are the estimates of $\rr$ and the lines denote $\pm 2\cdot $Std. Err.  The vertical line is the true $\rr$ value.}
 \end{figure}
 
@@ -909,6 +955,8 @@ Table \ref{tab:inits-res2} shows the methods applied to data where $Y(0) = 1$, s
 		MC & 0.9486 & $<$ 1e-04\\
 		\hline
 		SB & 0.3154 & 0.0294\\
+		\hline
+		LBE & 15.1063 & 1.2243\\
 		\hline
 	\end{tabular}
 	\caption{$Y(0) = 1000$, $\rr$ Estimates and Standard Errors}
@@ -939,6 +987,8 @@ Table \ref{tab:inits-res2} shows the methods applied to data where $Y(0) = 1$, s
 		\hline
 		SB & 1.7698 & 0.0696\\
 		\hline
+		LBE & 12.8259 & 1.2527\\
+		\hline
 	\end{tabular}
 	\caption{$Y(0) = 1$, $\rr$ Estimates and Standard Errors}
 \end{table}
@@ -947,7 +997,7 @@ Table \ref{tab:inits-res2} shows the methods applied to data where $Y(0) = 1$, s
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[scale=0.5]{images/start_arm.jpeg}
+	\includegraphics[scale=0.5]{images/start_arm.tiff}
 	\caption{Forest plots of estimates of $\rr$ for the \xxsir methods for the Inits1-4 data sets $(\beta=.06, \gamma=.03, O=365, \sigma_X=100, \sigma_Y=5, N=10^5)$.  The points are the estimates of $\rr$ and the lines denote $\pm 2\cdot $Std. Err.  The vertical line is the true $\rr$ value.}
 \end{figure}
 
@@ -976,6 +1026,8 @@ Table \ref{tab:inits-res2} shows the methods applied to data where $Y(0) = 1$, s
 		MC & 0.9486 & $<$ 1e-04\\
 		\hline
 		SB & 0.3790 & 0.0322\\
+		\hline
+		LBE & 15.5480 & 1.0876\\
 		\hline
 	\end{tabular}
 	\caption{$Y(0) = 1000$, $\rr$ Estimates and Standard Errors}
@@ -1006,6 +1058,8 @@ Table \ref{tab:inits-res2} shows the methods applied to data where $Y(0) = 1$, s
 		\hline
 		SB & 1.7793 & 0.0698\\
 		\hline
+		LBE & 0.6134 & 0.8060\\
+		\hline
 	\end{tabular}
 	\caption{$Y(0) = 1$, $\rr$ Estimates and Standard Errors}
 \end{table}
@@ -1024,7 +1078,7 @@ Thus, it seems that if one is estimating for $\rr$ for a small population such a
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[scale=0.5]{images/popsize_n.jpeg}
+	\includegraphics[scale=0.5]{images/popsize_n.tiff}
 	\caption{Forest plots of estimates of $\rr$ for the \xxsir methods for the PopSize1-4 data sets $(\beta=.06, \gamma=.03, O=365, \sigma_X=100, \sigma_Y=5)$.  The points are the estimates of $\rr$ and the lines denote $\pm 2\cdot $Std. Err.  The vertical line is the true $\rr$ value.}\label{fig:inits-res2}
 \end{figure}
 
@@ -1052,6 +1106,8 @@ Thus, it seems that if one is estimating for $\rr$ for a small population such a
 		MC & 0.9486 & 4.0e-06\\
 		\hline
 		SB & 0.4418 & 0.0348\\
+		\hline
+		LBE & 2.8519 & 0.3441\\
 		\hline
 	\end{tabular}
 \caption{$N = 10000$, $\rr$ Estimates and Standard Errors}\label{tab:n1-res2}
@@ -1082,6 +1138,8 @@ Thus, it seems that if one is estimating for $\rr$ for a small population such a
 		\hline
 		SB & 0.3887 & 0.0326\\
 		\hline
+		LBE & 8.1765 & 104.3010\\
+		\hline
 	\end{tabular}
 \caption{$N = 100$, $\rr$ Estimates and Standard Errors}\label{tab:n2-res2}
 \end{table}
@@ -1090,7 +1148,7 @@ Thus, it seems that if one is estimating for $\rr$ for a small population such a
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[scale=0.5]{images/popsize_nm.jpeg}
+	\includegraphics[scale=0.5]{images/popsize_nm.tiff}
 	\caption{Forest plots of estimates of $\rr$ for the \xxsir methods for the PopSize1-4 data sets $(\beta=.06, \gamma=.03, O=365, \sigma_X=100, \sigma_Y=5)$.  The points are the estimates of $\rr$ and the lines denote $\pm 2\cdot $Std. Err.  The vertical line is the true $\rr$ value.}
 \end{figure}
 
@@ -1118,6 +1176,8 @@ Thus, it seems that if one is estimating for $\rr$ for a small population such a
 		MC & 0.9486 & $<$ 1e-04\\
 		\hline
 		SB & 1.0000 & 0.0523\\
+		\hline
+		LBE & 1.9577 & 0.6494\\
 		\hline
 	\end{tabular}
 	\caption{$N = 10000$, $\rr$ Estimates and Standard Errors}
@@ -1148,6 +1208,8 @@ Thus, it seems that if one is estimating for $\rr$ for a small population such a
 		\hline
 		SB & 1.2709 & 0.0590\\
 		\hline
+		LBE & 23.4461 & 418.3798\\
+		\hline
 	\end{tabular}
 	\caption{$N = 100$, $\rr$ Estimates and Standard Errors}
 \end{table}
@@ -1156,7 +1218,7 @@ Thus, it seems that if one is estimating for $\rr$ for a small population such a
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[scale=0.5]{images/popsize_ar.jpeg}
+	\includegraphics[scale=0.5]{images/popsize_ar.tiff}
 	\caption{Forest plots of estimates of $\rr$ for the \xxsir methods for the PopSize1-4 data sets $(\beta=.06, \gamma=.03, O=365, \sigma_X=100, \sigma_Y=5)$.  The points are the estimates of $\rr$ and the lines denote $\pm 2\cdot $Std. Err.  The vertical line is the true $\rr$ value.}
 \end{figure}
 
@@ -1184,6 +1246,8 @@ Thus, it seems that if one is estimating for $\rr$ for a small population such a
 		MC & 0.9500 & 0.0003\\
 		\hline
 		SB & 1.5457 & 0.0651\\
+		\hline
+		LBE & 3.5464 & 0.4506\\
 		\hline
 	\end{tabular}
 	\caption{$N = 10000$, $\rr$ Estimates and Standard Errors}
@@ -1214,6 +1278,8 @@ Thus, it seems that if one is estimating for $\rr$ for a small population such a
 		\hline
 		SB & 1.1877 & 0.0570\\
 		\hline
+		LBE & 7.6404 & 147.2861\\
+		\hline
 	\end{tabular}
 	\caption{$N = 100$, $\rr$ Estimates and Standard Errors}
 \end{table}
@@ -1222,7 +1288,7 @@ Thus, it seems that if one is estimating for $\rr$ for a small population such a
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[scale=0.5]{images/popsize_arm.jpeg}
+	\includegraphics[scale=0.5]{images/popsize_arm.tiff}
 	\caption{Forest plots of estimates of $\rr$ for the \xxsir methods for the PopSize1-4 data sets $(\beta=.06, \gamma=.03, O=365, \sigma_X=100, \sigma_Y=5)$.  The points are the estimates of $\rr$ and the lines denote $\pm 2\cdot $Std. Err.  The vertical line is the true $\rr$ value.}
 \end{figure}
 
@@ -1250,6 +1316,8 @@ Thus, it seems that if one is estimating for $\rr$ for a small population such a
 		MC & 0.9486 & $<$ 1e-04\\
 		\hline
 		SB & 1.0000 & 0.0523\\
+		\hline
+		LBE & 5.9428 & 0.5902\\
 		\hline
 	\end{tabular}
 	\caption{$N = 10000$, $\rr$ Estimates and Standard Errors}
@@ -1280,6 +1348,8 @@ Thus, it seems that if one is estimating for $\rr$ for a small population such a
 		\hline
 		SB & 1.8078 & 0.0704\\
 		\hline
+		LBE & 59.2793 & 835.1442\\
+		\hline
 	\end{tabular}
 	\caption{$N = 100$, $\rr$ Estimates and Standard Errors}
 \end{table}
@@ -1291,7 +1361,7 @@ We examine the estimates of $\rr$ when changing the values of the variance of th
 
 \begin{figure}[H]
 \begin{center}
-  \includegraphics[scale=0.5]{images/var_n.jpeg}
+  \includegraphics[scale=0.5]{images/var_n.tiff}
   \caption{Forest plots of estimates of $\rr$ for the \xxsir methods for the Var1-4 data sets $(\beta=.06, \gamma=.03, O=365, T=365, X(0)=99950, Y(0)=50, Z(0)=0, N=10^5)$.  The points are the estimates of $\rr$ and the lines denote $\pm 2\cdot $Std. Err.  The vertical line is the true $\rr$ value.}
   \label{fig:mag-var-res}
 \end{center}
@@ -1324,6 +1394,8 @@ We display the results in Figure \ref{fig:mag-var-res} and Tables \ref{tab:mag-v
 		MC & 0.9486 & $<$ 1e-04\\
 		\hline
 		SB & 1.6750 & 0.0677\\
+		\hline
+		LBE & 18.3250 & 0.9087\\
 		\hline
 	\end{tabular}
         	\caption{ $(\sigma^2_X, \sigma^2_Y) = (50, 2)$, $\rr$ Estimates and Standard Errors}\label{tab:mag-var-res1}
@@ -1358,6 +1430,8 @@ In Table \ref{tab:mag-var-res1}, the magnitude of the variance of the noise is s
 		\hline
 		SB & 1.8567 & 0.0713\\
 		\hline
+		LBE & 5.6087 & 0.3850\\
+		\hline
 	\end{tabular}
         	\caption{$(\sigma^2_X, \sigma^2_Y) = (2500, 100)$, $\rr$ Estimates and Standard Errors}\label{tab:mag-var-res2}
 \end{table}
@@ -1368,7 +1442,7 @@ In Table \ref{tab:mag-var-res2}, the magnitude of the variance of the noise is l
 
 \begin{figure}[H]
 	\begin{center}
-		\includegraphics[scale=0.5]{images/var_nm.jpeg}
+		\includegraphics[scale=0.5]{images/var_nm.tiff}
 		\caption{Forest plots of estimates of $\rr$ for the \xxsir methods for the Var1-4 data sets $(\beta=.06, \gamma=.03, O=365, T=365, X(0)=99950, Y(0)=50, Z(0)=0, N=10^5)$.  The points are the estimates of $\rr$ and the lines denote $\pm 2\cdot $Std. Err.  The vertical line is the true $\rr$ value.}
 	\end{center}
 \end{figure}
@@ -1398,6 +1472,8 @@ In Table \ref{tab:mag-var-res2}, the magnitude of the variance of the noise is l
 		MC & 0.9486 & $<$ 1e-04\\
 		\hline
 		SB & 1.2333 & 0.0581\\
+		\hline
+		LBE & 17.3206 & 1.1469\\
 		\hline
 	\end{tabular}
 	\caption{ $(\sigma^2_X, \sigma^2_Y) = (50, 2)$, $\rr$ Estimates and Standard Errors}
@@ -1429,6 +1505,8 @@ In Table \ref{tab:mag-var-res2}, the magnitude of the variance of the noise is l
 		\hline
 		SB & 1.0000 & 0.0523\\
 		\hline
+		LBE & 12.3792 & 265.7344\\
+		\hline
 	\end{tabular}
 	\caption{$(\sigma^2_X, \sigma^2_Y) = (2500, 100)$, $\rr$ Estimates and Standard Errors}
 \end{table}
@@ -1437,7 +1515,7 @@ In Table \ref{tab:mag-var-res2}, the magnitude of the variance of the noise is l
 
 \begin{figure}[H]
 	\begin{center}
-		\includegraphics[scale=0.5]{images/var_ar.jpeg}
+		\includegraphics[scale=0.5]{images/var_ar.tiff}
 		\caption{Forest plots of estimates of $\rr$ for the \xxsir methods for the Var1-4 data sets $(\beta=.06, \gamma=.03, O=365, T=365, X(0)=99950, Y(0)=50, Z(0)=0, N=10^5)$.  The points are the estimates of $\rr$ and the lines denote $\pm 2\cdot $Std. Err.  The vertical line is the true $\rr$ value.}
 	\end{center}
 \end{figure}
@@ -1467,6 +1545,8 @@ In Table \ref{tab:mag-var-res2}, the magnitude of the variance of the noise is l
 		MC & 0.9486 & $<$ 1e-04\\
 		\hline
 		SB & 1.6378 & 0.0670\\
+		\hline
+		LBE & 9.6830 & 1.2452\\
 		\hline
 	\end{tabular}
 	\caption{ $(\sigma^2_X, \sigma^2_Y) = (50, 2)$, $\rr$ Estimates and Standard Errors}
@@ -1498,6 +1578,8 @@ In Table \ref{tab:mag-var-res2}, the magnitude of the variance of the noise is l
 		\hline
 		SB & 1.9073 & 0.0723\\
 		\hline
+		LBE & 8.6546 & 0.8403\\
+		\hline
 	\end{tabular}
 	\caption{$(\sigma^2_X, \sigma^2_Y) = (2500, 100)$, $\rr$ Estimates and Standard Errors}
 \end{table}
@@ -1506,7 +1588,7 @@ In Table \ref{tab:mag-var-res2}, the magnitude of the variance of the noise is l
 
 \begin{figure}[H]
 	\begin{center}
-		\includegraphics[scale=0.5]{images/var_arm.jpeg}
+		\includegraphics[scale=0.5]{images/var_arm.tiff}
 		\caption{Forest plots of estimates of $\rr$ for the \xxsir methods for the Var1-4 data sets $(\beta=.06, \gamma=.03, O=365, T=365, X(0)=99950, Y(0)=50, Z(0)=0, N=10^5)$.  The points are the estimates of $\rr$ and the lines denote $\pm 2\cdot $Std. Err.  The vertical line is the true $\rr$ value.}
 	\end{center}
 \end{figure}
@@ -1536,6 +1618,8 @@ In Table \ref{tab:mag-var-res2}, the magnitude of the variance of the noise is l
 		MC & 0.9486 & $<$ 1e-04\\
 		\hline
 		SB & 1.5555 & 0.0653\\
+		\hline
+		LBE & 16.0789 & 1.1585\\
 		\hline
 	\end{tabular}
 	\caption{ $(\sigma^2_X, \sigma^2_Y) = (50, 2)$, $\rr$ Estimates and Standard Errors}
@@ -1567,6 +1651,8 @@ In Table \ref{tab:mag-var-res2}, the magnitude of the variance of the noise is l
 		\hline
 		SB & 1.0000 & 0.0523\\
 		\hline
+		LBE & 0.01152 & 0.0351\\
+		\hline
 	\end{tabular}
 	\caption{$(\sigma^2_X, \sigma^2_Y) = (2500, 100)$, $\rr$ Estimates and Standard Errors}
 \end{table}
@@ -1578,7 +1664,7 @@ Until this point, we have only examined results while assuming that the epidemic
 
 \begin{figure}[H]
   \begin{center}
-    \includegraphics[scale=0.5]{images/other_n.jpeg}
+    \includegraphics[scale=0.5]{images/other_n.tiff}
   \caption{Forest plots of estimates of $\rr$ for the \xxsir methods for the Poly1, Poly4, and LSIR data sets $(\beta=.06, \gamma=.03, O=365, T=365, X(0)=99950, Y(0)=50, Z(0)=0, N=10^5, \sigma_X=100, \sigma_Y=5)$.  The points are the estimates of $\rr$ and the lines denote $\pm 2\cdot $Std. Err.  The vertical line is the true $\rr$ value.}
   \label{fig:other-res}	
   \end{center}
@@ -1611,6 +1697,8 @@ For both the Poly1 and LSIR data sets, all the methods besides IPR and SIPR unde
 		\hline
 		SB & 1.4150 & 0.0622\\
 		\hline
+		LBE & 0.1973 & 0.0602\\
+		\hline
 	\end{tabular}
 	\caption{Linear Data, $\rr$ Estimates and Standard Errors}\label{tab:other-res1}
 \end{table}
@@ -1640,6 +1728,8 @@ For both the Poly1 and LSIR data sets, all the methods besides IPR and SIPR unde
 	MC & 0.9486 & 6e-07\\
 	\hline
 	SB & 0.2119 & 0.02409\\
+	\hline
+	LBE & 1.0314 & 0.1796\\
 	\hline
 \end{tabular}
 \caption{4th Order Model, $\rr$ Estimates and Standard Errors}\label{tab:other-res2} 
@@ -1672,6 +1762,8 @@ Table \ref{tab:other-res2} shows the methods applied to data from a 4th order li
 		\hline
 		SB & 1.2009 & 0.0574\\
 		\hline
+		LBE & 9.3704 & 0.6082\\
+		\hline
 	\end{tabular}
 	\caption{Linear SIR Data, $\rr$ Estimates and Standard Errors}\label{tab:other-res3}
 \end{table}
@@ -1680,7 +1772,7 @@ Table \ref{tab:other-res2} shows the methods applied to data from a 4th order li
 
 \begin{figure}[H]
 	\begin{center}
-		\includegraphics[scale=0.5]{images/other_nm.jpeg}
+		\includegraphics[scale=0.5]{images/other_nm.tiff}
 		\caption{Forest plots of estimates of $\rr$ for the \xxsir methods for the Poly1, Poly4, and LSIR data sets $(\beta=.06, \gamma=.03, O=365, T=365, X(0)=99950, Y(0)=50, Z(0)=0, N=10^5, \sigma_X=100, \sigma_Y=5)$.  The points are the estimates of $\rr$ and the lines denote $\pm 2\cdot $Std. Err.  The vertical line is the true $\rr$ value.}
 	\end{center}
 \end{figure}
@@ -1709,6 +1801,8 @@ Table \ref{tab:other-res2} shows the methods applied to data from a 4th order li
 		MC & 0.9486 & $<$ 1e-04\\
 		\hline
 		SB & 1.3647 & 0.0611\\
+		\hline
+		LBE & 10.8682 & 0.5310\\
 		\hline
 	\end{tabular}
 	\caption{Linear Data, $\rr$ Estimates and Standard Errors}
@@ -1740,6 +1834,8 @@ Table \ref{tab:other-res2} shows the methods applied to data from a 4th order li
 		\hline
 		SB & 0.2581 & 0.0266\\
 		\hline
+		LBE & 0.0642 & 0.0864\\
+		\hline
 	\end{tabular}
 	\caption{4th Order Model, $\rr$ Estimates and Standard Errors}
 \end{table}
@@ -1770,6 +1866,8 @@ Table \ref{tab:other-res2} shows the methods applied to data from a 4th order li
 		\hline
 		SB & 1.3209 & 0.0602\\
 		\hline
+		LBE & 0.4763 & 0.5108\\
+		\hline
 	\end{tabular}
 	\caption{Linear SIR Data, $\rr$ Estimates and Standard Errors}
 \end{table}
@@ -1780,7 +1878,7 @@ Table \ref{tab:other-res2} shows the methods applied to data from a 4th order li
 
 \begin{figure}[H]
 	\begin{center}
-		\includegraphics[scale=0.5]{images/other_ar.jpeg}
+		\includegraphics[scale=0.5]{images/other_ar.tiff}
 		\caption{Forest plots of estimates of $\rr$ for the \xxsir methods for the Poly1, Poly4, and LSIR data sets $(\beta=.06, \gamma=.03, O=365, T=365, X(0)=99950, Y(0)=50, Z(0)=0, N=10^5, \sigma_X=100, \sigma_Y=5)$.  The points are the estimates of $\rr$ and the lines denote $\pm 2\cdot $Std. Err.  The vertical line is the true $\rr$ value.}
 	\end{center}
 \end{figure}
@@ -1809,6 +1907,8 @@ Table \ref{tab:other-res2} shows the methods applied to data from a 4th order li
 		MC & 0.9486 & $<$ 1e-04\\
 		\hline
 		SB & 1.4979 & 0.0641\\
+		\hline
+		LBE & 8.6785 & 0.5619\\
 		\hline
 	\end{tabular}
 	\caption{Linear Data, $\rr$ Estimates and Standard Errors}
@@ -1840,6 +1940,8 @@ Table \ref{tab:other-res2} shows the methods applied to data from a 4th order li
 		\hline
 		SB & 0.2132 & 0.0242\\
 		\hline
+		LBE & 1.3922 & 0.2271\\
+		\hline
 	\end{tabular}
 	\caption{4th Order Model, $\rr$ Estimates and Standard Errors}
 \end{table}
@@ -1870,6 +1972,8 @@ Table \ref{tab:other-res2} shows the methods applied to data from a 4th order li
 		\hline
 		SB & 1.2039 & 0.0574\\
 		\hline
+		LBE & 5.0605 & 0.5981\\
+		\hline
 	\end{tabular}
 	\caption{Linear SIR Data, $\rr$ Estimates and Standard Errors}
 \end{table}
@@ -1878,7 +1982,7 @@ Table \ref{tab:other-res2} shows the methods applied to data from a 4th order li
 
 \begin{figure}[H]
 	\begin{center}
-		\includegraphics[scale=0.5]{images/other_arm.jpeg}
+		\includegraphics[scale=0.5]{images/other_arm.tiff}
 		\caption{Forest plots of estimates of $\rr$ for the \xxsir methods for the Poly1, Poly4, and LSIR data sets $(\beta=.06, \gamma=.03, O=365, T=365, X(0)=99950, Y(0)=50, Z(0)=0, N=10^5, \sigma_X=100, \sigma_Y=5)$.  The points are the estimates of $\rr$ and the lines denote $\pm 2\cdot $Std. Err.  The vertical line is the true $\rr$ value.}
 	\end{center}
 \end{figure}
@@ -1907,6 +2011,8 @@ Table \ref{tab:other-res2} shows the methods applied to data from a 4th order li
 		MC & 0.9486 & $<$ 1e-04\\
 		\hline
 		SB & 1.4700 & 0.0635\\
+		\hline
+		LBE & 9.3211 & 0.5534\\
 		\hline
 	\end{tabular}
 	\caption{Linear Data, $\rr$ Estimates and Standard Errors}
@@ -1938,6 +2044,8 @@ Table \ref{tab:other-res2} shows the methods applied to data from a 4th order li
 		\hline
 		SB & 0.2586 & 0.0266\\
 		\hline
+		LBE & 0.02973 & 0.0604\\
+		\hline
 	\end{tabular}
 	\caption{4th Order Model, $\rr$ Estimates and Standard Errors}
 \end{table}
@@ -1967,6 +2075,8 @@ Table \ref{tab:other-res2} shows the methods applied to data from a 4th order li
 		MC & 0.9486 & $<$ 1e-04\\
 		\hline
 		SB & 1.2588 & 0.0587\\
+		\hline
+		LBE & 0.3547 & 0.3445\\
 		\hline
 	\end{tabular}
 	\caption{Linear SIR Data, $\rr$ Estimates and Standard Errors}
