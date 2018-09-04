@@ -3,10 +3,10 @@ setwd(this.dir)
 
 source("./likelihood_shell.R")
 
-data_path <- "C:/Users/Andersen/Documents/R0/DataSim/PaperData/Other"
+data_path <- "C:/Users/Andersen/Documents/R0/DataSim/PaperData/Baseline"
 
 files_list <- paste0(data_path, "/", 
-                     list.files(data_path, recursive = TRUE))
+                     list.files(data_path, recursive = TRUE))[7]
 
 results_matlist_exp <- list()
 output_lists <- list()

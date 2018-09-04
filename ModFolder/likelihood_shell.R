@@ -36,6 +36,7 @@ sir_likelihood <- function(start_pop, sus_data, inf_data,
     
     ## Using delta method and hessian
     r0_hessian <- optim_pars$hessian / optim_pars$value
+    print(r0_hessian)
     dh <- c(1/optim_pars$par[2], - optim_pars$par[1] / (1/optim_pars$par[2]^2))
     r0_sd <- sqrt(t(dh) %*% solve(r0_hessian) %*% dh)
                          
@@ -68,13 +69,11 @@ loglike_sir <- function(params,
     N <- sum(disease_list$init_vals)
     beta <- params[1]
     gamma <-params[2]
-
     new_data <- get_SIR_diffs(data)
     new_data <- get_SIR_lags(params, new_data, disease_list, do_plug_in)
    
 
     new_data <- na.omit(new_data)
-
     
     s_loglike <- sum(apply(new_data, 1,
                            function(row){
