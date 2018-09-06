@@ -11,7 +11,6 @@
 \usepackage[table,xcdraw]{xcolor}
 \usepackage{float}
 \usepackage{url}
-
 %% Make red text
 \newcommand{\com}[1]{\textcolor{red}{ #1}}
 
@@ -39,6 +38,11 @@
 
 \setlength{\itemsep}{0pt}
 
+
+%% tif -> png
+\usepackage{epstopdf}
+\epstopdfDeclareGraphicsRule{.tiff}{png}{.png}{convert #1 \OutputFile}
+\AppendGraphicsExtensions{.tiff}
 
 
 

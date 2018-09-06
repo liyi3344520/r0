@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/Arch Linux) (preloaded format=pdflatex 2018.6.16)  17 AUG 2018 11:35
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/Arch Linux) (preloaded format=pdflatex 2018.9.5)  5 SEP 2018 11:13
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -22,7 +22,7 @@ File: size12.clo 2014/09/29 v1.4h Standard LaTeX file (size option)
 \bibindent=\dimen102
 )
 (/usr/share/texmf-dist/tex/latex/geometry/geometry.sty
-Package: geometry 2018/03/24 v5.7 Page Geometry
+Package: geometry 2018/04/16 v5.8 Page Geometry
 
 (/usr/share/texmf-dist/tex/latex/graphics/keyval.sty
 Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
@@ -184,10 +184,10 @@ File: color.cfg 2016/01/02 v1.6 sample color configuration
 Package xcolor Info: Driver file: pdftex.def on input line 225.
 
 (/usr/share/texmf-dist/tex/latex/colortbl/colortbl.sty
-Package: colortbl 2012/02/13 v1.0a Color table columns (DPC)
+Package: colortbl 2018/05/02 v1.0c Color table columns (DPC)
 
 (/usr/share/texmf-dist/tex/latex/tools/array.sty
-Package: array 2018/04/07 v2.4g Tabular extension package (FMi)
+Package: array 2018/04/30 v2.4h Tabular extension package (FMi)
 \col@sep=\dimen135
 \ar@mcellbox=\box28
 \extrarowheight=\dimen136
@@ -505,74 +505,10 @@ File: pgflibraryshapes.multipart.code.tex 2010/01/07 v3.0.1a (rcs-revision 1.2)
 \pgfnodepartsevenbox=\box60
 \pgfnodepartsixbox=\box61
 \pgfnodepartfivebox=\box62
-))) (./draft_v16.aux
+))) (/usr/share/texmf-dist/tex/latex/oberdiek/epstopdf.sty
+Package: epstopdf 2016/05/15 v2.6 Conversion with epstopdf on the fly (HO)
 
-LaTeX Warning: Label `fig:coverage' multiply defined.
-
-)
-\openout1 = `draft_v16.aux'.
-
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 47.
-LaTeX Font Info:    ... okay on input line 47.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 47.
-LaTeX Font Info:    ... okay on input line 47.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 47.
-LaTeX Font Info:    ... okay on input line 47.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 47.
-LaTeX Font Info:    ... okay on input line 47.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 47.
-LaTeX Font Info:    ... okay on input line 47.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 47.
-LaTeX Font Info:    ... okay on input line 47.
-
-*geometry* driver: auto-detecting
-*geometry* detected driver: pdftex
-*geometry* verbose mode - [ preamble ] result:
-* driver: pdftex
-* paper: <default>
-* layout: <same size as paper>
-* layoutoffset:(h,v)=(0.0pt,0.0pt)
-* modes: 
-* h-part:(L,W,R)=(72.26999pt, 469.75502pt, 72.26999pt)
-* v-part:(T,H,B)=(72.26999pt, 650.43001pt, 72.26999pt)
-* \paperwidth=614.295pt
-* \paperheight=794.96999pt
-* \textwidth=469.75502pt
-* \textheight=650.43001pt
-* \oddsidemargin=0.0pt
-* \evensidemargin=0.0pt
-* \topmargin=-37.0pt
-* \headheight=12.0pt
-* \headsep=25.0pt
-* \topskip=12.0pt
-* \footskip=30.0pt
-* \marginparwidth=44.0pt
-* \marginparsep=10.0pt
-* \columnsep=10.0pt
-* \skip\footins=10.8pt plus 4.0pt minus 2.0pt
-* \hoffset=0.0pt
-* \voffset=0.0pt
-* \mag=1000
-* \@twocolumnfalse
-* \@twosidefalse
-* \@mparswitchfalse
-* \@reversemarginfalse
-* (1in=72.27pt=25.4mm, 1cm=28.453pt)
-
-(/usr/share/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
-[Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count132
-\scratchdimen=\dimen184
-\scratchbox=\box63
-\nofMPsegments=\count133
-\nofMParguments=\count134
-\everyMPshowfont=\toks39
-\MPscratchCnt=\count135
-\MPscratchDim=\dimen185
-\MPnumerator=\count136
-\makeMPintoPDFobject=\count137
-\everyMPtoPDFconversion=\toks40
-) (/usr/share/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
+(/usr/share/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
 Package: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
 
 (/usr/share/texmf-dist/tex/generic/oberdiek/infwarerr.sty
@@ -623,28 +559,326 @@ G,.JBIG2,.JB2,.eps]
 (/usr/share/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
-))
-ABD: EveryShipout initializing macros
-LaTeX Font Info:    Try loading font information for U+msa on input line 65.
+)))
+Package grfext Info: Graphics extension search list:
+(grfext)             [.pdf,.png,.jpg,.mps,.jpeg,.jbig2,.jb2,.PDF,.PNG,.JPG,.JPE
+G,.JBIG2,.JB2,.eps,.tiff]
+(grfext)             \AppendGraphicsExtensions on input line 45.
+
+(./draft_v16.aux
+
+LaTeX Warning: Label `fig:coverage' multiply defined.
+
+)
+\openout1 = `draft_v16.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 51.
+LaTeX Font Info:    ... okay on input line 51.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 51.
+LaTeX Font Info:    ... okay on input line 51.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 51.
+LaTeX Font Info:    ... okay on input line 51.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 51.
+LaTeX Font Info:    ... okay on input line 51.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 51.
+LaTeX Font Info:    ... okay on input line 51.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 51.
+LaTeX Font Info:    ... okay on input line 51.
+
+*geometry* driver: auto-detecting
+*geometry* detected driver: pdftex
+*geometry* verbose mode - [ preamble ] result:
+* driver: pdftex
+* paper: <default>
+* layout: <same size as paper>
+* layoutoffset:(h,v)=(0.0pt,0.0pt)
+* modes: 
+* h-part:(L,W,R)=(72.26999pt, 469.75502pt, 72.26999pt)
+* v-part:(T,H,B)=(72.26999pt, 650.43001pt, 72.26999pt)
+* \paperwidth=614.295pt
+* \paperheight=794.96999pt
+* \textwidth=469.75502pt
+* \textheight=650.43001pt
+* \oddsidemargin=0.0pt
+* \evensidemargin=0.0pt
+* \topmargin=-37.0pt
+* \headheight=12.0pt
+* \headsep=25.0pt
+* \topskip=12.0pt
+* \footskip=30.0pt
+* \marginparwidth=44.0pt
+* \marginparsep=10.0pt
+* \columnsep=10.0pt
+* \skip\footins=10.8pt plus 4.0pt minus 2.0pt
+* \hoffset=0.0pt
+* \voffset=0.0pt
+* \mag=1000
+* \@twocolumnfalse
+* \@twosidefalse
+* \@mparswitchfalse
+* \@reversemarginfalse
+* (1in=72.27pt=25.4mm, 1cm=28.453pt)
+
+(/usr/share/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count132
+\scratchdimen=\dimen184
+\scratchbox=\box63
+\nofMPsegments=\count133
+\nofMParguments=\count134
+\everyMPshowfont=\toks39
+\MPscratchCnt=\count135
+\MPscratchDim=\dimen185
+\MPnumerator=\count136
+\makeMPintoPDFobject=\count137
+\everyMPtoPDFconversion=\toks40
+) ABD: EveryShipout initializing macros
+LaTeX Font Info:    Try loading font information for U+msa on input line 69.
 
 (/usr/share/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 65.
+LaTeX Font Info:    Try loading font information for U+msb on input line 69.
 
 (/usr/share/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-) [1
+)
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2] [3] [4]
-
-LaTeX Warning: Float too large for page by 46.39517pt on input line 154.
-
-[5] [6
+Package natbib Warning: Citation `Heesterbeek2002' on page 1 undefined on input
+ line 77.
 
 
-] [7]
-Overfull \hbox (1.21655pt too wide) in paragraph at lines 255--257
+Package natbib Warning: Citation `anderson1992' on page 1 undefined on input li
+ne 77.
+
+
+Package natbib Warning: Citation `anderson1992' on page 1 undefined on input li
+ne 77.
+
+
+Package natbib Warning: Citation `britton2010' on page 1 undefined on input lin
+e 77.
+
+
+Package natbib Warning: Citation `hethcote2000' on page 1 undefined on input li
+ne 77.
+
+
+Package natbib Warning: Citation `diekmann2009' on page 1 undefined on input li
+ne 77.
+
+
+Package natbib Warning: Citation `brown2016' on page 1 undefined on input line 
+77.
+
+
+Package natbib Warning: Citation `getz2006' on page 1 undefined on input line 7
+9.
+
+
+Package natbib Warning: Citation `li2011' on page 1 undefined on input line 79.
+
+
+
+Package natbib Warning: Citation `driessche2017' on page 1 undefined on input l
+ine 79.
+
+
+Package natbib Warning: Citation `Kermack700' on page 1 undefined on input line
+ 79.
+
+[1
+
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
+
+Package natbib Warning: Citation `britton2010' on page 2 undefined on input lin
+e 85.
+
+
+Package natbib Warning: Citation `cao1999' on page 2 undefined on input line 85
+.
+
+
+Package natbib Warning: Citation `wasserman2004' on page 2 undefined on input l
+ine 85.
+
+
+Package natbib Warning: Citation `Kermack700' on page 2 undefined on input line
+ 93.
+
+[2]
+
+Package natbib Warning: Citation `dietz1993estimation' on page 3 undefined on i
+nput line 99.
+
+
+Package natbib Warning: Citation `dietz1993estimation' on page 3 undefined on i
+nput line 103.
+
+
+Package natbib Warning: Citation `lash2003' on page 3 undefined on input line 1
+09.
+
+
+Package natbib Warning: Citation `epstein2007agent' on page 3 undefined on inpu
+t line 109.
+
+
+Package natbib Warning: Citation `capaldi2012' on page 3 undefined on input lin
+e 109.
+
+[3] [4]
+
+Package natbib Warning: Citation `coelho2011' on page 5 undefined on input line
+ 123.
+
+
+Package natbib Warning: Citation `coelho2011' on page 5 undefined on input line
+ 124.
+
+
+Package natbib Warning: Citation `coelho2011' on page 5 undefined on input line
+ 125.
+
+
+Package natbib Warning: Citation `blower1994' on page 5 undefined on input line
+ 126.
+
+
+Package natbib Warning: Citation `nsubuga2014' on page 5 undefined on input lin
+e 127.
+
+
+Package natbib Warning: Citation `towers2016' on page 5 undefined on input line
+ 128.
+
+
+Package natbib Warning: Citation `nishiura2016' on page 5 undefined on input li
+ne 129.
+
+
+Package natbib Warning: Citation `majumder2016' on page 5 undefined on input li
+ne 130.
+
+
+Package natbib Warning: Citation `zhang2017' on page 5 undefined on input line 
+131.
+
+
+Package natbib Warning: Citation `kucharski2016' on page 5 undefined on input l
+ine 132.
+
+
+Package natbib Warning: Citation `dinh2016' on page 5 undefined on input line 1
+33.
+
+
+Package natbib Warning: Citation `legrand2007' on page 5 undefined on input lin
+e 134.
+
+
+Package natbib Warning: Citation `althaus2014' on page 5 undefined on input lin
+e 135.
+
+
+Package natbib Warning: Citation `althaus2014' on page 5 undefined on input lin
+e 136.
+
+
+Package natbib Warning: Citation `althaus2014' on page 5 undefined on input lin
+e 137.
+
+
+Package natbib Warning: Citation `legrand2007' on page 5 undefined on input lin
+e 138.
+
+
+Package natbib Warning: Citation `fisman2014' on page 5 undefined on input line
+ 139.
+
+
+Package natbib Warning: Citation `towers2014' on page 5 undefined on input line
+ 140.
+
+
+Package natbib Warning: Citation `chowell2008' on page 5 undefined on input lin
+e 142.
+
+
+Package natbib Warning: Citation `bonabeau1998' on page 5 undefined on input li
+ne 143.
+
+
+Package natbib Warning: Citation `desilva2009' on page 5 undefined on input lin
+e 144.
+
+
+Package natbib Warning: Citation `desilva2009' on page 5 undefined on input lin
+e 145.
+
+
+Package natbib Warning: Citation `towers2009' on page 5 undefined on input line
+ 146.
+
+
+Package natbib Warning: Citation `anderson1992' on page 5 undefined on input li
+ne 147.
+
+
+Package natbib Warning: Citation `anderson1992' on page 5 undefined on input li
+ne 148.
+
+
+Package natbib Warning: Citation `fraser2009' on page 5 undefined on input line
+ 149.
+
+
+Package natbib Warning: Citation `anderson1992' on page 5 undefined on input li
+ne 150.
+
+
+Package natbib Warning: Citation `anderson1992' on page 5 undefined on input li
+ne 151.
+
+
+Package natbib Warning: Citation `anderson1992' on page 5 undefined on input li
+ne 152.
+
+
+Package natbib Warning: Citation `anderson1992' on page 5 undefined on input li
+ne 153.
+
+
+LaTeX Warning: Float too large for page by 46.39517pt on input line 158.
+
+[5]
+
+Package natbib Warning: Citation `Kermack700' on page 6 undefined on input line
+ 166.
+
+
+Package natbib Warning: Citation `lotka1920' on page 6 undefined on input line 
+176.
+
+
+Package natbib Warning: Citation `anderson1992' on page 6 undefined on input li
+ne 176.
+
+[6
+
+
+]
+
+Package natbib Warning: Citation `wasserman2004' on page 7 undefined on input l
+ine 235.
+
+[7]
+
+Package natbib Warning: Citation `cintronarias2009' on page 8 undefined on inpu
+t line 252.
+
+
+Overfull \hbox (1.21655pt too wide) in paragraph at lines 259--261
 \OT1/cmr/m/n/12 again, with a con-stant pop-u-la-tion of $\OML/cmm/m/it/12 N$ \
 OT1/cmr/m/n/12 and with known ini-tial val-ues $(\OML/cmm/m/it/12 X\OT1/cmr/m/n
 /12 (0)\OML/cmm/m/it/12 ; E\OT1/cmr/m/n/12 (0)\OML/cmm/m/it/12 ; Y\OT1/cmr/m/n/
@@ -653,7 +887,7 @@ $.
  []
 
 
-Overfull \hbox (38.77602pt too wide) in paragraph at lines 258--259
+Overfull \hbox (38.77602pt too wide) in paragraph at lines 262--263
 []\OT1/cmr/m/n/12 Consider the case when $\OML/cmm/m/it/12 N \OT1/cmr/m/n/12 = 
 10000\OML/cmm/m/it/12 ; \OT1/cmr/m/n/12 (\OML/cmm/m/it/12 ^^L; ^^M\OT1/cmr/m/n/
 12 ) = (\OML/cmm/m/it/12 :\OT1/cmr/m/n/12 06\OML/cmm/m/it/12 ; :\OT1/cmr/m/n/12
@@ -665,29 +899,99 @@ $
  []
 
 
-Overfull \hbox (4.81818pt too wide) detected at line 261
+Overfull \hbox (4.81818pt too wide) detected at line 265
 \OML/cmm/m/it/12 D[] \OT1/cmr/m/n/12 = [] \OML/cmm/m/it/12 :
  []
 
 <images/seir-sir-data.pdf, id=40, 722.7pt x 433.62pt>
 File: images/seir-sir-data.pdf Graphic file (type pdf)
 <use images/seir-sir-data.pdf>
-Package pdftex.def Info: images/seir-sir-data.pdf  used on input line 266.
+Package pdftex.def Info: images/seir-sir-data.pdf  used on input line 270.
 (pdftex.def)             Requested size: 422.77664pt x 253.66338pt.
 [8] [9 <./images/seir-sir-data.pdf>]
 <images/r0-est.pdf, id=55, 722.7pt x 433.62pt>
 File: images/r0-est.pdf Graphic file (type pdf)
 <use images/r0-est.pdf>
-Package pdftex.def Info: images/r0-est.pdf  used on input line 293.
+Package pdftex.def Info: images/r0-est.pdf  used on input line 297.
 (pdftex.def)             Requested size: 469.75502pt x 281.85628pt.
- [10 <./images/r0-est.pdf>]
-Overfull \hbox (11.47801pt too wide) in paragraph at lines 329--331
+
+
+Package natbib Warning: Citation `diekmann1990' on page 10 undefined on input l
+ine 304.
+
+
+Package natbib Warning: Citation `diekmann2009' on page 10 undefined on input l
+ine 304.
+
+[10 <./images/r0-est.pdf>]
+
+Package natbib Warning: Citation `diekmann1990' on page 11 undefined on input l
+ine 319.
+
+
+Overfull \hbox (11.47801pt too wide) in paragraph at lines 333--335
 \OT1/cmr/m/n/12 Then $\OML/cmm/m/it/12 T \OT1/cmr/m/n/12 = []$ and $^^F = []$, 
 and $\OML/cmm/m/it/12 K \OT1/cmr/m/n/12 = []$. 
  []
 
-[11] [12] [13] [14] [15] [16]
-Overfull \hbox (12.10114pt too wide) in paragraph at lines 492--493
+[11]
+
+Package natbib Warning: Citation `nelder-mead1965' on page 12 undefined on inpu
+t line 359.
+
+
+Package natbib Warning: Citation `majumder2016' on page 12 undefined on input l
+ine 363.
+
+[12] [13]
+
+Package natbib Warning: Citation `Nishiura2009' on page 14 undefined on input l
+ine 427.
+
+[14]
+
+Package natbib Warning: Citation `harko2014exact' on page 15 undefined on input
+ line 439.
+
+
+Package natbib Warning: Citation `jacquez1991' on page 15 undefined on input li
+ne 461.
+
+
+Package natbib Warning: Citation `gani1995' on page 15 undefined on input line 
+461.
+
+
+Package natbib Warning: Citation `daley2001epidemic' on page 15 undefined on in
+put line 461.
+
+
+Package natbib Warning: Citation `abbey1952' on page 15 undefined on input line
+ 461.
+
+[15]
+
+Package natbib Warning: Citation `barbour2004' on page 16 undefined on input li
+ne 471.
+
+
+Package natbib Warning: Citation `abbey1952' on page 16 undefined on input line
+ 484.
+
+
+Package natbib Warning: Citation `forsberg2008' on page 16 undefined on input l
+ine 484.
+
+
+Package natbib Warning: Citation `king2009' on page 16 undefined on input line 
+484.
+
+
+Package natbib Warning: Citation `bhadra2012' on page 16 undefined on input lin
+e 484.
+
+
+Overfull \hbox (12.10114pt too wide) in paragraph at lines 496--497
 []\OT1/cmr/m/n/12 Denote $[](\OML/cmm/m/it/12 t\OT1/cmr/m/n/12 )\OML/cmm/m/it/1
 2 ; []\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 t\OT1/cmr/m/n/12 )$, and $[](\OML/cmm/m
 /it/12 t\OT1/cmr/m/n/12 )$ to be the ob-served num-ber in each com-part-ment an
@@ -695,129 +999,368 @@ d $\OML/cmm/m/it/12 X\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 t\OT1/cmr/m/n/12 )\OML/c
 mm/m/it/12 ; Y\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 t\OT1/cmr/m/n/12 )$,
  []
 
-
-Overfull \hbox (7.75354pt too wide) detected at line 516
+[16]
+Overfull \hbox (7.75354pt too wide) detected at line 520
 []
  []
 
-[17] [18] [19] [20] [21]
-<images/baseline_sir.pdf, id=104, 838.13126pt x 533.995pt>
+
+Package natbib Warning: Citation `bettencourt2008' on page 17 undefined on inpu
+t line 535.
+
+
+Package natbib Warning: Citation `obadia2012r0' on page 17 undefined on input l
+ine 535.
+
+[17]
+
+Package natbib Warning: Citation `bauer2017' on page 18 undefined on input line
+ 545.
+
+
+Package natbib Warning: Citation `wasserman2004' on page 18 undefined on input 
+line 559.
+
+[18]
+
+Package natbib Warning: Citation `diekmann2009' on page 19 undefined on input l
+ine 578.
+
+
+Package natbib Warning: Citation `cao1999' on page 19 undefined on input line 5
+93.
+
+
+Package natbib Warning: Citation `cao1999' on page 19 undefined on input line 6
+01.
+
+[19]
+
+Package natbib Warning: Citation `wasserman2004' on page 20 undefined on input 
+line 605.
+
+[20]
+
+Package natbib Warning: Citation `friedman1984' on page 21 undefined on input l
+ine 647.
+
+<images/baseline_sir.pdf, id=101, 838.13126pt x 533.995pt>
 File: images/baseline_sir.pdf Graphic file (type pdf)
 <use images/baseline_sir.pdf>
-Package pdftex.def Info: images/baseline_sir.pdf  used on input line 689.
+Package pdftex.def Info: images/baseline_sir.pdf  used on input line 693.
 (pdftex.def)             Requested size: 375.80544pt x 239.43182pt.
- [22 <./images/baseline_sir.pdf>]
+[21] [22 <./images/baseline_sir.pdf>]
 
 LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 722.
+               Default added (so using `tbp') on input line 726.
 
 [23] [24]
-<images/BaseBase.jpeg, id=120, 752.8125pt x 526.96875pt>
-File: images/BaseBase.jpeg Graphic file (type jpg)
-<use images/BaseBase.jpeg>
-Package pdftex.def Info: images/BaseBase.jpeg  used on input line 827.
-(pdftex.def)             Requested size: 376.40532pt x 263.48372pt.
- [25] [26 <./images/BaseBase.jpeg>]
-<images/start_arm.jpeg, id=128, 752.8125pt x 526.96875pt>
-File: images/start_arm.jpeg Graphic file (type jpg)
-<use images/start_arm.jpeg>
-Package pdftex.def Info: images/start_arm.jpeg  used on input line 873.
-(pdftex.def)             Requested size: 376.40532pt x 263.48372pt.
- [27]
-<images/parchange_ar.jpeg, id=132, 752.8125pt x 526.96875pt>
-File: images/parchange_ar.jpeg Graphic file (type jpg)
-<use images/parchange_ar.jpeg>
-Package pdftex.def Info: images/parchange_ar.jpeg  used on input line 881.
-(pdftex.def)             Requested size: 376.40532pt x 263.48372pt.
- [28 <./images/start_arm.jpeg>]
-<images/err_robust.jpeg, id=136, 752.8125pt x 526.96875pt>
+Package epstopdf Info: Source file: <images/BaseBase.tiff>
+(epstopdf)                    date: 2018-09-05 10:59:09
+(epstopdf)                    size: 1731840 bytes
+(epstopdf)             Output file: <images/BaseBase-tiff-converted-to.png>
+(epstopdf)             Command: <convert images/BaseBase.tiff images/BaseBase-t
+iff-converted-to.png>
+(epstopdf)             \includegraphics on input line 831.
+runsystem(convert images/BaseBase.tiff images/BaseBase-tiff-converted-to.png)..
+.disabled (restricted).
+
+Package epstopdf Info: Result file: <images/BaseBase-tiff-converted-to.png>.
+
+
+./draft_v16.tex:831: Package pdftex.def Error: File `images/BaseBase-tiff-conve
+rted-to.png' not found: using draft setting.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.831 ...graphics[scale=0.5]{images/BaseBase.tiff}
+                                                  
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+[25]
+Package epstopdf Info: Source file: <images/start_arm.tiff>
+(epstopdf)                    date: 2018-09-05 10:59:09
+(epstopdf)                    size: 1731840 bytes
+(epstopdf)             Output file: <images/start_arm-tiff-converted-to.png>
+(epstopdf)             Command: <convert images/start_arm.tiff images/start_arm
+-tiff-converted-to.png>
+(epstopdf)             \includegraphics on input line 879.
+runsystem(convert images/start_arm.tiff images/start_arm-tiff-converted-to.png)
+...disabled (restricted).
+
+Package epstopdf Info: Result file: <images/start_arm-tiff-converted-to.png>.
+
+
+./draft_v16.tex:879: Package pdftex.def Error: File `images/start_arm-tiff-conv
+erted-to.png' not found: using draft setting.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.879 ...raphics[scale=0.5]{images/start_arm.tiff}
+                                                  
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+[26]
+Package epstopdf Info: Source file: <images/parchange_ar.tiff>
+(epstopdf)                    date: 2018-09-05 10:59:09
+(epstopdf)                    size: 1731840 bytes
+(epstopdf)             Output file: <images/parchange_ar-tiff-converted-to.png>
+
+(epstopdf)             Command: <convert images/parchange_ar.tiff images/parcha
+nge_ar-tiff-converted-to.png>
+(epstopdf)             \includegraphics on input line 887.
+runsystem(convert images/parchange_ar.tiff images/parchange_ar-tiff-converted-t
+o.png)...disabled (restricted).
+
+Package epstopdf Info: Result file: <images/parchange_ar-tiff-converted-to.png>
+.
+
+
+./draft_v16.tex:887: Package pdftex.def Error: File `images/parchange_ar-tiff-c
+onverted-to.png' not found: using draft setting.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.887 ...hics[scale=0.5]{images/parchange_ar.tiff}
+                                                  
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+<images/err_robust.jpeg, id=127, 752.8125pt x 526.96875pt>
 File: images/err_robust.jpeg Graphic file (type jpg)
 <use images/err_robust.jpeg>
-Package pdftex.def Info: images/err_robust.jpeg  used on input line 891.
+Package pdftex.def Info: images/err_robust.jpeg  used on input line 897.
 (pdftex.def)             Requested size: 376.40532pt x 263.48372pt.
- [29 <./images/parchange_ar.jpeg>]
-<images/model_robust.jpeg, id=140, 752.8125pt x 526.96875pt>
+<images/model_robust.jpeg, id=128, 752.8125pt x 526.96875pt>
 File: images/model_robust.jpeg Graphic file (type jpg)
 <use images/model_robust.jpeg>
-Package pdftex.def Info: images/model_robust.jpeg  used on input line 900.
+Package pdftex.def Info: images/model_robust.jpeg  used on input line 906.
 (pdftex.def)             Requested size: 376.40532pt x 263.48372pt.
- [30 <./images/err_robust.jpeg>]
-<images/timediff.jpeg, id=144, 752.8125pt x 526.96875pt>
-File: images/timediff.jpeg Graphic file (type jpg)
-<use images/timediff.jpeg>
-Package pdftex.def Info: images/timediff.jpeg  used on input line 912.
-(pdftex.def)             Requested size: 376.40532pt x 263.48372pt.
- [31 <./images/model_robust.jpeg>]
-<images/obs.jpeg, id=149, 752.8125pt x 526.96875pt>
-File: images/obs.jpeg Graphic file (type jpg)
-<use images/obs.jpeg>
-Package pdftex.def Info: images/obs.jpeg  used on input line 923.
-(pdftex.def)             Requested size: 376.40532pt x 263.48372pt.
- [32 <./images/timediff.jpeg>] [33 <./images/obs.jpeg>]
-[34]
-<images/coverage2.jpeg, id=159, 752.8125pt x 526.96875pt>
-File: images/coverage2.jpeg Graphic file (type jpg)
-<use images/coverage2.jpeg>
-Package pdftex.def Info: images/coverage2.jpeg  used on input line 1003.
-(pdftex.def)             Requested size: 376.40532pt x 263.48372pt.
-<images/coverage.jpeg, id=160, 752.8125pt x 526.96875pt>
-File: images/coverage.jpeg Graphic file (type jpg)
-<use images/coverage.jpeg>
-Package pdftex.def Info: images/coverage.jpeg  used on input line 1011.
-(pdftex.def)             Requested size: 376.40532pt x 263.48372pt.
- [35 <./images/coverage2.jpeg>] [36 <./images/coverage.jpeg>]
-<images/h1n1-sir.pdf, id=167, 722.7pt x 433.62pt>
+[27 <./images/err_robust.jpeg>]
+Package epstopdf Info: Source file: <images/timediff.tiff>
+(epstopdf)                    date: 2018-09-05 10:59:09
+(epstopdf)                    size: 1733706 bytes
+(epstopdf)             Output file: <images/timediff-tiff-converted-to.png>
+(epstopdf)             Command: <convert images/timediff.tiff images/timediff-t
+iff-converted-to.png>
+(epstopdf)             \includegraphics on input line 918.
+runsystem(convert images/timediff.tiff images/timediff-tiff-converted-to.png)..
+.disabled (restricted).
+
+Package epstopdf Info: Result file: <images/timediff-tiff-converted-to.png>.
+
+
+./draft_v16.tex:918: Package pdftex.def Error: File `images/timediff-tiff-conve
+rted-to.png' not found: using draft setting.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.918 ...graphics[scale=0.5]{images/timediff.tiff}
+                                                  
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+[28 <./images/model_robust.jpeg>]
+Package epstopdf Info: Source file: <images/obs.tiff>
+(epstopdf)                    date: 2018-09-05 10:59:09
+(epstopdf)                    size: 1733706 bytes
+(epstopdf)             Output file: <images/obs-tiff-converted-to.png>
+(epstopdf)             Command: <convert images/obs.tiff images/obs-tiff-conver
+ted-to.png>
+(epstopdf)             \includegraphics on input line 929.
+runsystem(convert images/obs.tiff images/obs-tiff-converted-to.png)...disabled 
+(restricted).
+
+Package epstopdf Info: Result file: <images/obs-tiff-converted-to.png>.
+
+
+./draft_v16.tex:929: Package pdftex.def Error: File `images/obs-tiff-converted-
+to.png' not found: using draft setting.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.929 ...cludegraphics[scale=0.5]{images/obs.tiff}
+                                                  
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+[29]
+Package epstopdf Info: Source file: <images/coverage2.tiff>
+(epstopdf)                    date: 2018-09-05 10:59:09
+(epstopdf)                    size: 1733706 bytes
+(epstopdf)             Output file: <images/coverage2-tiff-converted-to.png>
+(epstopdf)             Command: <convert images/coverage2.tiff images/coverage2
+-tiff-converted-to.png>
+(epstopdf)             \includegraphics on input line 1013.
+runsystem(convert images/coverage2.tiff images/coverage2-tiff-converted-to.png)
+...disabled (restricted).
+
+Package epstopdf Info: Result file: <images/coverage2-tiff-converted-to.png>.
+
+
+./draft_v16.tex:1013: Package pdftex.def Error: File `images/coverage2-tiff-con
+verted-to.png' not found: using draft setting.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.1013 ...aphics[scale=0.5]{images/coverage2.tiff}
+                                                  
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+[30]
+Package epstopdf Info: Source file: <images/coverage.tiff>
+(epstopdf)                    date: 2018-09-05 10:59:09
+(epstopdf)                    size: 1733706 bytes
+(epstopdf)             Output file: <images/coverage-tiff-converted-to.png>
+(epstopdf)             Command: <convert images/coverage.tiff images/coverage-t
+iff-converted-to.png>
+(epstopdf)             \includegraphics on input line 1021.
+runsystem(convert images/coverage.tiff images/coverage-tiff-converted-to.png)..
+.disabled (restricted).
+
+Package epstopdf Info: Result file: <images/coverage-tiff-converted-to.png>.
+
+
+./draft_v16.tex:1021: Package pdftex.def Error: File `images/coverage-tiff-conv
+erted-to.png' not found: using draft setting.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.1021 ...raphics[scale=0.5]{images/coverage.tiff}
+                                                  
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+Package natbib Warning: Citation `cdc-fluview' on page 31 undefined on input li
+ne 1033.
+
+
+Package natbib Warning: Citation `towers2009' on page 31 undefined on input lin
+e 1033.
+
+
+Package natbib Warning: Citation `census-2010' on page 31 undefined on input li
+ne 1033.
+
+
+Package natbib Warning: Citation `vespignani2007' on page 31 undefined on input
+ line 1033.
+
+
+Package natbib Warning: Citation `towers2009' on page 31 undefined on input lin
+e 1053.
+
+
+Package natbib Warning: Citation `towers2009' on page 31 undefined on input lin
+e 1053.
+
+[31]
+<images/h1n1-sir.pdf, id=145, 722.7pt x 433.62pt>
 File: images/h1n1-sir.pdf Graphic file (type pdf)
 <use images/h1n1-sir.pdf>
-Package pdftex.def Info: images/h1n1-sir.pdf  used on input line 1049.
+Package pdftex.def Info: images/h1n1-sir.pdf  used on input line 1059.
 (pdftex.def)             Requested size: 469.75502pt x 281.85628pt.
-<images/h1n1.jpeg, id=168, 698.61pt x 468.24937pt>
-File: images/h1n1.jpeg Graphic file (type jpg)
-<use images/h1n1.jpeg>
-Package pdftex.def Info: images/h1n1.jpeg  used on input line 1059.
-(pdftex.def)             Requested size: 469.75502pt x 314.86148pt.
- [37 <./images/h1n1-sir.pdf>] [38 <./images/h1n1.jpeg>] [39]
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 1126
+
+
+Package natbib Warning: Citation `towers2009' on page 32 undefined on input lin
+e 1060.
+
+
+Package natbib Warning: Citation `towers2009' on page 32 undefined on input lin
+e 1060.
+
+
+Package natbib Warning: Citation `towers2009' on page 32 undefined on input lin
+e 1065.
+
+Package epstopdf Info: Source file: <images/h1n1.tiff>
+(epstopdf)                    date: 2018-09-05 10:59:09
+(epstopdf)                    size: 1733706 bytes
+(epstopdf)             Output file: <images/h1n1-tiff-converted-to.png>
+(epstopdf)             Command: <convert images/h1n1.tiff images/h1n1-tiff-conv
+erted-to.png>
+(epstopdf)             \includegraphics on input line 1069.
+runsystem(convert images/h1n1.tiff images/h1n1-tiff-converted-to.png)...disable
+d (restricted).
+
+Package epstopdf Info: Result file: <images/h1n1-tiff-converted-to.png>.
+
+./draft_v16.tex:1069: Package pdftex.def Error: File `images/h1n1-tiff-converte
+d-to.png' not found: using draft setting.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.1069 ...hics[width=\textwidth]{images/h1n1.tiff}
+                                                  
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+[32 <./images/h1n1-sir.pdf>] [33] [34]
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 1136
 .
 
 (/usr/share/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 1126.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 1136.
 
- [40] (./draft_v16.bbl [41]
-[42] [43] [44]) [45] (./draft_v16.aux)
+ [35] [36]
+No file draft_v16.bbl.
+
+Package natbib Warning: There were undefined citations.
+
+(./draft_v16.aux)
 
 LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 15029 strings out of 492649
- 301227 string characters out of 6135778
- 368232 words of memory out of 5000000
- 18589 multiletter control sequences out of 15000+600000
- 18676 words of font info for 72 fonts, out of 8000000 for 9000
+ 14833 strings out of 492642
+ 297390 string characters out of 6135567
+ 367292 words of memory out of 5000000
+ 18397 multiletter control sequences out of 15000+600000
+ 18508 words of font info for 71 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  55i,18n,66p,1466b,839s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/
 texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texmf-dist/fon
 ts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texmf-dist/fonts/type1/publi
-c/amsfonts/cm/cmitt10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm
-/cmmi12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></u
-sr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texmf-
-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texmf-dist/fonts/type
-1/public/amsfonts/cm/cmr12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfon
-ts/cm/cmr17.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb>
-</usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texm
-f-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-dist/fonts/t
-ype1/public/amsfonts/cm/cmsy6.pfb></usr/share/texmf-dist/fonts/type1/public/ams
-fonts/cm/cmsy8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12
-.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on draft_v16.pdf (45 pages, 2081519 bytes).
+c/amsfonts/cm/cmmi12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/
+cmmi6.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr
+/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texmf-di
+st/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texmf-dist/fonts/type1/
+public/amsfonts/cm/cmr17.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts
+/cm/cmr6.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></u
+sr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf
+-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/share/texmf-dist/fonts/typ
+e1/public/amsfonts/cm/cmsy8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfo
+nts/cm/cmti12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.
+pfb>
+Output written on draft_v16.pdf (36 pages, 804284 bytes).
 PDF statistics:
- 262 PDF objects out of 1000 (max. 8388607)
- 178 compressed objects within 2 object streams
+ 219 PDF objects out of 1000 (max. 8388607)
+ 153 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
- 83 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 43 words of extra memory for PDF output out of 10000 (max. 10000000)
 
