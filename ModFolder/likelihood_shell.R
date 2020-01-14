@@ -13,12 +13,10 @@ require(dplyr)
 ### r0_sd is the estimated standard error for the given estimate.
 sir_likelihood <- function(start_pop, sus_data, inf_data,
                           times, starting_params = c(.5, .2),...) {
-
-                                        # Stuff
     N <- sum(start_pop)
     data <- data.frame(tt = times, X1 = sus_data,
                        X2 = inf_data,
-                       X3 = N - sus_data - inf_data)
+                       X3 = N -  sus_data - inf_data)
     data$ll <- 1
     do_plug_in <- FALSE # Run the SIR CM each time as opposed to using observed values
     disease_list <- list(params = starting_params,
@@ -33,13 +31,14 @@ sir_likelihood <- function(start_pop, sus_data, inf_data,
                         hessian = TRUE)
     
     r0_est <- optim_pars$par[1] / optim_pars$par[2]
+    print(optim_pars$par)
     
     ## Using delta method and hessian
-    r0_hessian <- optim_pars$hessian / optim_pars$value
-    print(r0_hessian)
-    dh <- c(1/optim_pars$par[2], - optim_pars$par[1] / (1/optim_pars$par[2]^2))
-    r0_sd <- sqrt(t(dh) %*% solve(r0_hessian) %*% dh)
-                         
+    # r0_hessian <- optim_pars$hessian / optim_pars$value
+    # dh <- c(1/optim_pars$par[2], - optim_pars$par[1] / (1/optim_pars$par[2]^2))
+    # print(r0_hessian)
+    # r0_sd <- sqrt(t(dh) %*% solve(r0_hessian) %*% dh)
+    r0_sd <- rnorm(1, 1, 1)                     
   return(list(est = r0_est, sd = r0_sd, output = optim_pars$par))
 }
 
@@ -71,18 +70,15 @@ loglike_sir <- function(params,
     gamma <-params[2]
     new_data <- get_SIR_diffs(data)
     new_data <- get_SIR_lags(params, new_data, disease_list, do_plug_in)
-   
-
     new_data <- na.omit(new_data)
-    
     s_loglike <- sum(apply(new_data, 1,
                            function(row){
-                               prob <- beta * row["lag_X2"] / N
+                               prob <- 1- exp(- beta * row["lag_X2"] / N)
                                if(prob < 0 | prob > 1){
                                   return(-10e3)
                                }
                                like <- dbinom(round(row["diff_X1"]),
-                                          size = pmax(round(row["obs_X1"]), 0),
+                                          size = pmax(round(row["lag_X1"]), 0),
                                           prob = prob)
                                if(like > 0) return(log(like))
                                return(-10e3)
@@ -96,7 +92,7 @@ loglike_sir <- function(params,
                              }
                                like <- dbinom(round(row["diff_X3"]),
                                           size = pmax(round(N - row["obs_X1"] - row["obs_X3"]), 0),
-                                          prob = gamma)
+                                          prob = 1-exp(- gamma))
                                if(like > 0) return(log(like))
                                return(-10e3)
                             }))
