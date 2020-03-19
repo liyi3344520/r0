@@ -17,11 +17,11 @@ exp_growth <- function(start_pop = c("S" = 99950, "E" = 0, "I" = 50, "R" = 0),
   days <- c(1:length(incidence_dat))
   
   # Fit Poisson regression
-  model1 <- glm(incidence_dat ~ days - 1, family = "poisson")
+  model1 <- glm(incidence_dat ~ days - 1, family = Gamma)
     
   # Find expected value
-  r <- coef(summary(model1))[1, 1]
-  r_se <- coef(summary(model1))[1, 2]
+  r <-  summary(model1, dispersion = 1)$coefficients[1, 1]
+  r_se <- summary(model1, dispersion = 1)$coefficients[1, 2]
 
   # MGF
   Mt <- sum(w * exp(-r * (discrete_steps)))

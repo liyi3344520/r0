@@ -46,7 +46,7 @@ harkoSIR <- function(start_param = c("beta" = 0.06, "gamma" = 0.05),
 #   regularSIR <- matrix(ncol = length(init.param))
 #   colnames(regularSIR) <- c("beta","gamma")
 #   model_est <- sir.optim(init.param, init.pop, inf.data, rem.data)
-  lin_reg <- lm(log(sus_data / init_pop["S"]) ~ rem_data)
+  lin_reg <- lm(log(pmax(sus_data / init_pop["S"], 0.01)) ~ rem_data)
   
   
   r0_est <- abs(summary(lin_reg)$coef[2, 1])

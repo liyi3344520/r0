@@ -15,7 +15,7 @@ library(deSolve)
 #sus.data is the number of people in S for each day in the data. Must be a vector of numbers, same length as days.
 #ndeps is for optim calculating the hessian
 
-SIRrepar <- function(init.param, init.pop, days, inf.data, sus.data, 
+SIRrepar <- function(init.param, init.pop, days, inf.data, sus.data, rem.data,
                      ndeps = 0.00001, parscale_o = c(0.01, 0.01)) {
   #Get initial populations of each compartment S, I, R.
   init.sus <- init.pop["S"]
@@ -46,31 +46,30 @@ SIRrepar <- function(init.param, init.pop, days, inf.data, sus.data,
   
   
   #Find the SSE between the real data and the simulation from the model. 
-  opt <- function(inf.model,inf.data, sus.model, sus.data, days) {
-    err<- sum((inf.model[days] - inf.data)^2 + (sus.model[days] - sus.data)^2)
+  opt <- function(inf.model,inf.data, sus.model, sus.data, rem.model, rem.data, days) {
+    err<- sum(mean((inf.model[days] - inf.data)^2) + mean((sus.model[days] - sus.data)^2) + mean((rem.model[days] - rem.data)^2))
     return(err)
   }
   
   
   #Function to be put in the function which finds the minimum SSE.
-  model.sir <- function(params, initialdcm, controldcm, days, inf.data, sus.data) {
+  model.sir <- function(params, initialdcm, controldcm, days, inf.data, sus.data, rem.data) {
     param1 <- param.dcm(R0 = params["r0"], gamma = params["gamma"])
     model1 <- dcm(param1,initialdcm,controldcm)
-    sse <- opt(model1$epi$I[-1,1], inf.data, model1$epi$S[-1,1], sus.data, days)
+    sse <- opt(model1$epi$I[-1,1], inf.data, model1$epi$S[-1,1], sus.data, model1$epi$R[-1,1], rem.data, days)
     return(sse)
   }
   
   
   #Function to minimize the SSE between the data and the model. 
-  sir.optim <- function(parm, initdcm, contdcm, inf.data, sus.data, days) {
+  sir.optim <- function(parm, initdcm, contdcm, inf.data, sus.data, rem.data, days) {
     par.sir <- optim(parm, model.sir, initialdcm = initdcm,
                      controldcm = contdcm,
                      days = days,
                      sus.data = sus.data,
                      inf.data = inf.data,
-                     hessian = T,
-                     control = list(ndeps = rep(ndeps, length(init.param)),
-                                    parscale = parscale_o))
+                     rem.data = rem.data,
+                     hessian = T, control = list(ndeps = c(ndeps, ndeps)))
     return(c(par.sir))
   }
   
@@ -132,7 +131,7 @@ SIRrepar <- function(init.param, init.pop, days, inf.data, sus.data,
   #Solving as regular SIR.
   init.sir <- init.dcm(S = init.sus, I = init.inf, R  = init.rem)
   control.sir <- control.dcm(nsteps = max(days) + 1, dt = 1, new.mod = SIR)
-  model_est <- sir.optim(init.param, init.sir, control.sir, inf.data, sus.data, days)
+  model_est <- sir.optim(init.param, init.sir, control.sir, inf.data, sus.data, rem.data, days)
   
   r0_est <- model_est$par["r0"]
   r0_hessian <- solve(model_est$hessian / model_est$value)

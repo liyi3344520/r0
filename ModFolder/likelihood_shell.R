@@ -31,14 +31,12 @@ sir_likelihood <- function(start_pop, sus_data, inf_data,
                         hessian = TRUE)
     
     r0_est <- optim_pars$par[1] / optim_pars$par[2]
-    print(optim_pars$par)
-    
+
     ## Using delta method and hessian
-    # r0_hessian <- optim_pars$hessian / optim_pars$value
-    # dh <- c(1/optim_pars$par[2], - optim_pars$par[1] / (1/optim_pars$par[2]^2))
-    # print(r0_hessian)
-    # r0_sd <- sqrt(t(dh) %*% solve(r0_hessian) %*% dh)
-    r0_sd <- rnorm(1, 1, 1)                     
+    r0_hessian <- optim_pars$hessian / optim_pars$value
+    dh <- c(1/optim_pars$par[2], - optim_pars$par[1] / (1/optim_pars$par[2]^2))
+    print(r0_hessian)
+    r0_sd <- sqrt(t(dh) %*% solve(r0_hessian) %*% dh)
   return(list(est = r0_est, sd = r0_sd, output = optim_pars$par))
 }
 
@@ -73,29 +71,38 @@ loglike_sir <- function(params,
     new_data <- na.omit(new_data)
     s_loglike <- sum(apply(new_data, 1,
                            function(row){
-                               prob <- 1- exp(- beta * row["lag_X2"] / N)
-                               if(prob < 0 | prob > 1){
-                                  return(-10e3)
-                               }
-                               like <- dbinom(round(row["diff_X1"]),
-                                          size = pmax(round(row["lag_X1"]), 0),
-                                          prob = prob)
-                               if(like > 0) return(log(like))
-                               return(-10e3)
-                               
-                            }))
+                             prob <- beta * row["obs_X2"] / N
+                             if(prob < 0 | prob > 1){
+                               return(-10e8)
+                             }
+                             # if((row["obs_X1"] - row["diff_X1"]) < 0){
+                             #   return(-10e3)
+                             # }
+                             
+                             # like <- dbinom(round(row["diff_X1"]),
+                             #                size = pmax(round(row["obs_X1"]), 0),
+                             #                prob = prob)
+                             like <- row["diff_X1"] * log(prob) + (row["obs_X1"] - row["diff_X1"]) * log(1 - prob)
+                             # if(like > 0) return(like)
+                             # return(-10e3)
+                             return(like)
+                             
+                           }))
     r_loglike <- sum(apply(new_data, 1,
                            function(row){
-                               if((N - row["obs_X1"] - row["obs_X3"]) <= 0) return(0)
+                             if((N - row["obs_X1"] - row["obs_X3"]) <= 0) return(0)
                              if(gamma < 0 | gamma > 1){
-                               return(-10e3)
+                               return(-10e8)
                              }
-                               like <- dbinom(round(row["diff_X3"]),
-                                          size = pmax(round(N - row["obs_X1"] - row["obs_X3"]), 0),
-                                          prob = 1-exp(- gamma))
-                               if(like > 0) return(log(like))
-                               return(-10e3)
-                            }))
+                             # like <- dbinom(round(row["diff_X3"]),
+                             #                size = pmax(round(N - row["obs_X1"] - row["obs_X3"]), 0),
+                             #                prob = gamma)
+                             # if(like > 0) return(log(like))
+                             like <- row["diff_X3"] * log(gamma) + (N - row["obs_X1"] - row["obs_X3"] - row["diff_X3"]) * log(1 - gamma)
+                             # if(like > 0) return(like)
+                             # return(-10e3)
+                             return(like)
+                           }))
     loglike <- s_loglike + r_loglike
     return(-loglike)
 }
